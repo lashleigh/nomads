@@ -1,0 +1,10 @@
+<h1> Recent Posts </h1>
+
+<% @posts.each do |post| %>
+  <h2><%=h post.title %></h2>
+  <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.name %> </p>
+  <p><%=h post.content %></p>
+<% end %>
+
+<br />
+

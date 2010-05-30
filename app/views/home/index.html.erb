@@ -1,0 +1,26 @@
+<div id="header">
+  <h1> Trying this all again </h1>
+  <h2> From the top! </h2>
+  <%= link_to "My Blog", posts_path %> 
+</div>
+
+<div id="flickr">
+  <h1> Latest photogs </h1>
+  <%= render_flickr_sidebar_widget('49191687@N05') %>
+</div>
+
+<div id="posts">
+  <%= render :partial => "posts" %>
+</div>
+
+<div id="twitter">
+  <h1> Recent Tweets </h1>
+</div>
+<script type="text/javascript">
+  $.getJSON('http://twitter.com/status/user_timeline/15141419.json?count=10&callback=?', function(data){
+      $.each(data, function(index, item){
+        $('#twitter').append('<div class="tweet"><p>' + item.text + '</p><p>' + item.created_at + '</p></div>');
+        });
+      });
+</script>
+

@@ -1,0 +1,68 @@
+body {
+  background: #E7E7F9;
+  font-family: Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+  color: #020B26;
+}
+h1 {
+  margin: 12;
+}
+p {
+  text-align: justify;
+}
+#posts p {
+  margin: 0 0 22px;
+}
+#header {
+  text-align:center;
+  color: navy;
+  padding: 10px;
+  width: 80%;
+}
+#posts {
+  width: 40%;
+  float: left;
+  min-width: 200px;
+  padding: 20px;
+}
+#flickr,
+#twitter {
+  float: left;
+  min-width: 200px;
+  padding: 20px;
+  width: 20%;
+}
+
+.flickr ul
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.flickr ul li 
+{
+  border-bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+.flickr img {
+  width: 100%;
+}
+.flickr_photo
+{
+        margin: 0;
+        width: 200;
+        padding: 0;
+        background: #141311;
+}
+.tweet {
+   padding: 10px;
+   margin: 5px 0;
+   background: #182A1A;
+   width: 100%;
+   color: #AFAF95;
+}
