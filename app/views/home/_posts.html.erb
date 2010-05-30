@@ -1,7 +1,7 @@
-<h1> Recent Posts </h1>
+<h2> Recent Posts </h2>
 
 <% @posts.each do |post| %>
-  <h2><%=h post.title %></h2>
+  <h3><%=h post.title %></h3>
   <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.name %> </p>
   <p><%=h post.content %></p>
 <% end %>

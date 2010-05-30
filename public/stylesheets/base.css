@@ -1,68 +1,68 @@
 body {
-  background: #E7E7F9;
+  background: #ECE5E5;
   font-family: Helvetica,Arial,sans-serif;
   font-size: 14px;
   line-height: 22px;
   margin: 0;
   padding: 0;
-  color: #020B26;
-}
-h1 {
-  margin: 12;
+  color: #360807;
 }
 p {
   text-align: justify;
 }
+h2 {
+  border-bottom-style: dotted;
+}
 #posts p {
   margin: 0 0 22px;
 }
-#header {
-  text-align:center;
-  color: navy;
-  padding: 10px;
-  width: 80%;
+#container {
+  width: 1150px;
+  margin: 0 auto;
 }
-#posts {
-  width: 40%;
-  float: left;
-  min-width: 200px;
-  padding: 20px;
+#header {
+  margin: 5em 0 0 0;
+  padding-left: 25%;
+
 }
 #flickr,
 #twitter {
   float: left;
-  min-width: 200px;
-  padding: 20px;
   width: 20%;
+  padding: 20px;
+}
+#posts {
+  float: left;
+  width: 40%;
+  padding: 20px;
 }
 
-.flickr ul
-{
+#flickr ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
 
-.flickr ul li 
-{
+#flickr ul li {
   border-bottom: 0;
-  margin: 0;
-  padding: 0;
+  margin-top: 10px;
+  background: black;
 }
-.flickr img {
-  width: 100%;
+#flickr img {
+  width: 92%;
+  vertical-align: middle;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.flickr_photo
+#flickr_photo
 {
-        margin: 0;
-        width: 200;
-        padding: 0;
-        background: #141311;
+  width: 200;
+  background: #141311;
 }
 .tweet {
-   padding: 10px;
-   margin: 5px 0;
-   background: #182A1A;
-   width: 100%;
-   color: #AFAF95;
+  padding: 10px;
+  margin: 5px 0;
+  background: #75040D;
+  width: 100%;
+  color: #AFAF95;
 }

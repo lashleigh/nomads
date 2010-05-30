@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   def index
+    @photos = FlickrPhoto.all.reverse
     @posts = Post.all.reverse
 
     respond_to do |format|
@@ -7,5 +8,6 @@ class HomeController < ApplicationController
       format.xml  { render :xml => @posts }
     end
   end
+
 
 end
