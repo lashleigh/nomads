@@ -1,1 +1,1 @@
-flickraw -v 0.8.2 -s http://github.com/hanklords/flickraw.git 
+flickraw -v 0.8.2 -s git://github.com/hanklords/flickraw.git
