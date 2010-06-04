@@ -6,7 +6,7 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 require 'rubygems'
-require 'flickraw-0.8.2'
+require 'flickraw'
 FlickRawOptions = {
   "api_key" => "102b5abb3630dfebf56162816ce764c9",
   "shared_secret" => "de4a6e8f592ce5a1",
