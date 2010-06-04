@@ -1,2 +1,2 @@
-flickraw -v 0.8.2 -s github.com/hanklords/flickraw/tree/master
 flickraw -v 0.8.2 -s http://rubyforge.org/projects/flickraw
+flickraw -v 0.8.2 -s github.com/hanklords/flickraw/tree/master
