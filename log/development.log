@@ -17892,3 +17892,10 @@ Migrating to CreateFlickrPhotos (20100530035452)
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("comments")[0m
   [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("flickr_photos")[0m
   [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("posts")[0m
+
+
+Processing MapController#index (for 127.0.0.1 at 2010-06-04 16:29:29) [GET]
+Rendering template within layouts/home
+Rendering map/index
+Rendered home/_header (0.1ms)
+Completed in 27ms (View: 3, DB: 0) | 200 OK [http://localhost/map]
