@@ -18,4 +18,5 @@ class FlickrPhoto < ActiveRecord::Base
     photo.save
     return photo
   end
+
 end

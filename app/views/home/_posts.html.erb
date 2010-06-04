@@ -1,10 +1,18 @@
-<h2> Recent Posts </h2>
+<div id="posts">
+  <div id="column_header">
+    <h2> Recent Posts </h2>
+  </div>
 
-<% @posts.each do |post| %>
-  <h3><%=h post.title %></h3>
-  <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.name %> </p>
-  <p><%=h post.content %></p>
-<% end %>
+  <% @posts.each do |post| %>
+    <div class="post">
+      <h3><%=h post.title %></h3>
+      <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.name %> </p>
+      <div id="PostContent" class="hide" style="display:block; overflow: hidden;">
+        <p><%=h post.content %></p>
+      </div>
+    </div>
 
-<br />
+  <% end %>
+  <%= link_to 'More Posts', posts_path %>
 
+</div>

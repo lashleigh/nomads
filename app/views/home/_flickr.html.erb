@@ -1,0 +1,16 @@
+
+<div id="flickr">
+  <div id ="column_header">
+    <h2> Latest photogs </h2>
+    <a id="column-logo" class="flickr-logo" href="http://www.flickriver.com/photos/lashleigh/">Visit my flickr page</a>
+  </div>
+  <ul id="flickr_photo">
+    <% @photos.each do |p| %>
+      <li>
+      <div class="flickr_photo">
+        <%= link_to(image_tag(p.url('m'), :title => p.title, :border => 0, :alt => p.title), p.url('b'), :class => "fancy", :rel =>"group") %>
+      </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

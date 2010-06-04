@@ -1,0 +1,154 @@
+@background: #EEEEFE;
+.rounded_corners (@radius: 10px) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+#fancybox-outer {
+  background: #222222;
+}
+body {
+  background: @background;
+  color: #4B2812;
+  font-family:"Trebuchet MS",Arial,sans-serif;
+  font-size:14px;
+  font-weight:normal;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+p {
+  text-align: justify;
+  margin: 0 0 22px;
+}
+h2 {
+  border-bottom-style: dotted;
+}
+ol, ul {
+  list-style:none outside none;
+}
+a {
+  outline: none;
+}
+#container {
+  width: 1120px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+#header_wrapper {
+  background:url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
+  height: 122px;
+  overflow: hidden;
+}
+#header {
+  background:url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
+  height:122px;
+  margin:0 auto;
+  position:relative;
+  width:1120px;
+}
+#header-logo {
+  background:url("/images/logo.png") no-repeat scroll 0 0 transparent;
+  display:block;
+  height:81px;
+  margin-left: 20px;
+  position:absolute;
+  margin-top:23px;
+  width:199px;
+}
+#navigation {
+  position: absolute;
+  right: 15px;
+  top: 38px;
+  width: 400px;
+  li {
+    float: right;
+    height: 43px;
+  }
+  li a {
+  color:#FFFFFF;
+  display:block;
+  font-size: 15px;
+  height:43px;
+  line-height:43px;
+  padding:0 14px;
+  text-decoration:none;
+  text-shadow:0 1px 1px #213454;
+  }
+}
+
+#flickr,
+#twitter {
+  float: left;
+  width: 250px;
+  padding: 20px;
+}
+#posts {
+  float: left;
+  width: 500px;
+  padding: 20px;
+}
+.post {
+  h3 {
+    margin: 10px 0;
+    padding: 0;
+  }
+}
+#column_header {
+  height: 50px;
+  position:relative;
+  width: 250px;
+  h2 {
+    position: absolute;
+  }
+}
+#column-logo {
+  display:block;
+  position: absolute;
+  height:32px;
+  margin-left:220px;
+  margin-top:14px;
+  text-indent:-99999em;
+  width:32px;
+}
+.flickr-logo {
+  background:url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+}
+.twitter-logo {
+  background:url("/images/logo-twitter.jpg") no-repeat scroll left top transparent;
+}
+#flickr ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+#flickr ul li {
+  .rounded_corners(6px);
+  background: #222222;
+  margin: 10px 0;
+}
+#flickr img {
+  width: 230px;
+  vertical-align: middle;
+}
+.flickr_photo {
+  padding: 10px;
+}
+.tweet {
+  .rounded_corners;
+  background: #323232;
+  color: #F5F5F5;
+  padding: 10px;
+  margin: 10px 0;
+  width: 230px;
+  p {
+  margin: 0;
+  }
+}
+#map_canvas {
+  margin: 20px 0;
+  width: 1120px;
+  height: 400px;
+  border: 0 none;
+}

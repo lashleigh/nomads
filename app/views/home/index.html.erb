@@ -1,34 +1,7 @@
+<%= render :partial => "header" %>
 
 <div id="container">
-  <div id="header">
-    <h1> Trying this all again </h1>
-  </div>
-
-  <div id="flickr">
-    <h2> Latest photogs </h2>
-    <ul>
-      <% @photos.each do |p| %>
-        <li>
-        <div class="flickr_photo" align="center">
-          <%= link_to(image_tag(p.url, :title => p.title, :border => 0), p.url_photopage) %>
-        </div>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-
-  <div id="posts">
-    <%= render :partial => "posts" %>
-  </div>
-
-  <div id="twitter">
-    <h2> Recent Tweets </h2>
-  </div>
-  <script type="text/javascript">
-    $.getJSON('http://twitter.com/status/user_timeline/15141419.json?count=10&callback=?', function(data){
-      $.each(data, function(index, item){
-        $('#twitter').append('<div class="tweet"><p>' + item.text + '</p><p>' + item.created_at + '</p></div>');
-      });
-    });
-  </script>
+  <%= render :partial => "flickr" %>
+  <%= render :partial => "posts" %>
+  <%= render :partial => "twitter" %>
 </div>

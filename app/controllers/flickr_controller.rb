@@ -1,0 +1,2 @@
+class FlickrController < ApplicationController
+end
