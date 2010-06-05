@@ -28,7 +28,6 @@ ol, ul { list-style: none outside none; }
 a { outline: none; }
 #container {
   width: 1120px;
-  height: 600px;
   margin: 0 auto;
   overflow: hidden;
 }

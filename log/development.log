@@ -17942,3 +17942,15 @@ Rendered home/_flickr (5.5ms)
 Rendered home/_posts (68.0ms)
 Rendered home/_twitter (0.1ms)
 Completed in 85ms (View: 77, DB: 1) | 200 OK [http://localhost/home]
+
+
+Processing HomeController#index (for 127.0.0.1 at 2010-06-04 17:57:50) [GET]
+  [4;36;1mFlickrPhoto Load (0.9ms)[0m   [0;1mSELECT * FROM "flickr_photos" ORDER BY id ASC LIMIT 5[0m
+  [4;35;1mPost Load (0.5ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/home
+Rendering home/index
+Rendered home/_header (0.1ms)
+Rendered home/_flickr (5.9ms)
+Rendered home/_posts (3.4ms)
+Rendered home/_twitter (0.1ms)
+Completed in 218ms (View: 13, DB: 1) | 200 OK [http://localhost/home]
