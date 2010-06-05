@@ -1,5 +1,13 @@
 <%= render :partial => "/home/header" %>
 <div id="container">
-    <div id="map_canvas"></div>
+  <div>
+    <input id="latlng" type="textbox" value="40.714224,-73.961452">
+    <input type="button" value="Reverse Geocode" onclick="codeLatLng()">
+  </div>
+  <div id="map_canvas"> </div>
+  <div>
+    <input id="address" type="textbox" value="Sydney, NSW">
+    <input type="button" value="Encode" onclick="codeAddress()">
+  </div>
 </div>
 
