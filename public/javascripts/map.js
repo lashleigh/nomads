@@ -1,86 +1,34 @@
-var geocoder;
-var map;
-var infowindow = new google.maps.InfoWindow();
-function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(-34.397, 150.644);
-  var myOptions = {
-      zoom: 8,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+$(function() {
+  var options = {
+    zoom: 14,
+    center: new google.maps.LatLng(47.67, -122.38),
+    mapTypeId: google.maps.MapTypeId.HYBRID
   };
-  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-  google.maps.event.addListener(map, 'click', function(event) {
-    placeMarker(event.latLng);
-  }); 
-  google.maps.event.addListener(google.maps.Marker, 'dblclick', function(event) {
-    removeMarker(google.maps.Marker);
-  }); 
-}
-function removeMarker(marker) {
-  marker.setMap(null)
-}
-function placeMarker(location) {
-  var clickedLocation = new google.maps.LatLng(location);
-  var marker = new google.maps.Marker({
-    position: location,
-    map: map,
-    draggable: true,
-    clickable: true,
-  });
-  
-  map.setCenter(location);
-} 
 
-function addImage() {
-  var image = 'http://farm5.static.flickr.com/4045/4645710826_aea797d107_s.jpg';
-  var marker = new google.maps.Marker({
-    position: latlng, 
-    map: map, 
-    icon: image,
-    draggable: true,
-  }) 
-}
-
-function codeLatLng() {
-  var input = document.getElementById("latlng").value;
-  var latlngStr = input.split(",",2);
-  var lat = parseFloat(latlngStr[0]);
-  var lng = parseFloat(latlngStr[1]);
-  var latlng = new google.maps.LatLng(lat, lng);
-  if (geocoder) {
-    geocoder.geocode({'latLng': latlng}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-        if (results[1]) {
-        map.setZoom(11);
-        marker = new google.maps.Marker({
-          position: latlng, 
-          map: map,
-        }); 
-        infowindow.setContent(results[1].formatted_address);
-        infowindow.open(map, marker);
-      }
-    } else {
-       alert("Geocoder failed due to: " + status);
-    }
-  });
+  var map = new google.maps.Map($("#map_canvas")[0], options)
+  for(var i in images) {
+    function f() {
+      var image = images[i]
+      var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(image.latitude, image.longitude),
+        map: map,
+        title: image.url,
+        draggable: true
+      });
+      google.maps.event.addListener(marker, 'dragend', function(evt) {
+        image.latitude = evt.latLng.lat()
+        image.longitude = evt.latLng.lng()
+        $.post("/flickr/update_location", image)
+        console.log("Finished dragging marker for image ", image)
+      });
+      marker.infowindow = new google.maps.InfoWindow;
+      marker.infowindow.setContent('<img border="0" style="height:100px; width: auto;" src="' + marker.title + '"/>')
+      google.maps.event.addListener(marker, 'click', function() {
+        marker.infowindow.open(map,marker);
+      });
+    };
+    f();
   }
-}
 
-function codeAddress() {
-  var address = document.getElementById("address").value;
-  if (geocoder) {
-    geocoder.geocode( { 'address': address}, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: map, 
-          position: results[0].geometry.location
-          });
-        } else {
-          alert("Geocode was not successful for the following reason: " + status);
-        }
-    });
-  }
-}
+});
 

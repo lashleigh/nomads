@@ -1,2 +1,10 @@
 
 <%= render :partial => "/home/header" %>
+
+<div id="container">
+    <% @photos.each do |p| %>
+      <div class="archive_photo">
+        <%= link_to(image_tag(p.url('m'), :title => p.title, :border => 0, :alt => p.title), p.url('b'), :class => "fancy", :rel =>"group") %>
+      </div>
+    <% end %>
+</div>

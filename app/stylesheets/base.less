@@ -1,12 +1,8 @@
-@background: #EEEEFE;
-.rounded_corners (@radius: 10px) {
-    -moz-border-radius: @radius;
-    -webkit-border-radius: @radius;
-    border-radius: @radius;
-}
-#fancybox-outer {
-  background: #222222;
-}
+@import "fancy";
+@import "header";
+@import "mixin";
+
+@background: #FFF;
 body {
   background: @background;
   color: #4B2812;
@@ -29,54 +25,16 @@ ol, ul {
 }
 a {
   outline: none;
+  text-decoration: none;
+  :hover {text-decoration: underline;}
+  :focus {text-decoration: underline;}
+  :visited {color: #443312;}
 }
 #container {
   width: 1120px;
   margin: 0 auto;
   overflow: hidden;
 }
-#header_wrapper {
-  background:url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
-  height: 122px;
-  overflow: hidden;
-}
-#header {
-  background:url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
-  height:122px;
-  margin:0 auto;
-  position:relative;
-  width:1120px;
-}
-#header-logo {
-  background:url("/images/logo.png") no-repeat scroll 0 0 transparent;
-  display:block;
-  height:81px;
-  margin-left: 20px;
-  position:absolute;
-  margin-top:23px;
-  width:199px;
-}
-#navigation {
-  position: absolute;
-  right: 15px;
-  top: 38px;
-  width: 400px;
-  li {
-    float: right;
-    height: 43px;
-  }
-  li a {
-  color:#FFFFFF;
-  display:block;
-  font-size: 15px;
-  height:43px;
-  line-height:43px;
-  padding:0 14px;
-  text-decoration:none;
-  text-shadow:0 1px 1px #213454;
-  }
-}
-
 #flickr,
 #twitter {
   float: left;
@@ -133,6 +91,9 @@ a {
 }
 .flickr_photo {
   padding: 10px;
+}
+.archive_photo {
+  float: left;
 }
 .tweet {
   .rounded_corners;

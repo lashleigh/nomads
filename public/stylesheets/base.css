@@ -9,28 +9,7 @@
 
 
 */#fancybox-outer { background: #222222; }
-body {
-  background: #eeeefe;
-  color: #4b2812;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 22px;
-  margin: 0;
-  padding: 0;
-}
-p {
-  text-align: justify;
-  margin: 0 0 22px;
-}
-h2 { border-bottom-style: dotted; }
-ol, ul { list-style: none outside none; }
-a { outline: none; }
-#container {
-  width: 1120px;
-  margin: 0 auto;
-  overflow: hidden;
-}
+.fancybox-title-inside { color: #999999; }
 #header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
   height: 122px;
@@ -69,8 +48,35 @@ a { outline: none; }
   height: 43px;
   line-height: 43px;
   padding: 0 14px;
-  text-decoration: none;
   text-shadow: 0 1px 1px #213454;
+}
+body {
+  background: #ffffff;
+  color: #4b2812;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+p {
+  text-align: justify;
+  margin: 0 0 22px;
+}
+h2 { border-bottom-style: dotted; }
+ol, ul { list-style: none outside none; }
+a {
+  outline: none;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:focus { text-decoration: underline; }
+a:visited { color: #443312; }
+#container {
+  width: 1120px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 #flickr, #twitter {
   float: left;
@@ -120,6 +126,7 @@ a { outline: none; }
   vertical-align: middle;
 }
 .flickr_photo { padding: 10px; }
+.archive_photo { float: left; }
 .tweet {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
