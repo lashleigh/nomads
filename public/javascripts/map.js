@@ -22,10 +22,13 @@ $(function() {
         console.log("Finished dragging marker for image ", image)
       });
       marker.infowindow = new google.maps.InfoWindow;
-      marker.infowindow.setContent('<img border="0" style="height:100px; width: auto;" src="' + marker.title + '"/>')
-      google.maps.event.addListener(marker, 'click', function() {
+      marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
+      google.maps.event.addListener(marker, 'mouseover', function() {
         marker.infowindow.open(map,marker);
       });
+      google.maps.event.addListener(marker, 'mouseout', function() {
+          setTimeout(function() { marker.infowindow.close(map,marker)}, 1500)
+          });
     };
     f();
   }
