@@ -10,4 +10,7 @@ class MapController < ApplicationController
     end
   end
 
+  def make_suggestion
+  end
+
 end

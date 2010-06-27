@@ -7,3 +7,10 @@
   </script>
 </div>
 
+<div id="photo_preload">
+  <ul>
+    <% @photos.each do |photo| %>
+      <li><%= image_tag photo["url"] %></li>
+    <% end %>
+  </ul>
+</div>
