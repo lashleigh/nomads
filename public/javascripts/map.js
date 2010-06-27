@@ -27,11 +27,13 @@ $(function() {
         marker.infowindow.open(map,marker);
       });
       google.maps.event.addListener(marker, 'mouseout', function() {
-          setTimeout(function() { marker.infowindow.close(map,marker)}, 1500)
+          setTimeout(function() { marker.infowindow.close(map,marker)}, 1000)
           });
     };
     f();
   }
+  var elevator = new google.maps.ElevationService();
+  google.maps.event.addListener(map, 'click', getElevation); 
 
 });
 
