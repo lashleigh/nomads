@@ -145,3 +145,4 @@ a:visited { color: #443312; }
   border: 0 none;
   overflow: hidden;
 }
+#photo_preload { display: none; }
