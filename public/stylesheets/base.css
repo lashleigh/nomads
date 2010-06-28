@@ -10,6 +10,7 @@
 
 */#fancybox-outer { background: #222222; }
 .fancybox-title-inside { color: #999999; }
+#new_suggestion { background-color: white; }
 #header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
   height: 122px;

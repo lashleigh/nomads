@@ -27,13 +27,31 @@ $(function() {
         marker.infowindow.open(map,marker);
       });
       google.maps.event.addListener(marker, 'mouseout', function() {
-          setTimeout(function() { marker.infowindow.close(map,marker)}, 1000)
-          });
+        setTimeout(function() { marker.infowindow.close(map,marker)}, 1000)
+      });
     };
     f();
   }
-  var elevator = new google.maps.ElevationService();
-  google.maps.event.addListener(map, 'click', getElevation); 
 
+  var bikeLayer = new google.maps.BicyclingLayer();
+  bikeLayer.setMap(map);
+
+
+  var addingSuggestion = false;
+  $("#make_suggestion").click(function() {
+    addingSuggestion = true;
+    $("#make_suggestion").html("Click on the map to show us where your suggestion resides");
+  });
+
+  google.maps.event.addListener(map, 'click', function(e) {
+    if(addingSuggestion) {
+      $("#make_suggestion").html("make a suggestion");
+      addingSuggestion = false;
+
+      var p = e.latLng;
+      $.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
+        $.fancybox({ content: stuff, scrolling: "no" });
+      });
+    }
+  }); 
 });
-

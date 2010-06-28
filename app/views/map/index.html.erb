@@ -1,6 +1,9 @@
 <%= render :partial => "/home/header" %>
 <div id="container">
   <div id="map_canvas"> </div>
+  <div id="map_controls">
+    <%= link_to "make a suggestion", "#", { :id => "make_suggestion" } %>
+  </div>
 
   <script type="text/javascript">
     var images = <%= @photos.to_json %>;

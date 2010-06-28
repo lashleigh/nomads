@@ -21,10 +21,13 @@ class SuggestionsController < ApplicationController
     end
   end
 
+
   # GET /suggestions/new
   # GET /suggestions/new.xml
   def new
     @suggestion = Suggestion.new
+    @suggestion.lat = params[:lat]
+    @suggestion.lon = params[:lng]
 
     respond_to do |format|
       format.html # new.html.erb
