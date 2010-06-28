@@ -10,7 +10,8 @@ class MapController < ApplicationController
     end
   end
 
-  def make_suggestion
+  def show_suggestions
+    @suggestions = Suggestion.all.reverse
   end
 
 end

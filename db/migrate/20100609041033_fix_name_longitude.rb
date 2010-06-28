@@ -4,5 +4,6 @@ class FixNameLongitude < ActiveRecord::Migration
   end
 
   def self.down
+    rename_column :flickr_photos, :lon, :long
   end
 end

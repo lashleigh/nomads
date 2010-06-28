@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @suggestion.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @suggestion.suggestion_type %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @suggestion.content %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%=h @suggestion.lat %>
+</p>
+
+<p>
+  <b>Lon:</b>
+  <%=h @suggestion.lon %>
+</p>
+
+
+<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<%= link_to 'Back', suggestions_path %>
