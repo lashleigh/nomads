@@ -6,32 +6,40 @@ $(function() {
   };
 
   var map = new google.maps.Map($("#map_canvas")[0], options)
-  for(var i in images) {
-    function f() {
-      var image = images[i]
-      var marker = new google.maps.Marker({
-        position: new google.maps.LatLng(image.latitude, image.longitude),
-        map: map,
-        title: image.url,
-        draggable: true
-      });
-      google.maps.event.addListener(marker, 'dragend', function(evt) {
-        image.latitude = evt.latLng.lat()
-        image.longitude = evt.latLng.lng()
-        $.post("/flickr/update_location", image)
-        console.log("Finished dragging marker for image ", image)
-      });
-      marker.infowindow = new google.maps.InfoWindow;
-      marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
-      google.maps.event.addListener(marker, 'mouseover', function() {
-        marker.infowindow.open(map,marker);
-      });
-      google.maps.event.addListener(marker, 'mouseout', function() {
-        setTimeout(function() { marker.infowindow.close(map,marker)}, 1000)
-      });
-    };
-    f();
-  }
+  $(images).each(function f(i, image) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(image.latitude, image.longitude),
+      map: map,
+      title: image.url,
+      draggable: true,
+      icon: "/images/map_icons/picture_icon.png"
+    });
+    google.maps.event.addListener(marker, 'dragend', function(evt) {
+      image.latitude = evt.latLng.lat()
+      image.longitude = evt.latLng.lng()
+      $.post("/flickr/update_location", image)
+      console.log("Finished dragging marker for image ", image)
+    });
+    marker.infowindow = new google.maps.InfoWindow;
+    marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
+    google.maps.event.addListener(marker, 'mouseover',
+      function() { marker.infowindow.open(map,marker); });
+    google.maps.event.addListener(marker, 'mouseout', function() {
+      setTimeout(function() { marker.infowindow.close(map,marker)}, 1000)
+    });
+  });
+
+  $(suggestions).each(function(i, suggestion) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(suggestion.latitude, suggestion.longitude),
+      map: map,
+      title: suggestion.name,
+    });
+    marker.infowindow = new google.maps.InfoWindow;
+    marker.infowindow.setContent("<h3>" + suggestion.name + "</h3><p>" + suggestion.content + "</p>");
+    google.maps.event.addListener(marker, 'click',
+      function() { marker.infowindow.open(map, marker) });
+  });
 
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(map);

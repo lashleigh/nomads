@@ -8,6 +8,14 @@ class MapController < ApplicationController
         "longitude" => p.lon,
         "title" => p.title }
     end
+    @suggestions = Suggestion.find(:all).collect do |s|
+      { "id" => s.id,
+        "name" => s.name,
+        "latitude" => s.lat,
+        "longitude" => s.lon,
+        "suggestion_type" => s.suggestion_type,
+        "content" => s.content }
+    end
   end
 
   def show_suggestions
