@@ -8,7 +8,15 @@
 
 
 
-*/.about {
+*/#about_intro {
+  width: 520px;
+  padding: 20px;
+}
+#about_intro p {
+  margin: 0;
+  padding: 0;
+}
+.about {
   float: left;
   width: 520px;
   padding: 20px;
