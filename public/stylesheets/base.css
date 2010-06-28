@@ -51,6 +51,11 @@
   padding: 0 14px;
   text-shadow: 0 1px 1px #213454;
 }
+.about {
+  float: left;
+  width: 520px;
+  padding: 20px;
+}
 body {
   background: #ffffff;
   color: #4b2812;
