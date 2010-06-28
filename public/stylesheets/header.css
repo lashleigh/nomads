@@ -21,13 +21,13 @@
   width: 1120px;
 }
 #header-logo {
-  background: url("/images/logo.png") no-repeat scroll 0 0 transparent;
+  background: url("/images/nomads.png") no-repeat scroll 0 0 transparent;
   display: block;
   height: 81px;
   margin-left: 20px;
   position: absolute;
   margin-top: 23px;
-  width: 199px;
+  width: 400px;
 }
 #navigation {
   position: absolute;
