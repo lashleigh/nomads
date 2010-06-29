@@ -171,13 +171,14 @@ a:visited { color: #443312; }
   overflow: hidden;
 }
 #map_canvas {
-  width: 85%;
+  width: 75%;
   height: 550px;
   border: 0 none;
+  float: left;
 }
 #map_controls {
   width: 15%;
   float: right;
 }
-#mapsearch { width: 400px; }
+#searchwell { float: left; }
 #photo_preload { display: none; }

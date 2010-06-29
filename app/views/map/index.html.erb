@@ -1,32 +1,18 @@
 <%= render :partial => "/home/header" %>
 <div id="map_container">
-    <p>Please help us make the most of our adventure by indicating places you think we should visit.</p>
-    <div style="width: 500px;">
-      <div style="margin-bottom: 5px;">
-
-        <div>
-          <input type="text" id="queryInput" value="pizza" style="width: 250px;"/>
-          <input type="button" value="Find" onclick="doSearch()"/>
-        </div>
-      </div>
-      <div style="position: absolute; left: 540px;">
-        <div id="searchwell"></div>
-      </div>
-      <div id="map" style="height: 350px; border: 1px solid #979797;"></div>
-
-    </div>
-
-  <div id="search">
-    <input id="address" type="textbox" value="">
-    <input id="search_button" type="button" value="Search" >
-  </div> 
+  <p>Please help us make the most of our adventure by indicating places you think we should visit.</p>
+  <div id="example_search">
+    <input type="text" id="queryInput" value="pizza" style="width: 250px;"/>
+    <input id="submitSearch" type="button" value="Find" onclick="doSearch()"/>
+  </div>
+  <div id="map_canvas"></div>
 
   <div id="map_controls">
     <ul>
       <li><%= link_to "make a suggestion", "#", { :id => "make_suggestion" } %></li>
     </ul>
   </div>
-  <div id="map_canvas"></div>
+  <div id="searchwell"></div>
 
   <script type="text/javascript">
     var images = <%= @photos.to_json %>;

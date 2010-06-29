@@ -27,7 +27,7 @@
     function OnLoad() {
 
       // Initialize the map with default UI.
-      gMap = new google.maps.Map(document.getElementById("map"), {
+      gMap = new google.maps.Map(document.getElementById("map_canvas"), {
         center: new google.maps.LatLng(47.67, -122.38),
         zoom: 13,
         mapTypeId: 'hybrid'
@@ -41,6 +41,61 @@
       // Initialize the local searcher
       gLocalSearch = new GlocalSearch();
       gLocalSearch.setSearchCompleteCallback(null, OnLocalSearch);
+
+      $(suggestions).each(function(i, suggestion) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(suggestion.latitude, suggestion.longitude),
+          map: gMap,
+          title: suggestion.name,
+        });
+        marker.infowindow = new google.maps.InfoWindow;
+        marker.infowindow.setContent("<h3>" + suggestion.name + "</h3><p>" + suggestion.content + "</p>");
+        google.maps.event.addListener(marker, 'click',
+          function() { marker.infowindow.open(gMap, marker) });
+      });
+  
+      var bikeLayer = new google.maps.BicyclingLayer();
+      bikeLayer.setMap(gMap);
+  
+      var addingSuggestion = false;
+      $("#make_suggestion").click(function() {
+        addingSuggestion = true;
+        $("#make_suggestion").html("Click on the map to show us where your suggestion resides");
+      });
+  
+      google.maps.event.addListener(gMap, 'click', function(e) {
+        if(addingSuggestion) {
+          $("#make_suggestion").html("make a suggestion");
+          addingSuggestion = false;
+  
+          var p = e.latLng;
+          $.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
+            $.fancybox({ content: stuff, scrolling: "no" });
+          });
+        }
+      }); 
+      $(images).each(function f(i, image) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(image.latitude, image.longitude),
+          map: gMap,
+          title: image.url,
+          draggable: true,
+          icon: "/images/map_icons/picture_icon.png"
+        });
+        google.maps.event.addListener(marker, 'dragend', function(evt) {
+          image.latitude = evt.latLng.lat()
+          image.longitude = evt.latLng.lng()
+          $.post("/flickr/update_location", image)
+          console.log("Finished dragging marker for image ", image)
+        });
+        marker.infowindow = new google.maps.InfoWindow;
+        marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
+        google.maps.event.addListener(marker, 'mouseover',
+          function() { marker.infowindow.open(gMap,marker); });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+          setTimeout(function() { marker.infowindow.close(gMap,marker)}, 1000)
+        });
+      });
     }
 
     function unselectMarkers() {
@@ -54,6 +109,7 @@
       gLocalSearch.setCenterPoint(gMap.getCenter());
       gLocalSearch.execute(query);
     }
+    $("#submitSearch").click(doSearch)
 
     // Called when Local Search results are returned, we clear the old
     // results and load the new ones.
