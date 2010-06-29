@@ -179,4 +179,5 @@ a:visited { color: #443312; }
   width: 15%;
   float: right;
 }
+#mapsearch { width: 400px; }
 #photo_preload { display: none; }
