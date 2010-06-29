@@ -9,9 +9,9 @@
 
 
 */#footer {
+  width: 1080px;
   border-top: 1px dashed #c9c9c9;
   text-align: center;
   margin: 0 auto;
   position: relative;
-  width: 1120px;
 }

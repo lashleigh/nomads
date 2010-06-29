@@ -16,6 +16,10 @@
   height: 122px;
   overflow: hidden;
 }
+#new_black {
+  background: #232323;
+  height: 3px;
+}
 #header {
   background: url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
   height: 122px;
@@ -52,11 +56,11 @@
   text-shadow: 0 1px 1px #213454;
 }
 #footer {
+  width: 1080px;
   border-top: 1px dashed #c9c9c9;
   text-align: center;
   margin: 0 auto;
   position: relative;
-  width: 1120px;
 }
 #about_intro {
   width: 520px;
@@ -85,7 +89,7 @@ p {
   text-align: justify;
   margin: 0 0 22px;
 }
-h2 { border-bottom-style: dotted; }
+h2 { border-bottom: 3px dotted; }
 ol, ul { list-style: none outside none; }
 a {
   outline: none;
