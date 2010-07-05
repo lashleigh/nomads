@@ -16,10 +16,6 @@
   height: 122px;
   overflow: hidden;
 }
-#new_black {
-  background: #232323;
-  height: 3px;
-}
 #header {
   background: url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
   height: 122px;
@@ -55,11 +51,17 @@
   padding: 0 14px;
   text-shadow: 0 1px 1px #213454;
 }
+#footer_wrapper {
+  margin: 0px auto;
+  overflow: hidden;
+  width: 1120px;
+}
 #footer {
-  width: 1080px;
+  width: 1045px;
+  margin: 40px 20px;
+  padding: 20px;
   border-top: 1px dashed #c9c9c9;
   text-align: center;
-  margin: 0 auto;
   position: relative;
 }
 #about_intro {
@@ -151,6 +153,7 @@ a:visited { color: #443312; }
   vertical-align: middle;
 }
 .flickr_photo { padding: 10px; }
+#photo_archive_container { padding-left: 20px; }
 .archive_photo { float: left; }
 .tweet {
   -moz-border-radius: 10px;
@@ -170,15 +173,22 @@ a:visited { color: #443312; }
   padding: 0;
   overflow: hidden;
 }
+#search_box {
+  width: 600px;
+  padding-left: 20px;
+  margin: 0px;
+}
 #map_canvas {
-  width: 75%;
+  width: 600px;
   height: 550px;
   border: 0 none;
   float: left;
+  margin: 20px;
 }
 #map_controls {
   width: 15%;
   float: right;
 }
+#map_explanation { padding: 20px; }
 #searchwell { float: left; }
 #photo_preload { display: none; }

@@ -13,10 +13,6 @@
   height: 122px;
   overflow: hidden;
 }
-#new_black {
-  background: #232323;
-  height: 3px;
-}
 #header {
   background: url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
   height: 122px;
