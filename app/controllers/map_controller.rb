@@ -1,6 +1,7 @@
 class MapController < ApplicationController
   layout "home"
   def index
+    display_icons
     @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect do |p|
       { "id" => p.id,
         "url" => p.url,
@@ -13,17 +14,14 @@ class MapController < ApplicationController
         "name" => s.name,
         "latitude" => s.lat,
         "longitude" => s.lon,
-        "suggestion_type" => s.suggestion_type,
+        "icon_path" => s.icon.marker_url,
         "content" => s.content }
     end
   end
 
-  def show_suggestions
-    @suggestions = Suggestion.all.reverse
-  end
-
   # For rendering in a fancybox
   def new_suggestion
+    display_icons
     @suggestion = Suggestion.new
     @suggestion.lat = params[:lat]
     @suggestion.lon = params[:lng]
@@ -33,5 +31,10 @@ class MapController < ApplicationController
     else
       render :layout => false
     end
+  end
+
+  private
+  def display_icons
+    @icons = Icon.all
   end
 end

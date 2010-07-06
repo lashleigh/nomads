@@ -1,5 +1,6 @@
 <div id="new_suggestion">
   <h1>New Suggestion</h1>
+  <%= render :partial => "/suggestions/display_icons" %>
   
   <% form_for @suggestion do |f| %>
     <%= f.error_messages %>
@@ -7,10 +8,6 @@
     <p>
       <%= f.label :name %><br />
       <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :suggestion_type %><br />
-      <%= f.text_field :suggestion_type %>
     </p>
     <p>
       <%= f.label :content %><br />

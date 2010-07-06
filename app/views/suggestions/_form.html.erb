@@ -7,8 +7,9 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :suggestion_type %><br />
-    <%= f.text_field :suggestion_type %>
+  <%= render :partial => "display_icons" %>
+    <%= f.label :icon_id %><br />
+    <%= f.text_field :icon_id %>
   </p>
   <p>
     <%= f.label :content %><br />

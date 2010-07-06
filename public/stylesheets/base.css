@@ -192,3 +192,9 @@ a:visited { color: #443312; }
 #map_explanation { padding: 20px; }
 #searchwell { float: left; }
 #photo_preload { display: none; }
+ul.form_images { overflow: hidden; }
+ul.form_images li {
+  float: left;
+  padding: 0px 5px;
+}
+.hiddenLatLng { display: none; }

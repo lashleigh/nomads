@@ -5,6 +5,7 @@ var suggestionList = [];
 // Initialize the suggestions with one info window
 jQuery(function() {
   suggestionInfoWindow = new google.maps.InfoWindow;
+  suggestionInfoWindow = gInfoWindow;
 
   for( var i = 0; i < suggestions.length; i++) {
     suggestionList.push( new Suggestion(suggestions[i]) );
@@ -18,7 +19,8 @@ jQuery(function() {
     addingPark = true;
     jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
   });
-  $(images).each(function f(i, image) {
+  jQuery(images).each(function f(i, image) {
+    console.log(image);
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(image.latitude, image.longitude),
       map: gMap,
@@ -29,8 +31,7 @@ jQuery(function() {
     google.maps.event.addListener(marker, 'dragend', function(evt) {
       image.latitude = evt.latLng.lat()
       image.longitude = evt.latLng.lng()
-      $.post("/flickr/update_location", image)
-      console.log("Finished dragging marker for image ", image)
+      jQuery.post("/flickr/update_location", image)
     });
     marker.infowindow = new google.maps.InfoWindow;
     marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
@@ -62,6 +63,7 @@ function Suggestion(somesuggestion) {
   me.name = somesuggestion.name;
   me.lat = somesuggestion.latitude;
   me.lng = somesuggestion.longitude;
+  me.icon_path = somesuggestion.icon_path;
   me.content = somesuggestion.content;
   me.marker_ = me.marker();
 }
@@ -74,6 +76,7 @@ Suggestion.prototype.marker = function() {
       map: gMap,
       title: me.name,
       draggable: false,
+      icon: me.icon_path,
     });
     google.maps.event.addListener(marker, "click", function() {
       me.select();

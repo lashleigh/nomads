@@ -9,44 +9,51 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100627232112) do
+ActiveRecord::Schema.define(:version => 20100706011756) do
 
   create_table "comments", :force => true do |t|
-    t.string   "commenter"
-    t.text     "body"
-    t.integer  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "commenter"
+    t.text      "body"
+    t.integer   "post_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "flickr_photos", :force => true do |t|
-    t.string   "title"
-    t.integer  "farm"
-    t.string   "secret"
-    t.string   "photo_id"
-    t.string   "server"
+    t.string    "title"
+    t.integer   "farm"
+    t.string    "secret"
+    t.string    "photo_id"
+    t.string    "server"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.float     "lat"
+    t.float     "lon"
+  end
+
+  create_table "icons", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "lat"
-    t.float    "lon"
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string    "name"
+    t.string    "title"
+    t.text      "content"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
   end
 
   create_table "suggestions", :force => true do |t|
     t.string   "name"
-    t.string   "suggestion_type"
     t.text     "content"
     t.float    "lat"
     t.float    "lon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "icon_id"
   end
 
 end

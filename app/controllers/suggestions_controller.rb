@@ -1,6 +1,7 @@
 class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
+
   def index
     @suggestions = Suggestion.all
 
@@ -21,10 +22,10 @@ class SuggestionsController < ApplicationController
     end
   end
 
-
   # GET /suggestions/new
   # GET /suggestions/new.xml
   def new
+    display_icons
     @suggestion = Suggestion.new
     @suggestion.lat = params[:lat]
     @suggestion.lon = params[:lng]
@@ -37,6 +38,7 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions/1/edit
   def edit
+    display_icons 
     @suggestion = Suggestion.find(params[:id])
   end
 
@@ -84,5 +86,10 @@ class SuggestionsController < ApplicationController
       format.html { redirect_to(suggestions_url) }
       format.xml  { head :ok }
     end
+  end
+
+  private
+  def display_icons
+    @icons = Icon.all
   end
 end
