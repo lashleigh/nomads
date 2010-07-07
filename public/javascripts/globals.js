@@ -23,6 +23,13 @@ jQuery(function() {
   // dosearch is the div id of the button
   jQuery("#dosearch").click(doSearch);
   jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
+  jQuery("#new_suggestion").live("submit", function(event) {
+      var self = jQuery(this);
+      jQuery.post(this.action, this.serialize(), function(res, text_status) {
+        jQuery.fancybox.close();
+      });
+      return false;
+  });
   jQuery(".icon_link").live("click", function(event) {
       var me = this;
       jQuery(".icon_link").removeClass("select");

@@ -201,7 +201,6 @@ ul.form_images li img:hover { background: green; }
 .select { background: red; }
 .hiddenLatLng { display: none; }
 .addSuggestionFromSearch {
-  background: #f2f2f2;
   margin: 0;
   padding: 0;
 }
