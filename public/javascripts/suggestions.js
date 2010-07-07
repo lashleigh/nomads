@@ -1,11 +1,13 @@
 // Suggestion global state
 var suggestionInfoWindow;
+var imageInfoWindow;
 var suggestionList = [];
 
-// Initialize the suggestions with one info window
 jQuery(function() {
-  suggestionInfoWindow = new google.maps.InfoWindow;
+  // By using the same info window as the google search there will
+  // only be one window open at a time.
   suggestionInfoWindow = gInfoWindow;
+  imageInfoWindow = gInfoWindow;
 
   for( var i = 0; i < suggestions.length; i++) {
     suggestionList.push( new Suggestion(suggestions[i]) );
@@ -14,13 +16,7 @@ jQuery(function() {
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(gMap);
 
-  var addingPark = false;
-  jQuery("#make_suggestion").click(function() {
-    addingPark = true;
-    jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
-  });
   jQuery(images).each(function f(i, image) {
-    console.log(image);
     var marker = new google.maps.Marker({
       position: new google.maps.LatLng(image.latitude, image.longitude),
       map: gMap,
@@ -33,15 +29,18 @@ jQuery(function() {
       image.longitude = evt.latLng.lng()
       jQuery.post("/flickr/update_location", image)
     });
-    marker.infowindow = new google.maps.InfoWindow;
-    marker.infowindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
-    google.maps.event.addListener(marker, 'mouseover',
-      function() { marker.infowindow.open(gMap,marker); });
-    google.maps.event.addListener(marker, 'mouseout', function() {
-      setTimeout(function() { marker.infowindow.close(gMap,marker)}, 1000)
-    });
+    google.maps.event.addListener(marker, 'click',
+      function() { 
+        imageInfoWindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
+        imageInfoWindow.open(gMap,marker); 
+      });
   });
 
+  var addingPark = false;
+  jQuery("#make_suggestion").click(function() {
+    addingPark = true;
+    jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
+  });
 
   google.maps.event.addListener(gMap, 'click', function(e) {
     if(addingPark) {
@@ -49,7 +48,7 @@ jQuery(function() {
       addingPark = false;
 
       var p = e.latLng;
-      jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
+      jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng(), icon_id: iconId }, function(stuff) {
         jQuery.fancybox({ content: stuff, scrolling: "no" });
       });
     }

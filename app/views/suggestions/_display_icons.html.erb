@@ -1,6 +1,6 @@
 <ul class="form_images">
   <% @icons.each do |icon| %>
-    <li> <%= link_to(image_tag(icon.icon_url, :title => icon.name, :border => 0, :alt => icon.name), icon.icon_url) %> </li>
+    <li> <%= link_to(image_tag(icon.icon_url, :title => icon.id, :border => 0, :alt => icon.name, :class => "icon_link"), '#') %> </li>
   <% end %>
 </ul>
 

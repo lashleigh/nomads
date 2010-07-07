@@ -6,9 +6,9 @@
   </div>
 </div>
 <script type="text/javascript">
-  $.getJSON('http://twitter.com/status/user_timeline/15141419.json?count=10&callback=?', function(data){
-      $.each(data, function(index, item){
-        $('#twitter').append('<div class="tweet"><p>' + item.text + '<br/><br/>' + item.created_at + '</p></div>');
+  jQuery.getJSON('http://twitter.com/status/user_timeline/15141419.json?count=10&callback=?', function(data){
+      jQuery.each(data, function(index, item){
+        jQuery('#twitter').append('<div class="tweet"><p>' + item.text + '<br/><br/>' + item.created_at + '</p></div>');
         });
       });
 </script>

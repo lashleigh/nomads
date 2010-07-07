@@ -119,7 +119,7 @@ LocalResult.prototype.select = function() {
   unselectMarkers();
   this.selected_ = true;
   this.highlight(true);
-  gInfoWindow.setContent(this.html(true));
+  gInfoWindow.setContent(this.saveButton(true));
   gInfoWindow.open(gMap, this.marker());
 };
 
@@ -134,6 +134,8 @@ LocalResult.prototype.unselect = function() {
 };
 
 // Returns the HTML we display for a result before it has been "saved"
+// .html and .saveButton are very redundant, I would prefer to just append
+// the button to the infoWindow.
 LocalResult.prototype.html = function() {
   var me = this;
   var container = document.createElement("div");
@@ -151,13 +153,22 @@ LocalResult.prototype.html = function() {
 
 LocalResult.prototype.saveButton = function() {
   var me = this;
-  container = me.html;
+  var container = document.createElement("div");
+  container.className = "unselected";
+  container.appendChild(me.result_.html.cloneNode(true));
+  var hiddenLatLng = document.createElement("div");
+  hiddenLatLng.className = "hiddenLatLng";
+  hiddenLatLng.appendChild(document.createTextNode(parseFloat(me.result_.lat) ));
+  hiddenLatLng.appendChild(document.createTextNode(", "));
+  hiddenLatLng.appendChild(document.createTextNode(parseFloat(me.result_.lng) ));
+  container.appendChild(hiddenLatLng);
 
   var button = document.createElement("input");
   button.type = "button";
-  button.value = "Save park?";
+  button.value = "Save as suggestion?";
   button.className = "addSuggestionFromSearch";
   container.appendChild(button);
+  return container;
 }
 
 LocalResult.prototype.highlight = function(highlight) {
