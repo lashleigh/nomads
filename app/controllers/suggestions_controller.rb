@@ -45,6 +45,7 @@ class SuggestionsController < ApplicationController
   # POST /suggestions
   # POST /suggestions.xml
   def create
+    display_icons
     @suggestion = Suggestion.new(params[:suggestion])
 
     respond_to do |format|

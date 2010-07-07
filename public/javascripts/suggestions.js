@@ -48,7 +48,7 @@ jQuery(function() {
       addingPark = false;
 
       var p = e.latLng;
-      jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng(), icon_id: iconId }, function(stuff) {
+      jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
         jQuery.fancybox({ content: stuff, scrolling: "no" });
       });
     }

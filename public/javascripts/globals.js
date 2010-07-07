@@ -1,7 +1,6 @@
 var gLocalSearch;
 var gMap;
 var gInfoWindow;
-var iconId = 1;
 
 jQuery(function() {
   // Initialize the map with default UI.
@@ -25,23 +24,22 @@ jQuery(function() {
   jQuery("#dosearch").click(doSearch);
   jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
   jQuery(".icon_link").live("click", function(event) {
+      var me = this;
       jQuery(".icon_link").removeClass("select");
-      select(event); 
+      select(me); 
   });
 });
 
-function select(event) {
-  path = event.currentTarget;
-  iconId = path.title;
-  console.log(iconId);
-  path.addClassName("select");
+function select(me) {
+  jQuery("#suggestion_icon_id").val(me.title);
+  me.addClassName("select");
 }
 
 function createSuggestionFromSearch(event) {
   var parentdiv = jQuery(this).parents(".unselected")
   var suggestionLatLng = parentdiv.find(".hiddenLatLng").text().split(', ');
   var suggestedName = parentdiv.find("a.gs-title").text();
-  jQuery.get("/map/new_suggestion", { lat: suggestionLatLng[0], lng: suggestionLatLng[1], name: suggestedName, icon_id: iconId }, function(stuff) {
+  jQuery.get("/map/new_suggestion", { lat: suggestionLatLng[0], lng: suggestionLatLng[1], name: suggestedName }, function(stuff) {
     jQuery.fancybox({ content: stuff, scrolling: "no" });
   });
 }
