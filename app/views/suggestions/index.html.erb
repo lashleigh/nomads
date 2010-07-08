@@ -14,8 +14,8 @@
     <td><%=h suggestion.name %></td>
     <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
     <td><%=h suggestion.content %></td>
-    <td><%=h suggestion.lat %></td>
-    <td><%=h suggestion.lon %></td>
+    <td><%=h "%0.5f" % suggestion.lat %></td>
+    <td><%=h "%0.5f" % suggestion.lon %></td>
     <td><%= link_to 'Show', suggestion %></td>
     <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
     <td><%= link_to 'Destroy', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>

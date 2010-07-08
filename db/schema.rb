@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100706011756) do
+ActiveRecord::Schema.define(:version => 20100708031028) do
 
   create_table "comments", :force => true do |t|
     t.string    "commenter"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20100706011756) do
     t.text      "content"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.float     "lat"
+    t.float     "lon"
   end
 
   create_table "suggestions", :force => true do |t|
