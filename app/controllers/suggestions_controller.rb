@@ -52,9 +52,11 @@ class SuggestionsController < ApplicationController
       if @suggestion.save
         flash[:notice] = 'Suggestion was successfully created.'
         format.html { redirect_to(@suggestion) }
+        format.js   { render :json => @suggestion.as_hash }
         format.xml  { render :xml => @suggestion, :status => :created, :location => @suggestion }
       else
         format.html { render :action => "new" }
+        format.js   { render :json => { :errors => @suggestion.errors.full_messages } }
         format.xml  { render :xml => @suggestion.errors, :status => :unprocessable_entity }
       end
     end

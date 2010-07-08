@@ -5,6 +5,14 @@ class FlickrPhoto < ActiveRecord::Base
     "auth_token" => "72157624183057188-2a2cfd75aee7b532",
   }
 
+  def as_hash
+    { "id" => id,
+      "url" => url,
+      "latitude" => lat,
+      "longitude" => lon,
+      "title" => title }
+  end
+
   def url(size = 'm')
     "http://farm#{farm}.static.flickr.com/#{server}/#{photo_id}_#{secret}_#{size}.jpg"
   end
