@@ -2,21 +2,8 @@ class MapController < ApplicationController
   layout "home"
   def index
     display_icons
-    @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect do |p|
-      { "id" => p.id,
-        "url" => p.url,
-        "latitude" => p.lat,
-        "longitude" => p.lon,
-        "title" => p.title }
-    end
-    @suggestions = Suggestion.find(:all).collect do |s|
-      { "id" => s.id,
-        "name" => s.name,
-        "latitude" => s.lat,
-        "longitude" => s.lon,
-        "icon_path" => s.icon.marker_url,
-        "content" => s.content }
-    end
+    @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect { |p| p.as_hash }
+    @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
   end
 
   # For rendering in a fancybox

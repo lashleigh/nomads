@@ -26,8 +26,9 @@ jQuery(function() {
   jQuery("#new_suggestion").live("submit", function(event) {
       var self = jQuery(this);
       jQuery.post(this.action, this.serialize(), function(res, text_status) {
+        new Suggestion(res);
         jQuery.fancybox.close();
-      });
+      }, "json");
       return false;
   });
   jQuery(".icon_link").live("click", function(event) {
