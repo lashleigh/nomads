@@ -33,6 +33,7 @@ class OpenidController < ApplicationController
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
       unless user
+        user = User.new
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
         if sreg_resp
@@ -50,6 +51,11 @@ class OpenidController < ApplicationController
       flash[:error] = "Verification of your OpenID login failed: #{openid_response.message}"
       redirect_to :action => :new
     end
+  end
+
+  def destroy
+    session[:user] = nil
+    redirect_to :controller => :home
   end
 
   protected
