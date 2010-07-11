@@ -1,0 +1,7 @@
+<div id="container">
+  <% form_tag '/openid/create', :id => "login" do %>
+    <%= label_tag 'openid_url', 'Your OpenID Login URL:' %><br/>
+    <%= text_field_tag 'openid_url', {}, :size => 50 %><br/>
+    <%= submit_tag "Log In" %>
+  <% end %>
+</div>

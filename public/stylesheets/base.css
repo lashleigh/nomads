@@ -204,3 +204,11 @@ ul.form_images li img:hover { background: green; }
   margin: 0;
   padding: 0;
 }
+#openid_url {
+  background: url(/images/login-bg.gif) no-repeat #FFF 5px;
+  padding-left: 25px;
+}
+
+form#login {
+  padding: 2em 0;
+}

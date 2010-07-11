@@ -1,14 +1,14 @@
 class MapController < ApplicationController
+  before_filter :set_icons
+
   layout "home"
   def index
-    display_icons
     @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect { |p| p.as_hash }
     @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
   end
 
   # For rendering in a fancybox
   def new_suggestion
-    display_icons
     @suggestion = Suggestion.new
     @suggestion.lat = params[:lat]
     @suggestion.lon = params[:lng]
@@ -22,7 +22,7 @@ class MapController < ApplicationController
   end
 
   private
-  def display_icons
+  def set_icons
     @icons = Icon.all
   end
 end
