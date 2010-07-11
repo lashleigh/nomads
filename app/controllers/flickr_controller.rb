@@ -1,6 +1,4 @@
 class FlickrController < ApplicationController
-  layout "home"
-
   def index
     @photos = FlickrPhoto.find(:all)
   end
@@ -17,5 +15,4 @@ class FlickrController < ApplicationController
     photo = FlickrPhoto.find(params[:id])
     render photo.url('l')
   end
-
 end
