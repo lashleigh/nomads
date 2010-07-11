@@ -1,7 +1,6 @@
 class MapController < ApplicationController
   before_filter :set_icons
 
-  layout "home"
   def index
     @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect { |p| p.as_hash }
     @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }

@@ -8,7 +8,7 @@ class Suggestion < ActiveRecord::Base
       "name" => name,
       "latitude" => lat,
       "longitude" => lon,
-      "icon_path" => icon.marker_url,
+      "icon_path" => icon ? icon.marker_url : "misc.png",
       "content" => content }
   end
 end
