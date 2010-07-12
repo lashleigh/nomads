@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>User</th>
+    <th>Title</th>
     <th>Icon</th>
     <th>Content</th>
     <th>Lat</th>
@@ -11,7 +12,8 @@
 
 <% @suggestions.each do |suggestion| %>
   <tr>
-    <td><%=h suggestion.name %></td>
+    <td><%=h suggestion.user.name or "unknown" %></td>
+    <td><%=h suggestion.title %></td>
     <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
     <td><%=h suggestion.content %></td>
     <td><%=h "%0.5f" % suggestion.lat %></td>

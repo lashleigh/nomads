@@ -21,7 +21,7 @@ jQuery(function() {
       position: new google.maps.LatLng(image.latitude, image.longitude),
       map: gMap,
       title: image.url,
-      draggable: true,
+      //draggable: true,
       icon: "/images/map_icons/picture_icon.png"
     });
     google.maps.event.addListener(marker, 'dragend', function(evt) {
@@ -59,7 +59,7 @@ jQuery(function() {
 function Suggestion(somesuggestion) {
   var me = this;
   me.suggestion_ = somesuggestion;
-  me.name = somesuggestion.name;
+  me.title = somesuggestion.title;
   me.lat = somesuggestion.latitude;
   me.lng = somesuggestion.longitude;
   me.icon_path = somesuggestion.icon_path;
@@ -73,7 +73,7 @@ Suggestion.prototype.marker = function() {
   var marker = me.marker_ = new google.maps.Marker({
       position: new google.maps.LatLng(me.lat, me.lng),
       map: gMap,
-      title: me.name,
+      title: me.title,
       draggable: false,
       icon: me.icon_path,
     });
@@ -92,11 +92,11 @@ Suggestion.prototype.html = function() {
   var me = this;
   var container = document.createElement("div");
   container.className = "suggestionInfo";
-  var name = document.createElement("h3");
-  name.appendChild(document.createTextNode(me.name));
+  var title = document.createElement("h3");
+  title.appendChild(document.createTextNode(me.title));
   var moreContent = document.createElement("h4");
   moreContent.appendChild(document.createTextNode(me.content));
-  container.appendChild(name);
+  container.appendChild(title);
   container.appendChild(moreContent);
   return container;
 }

@@ -1,6 +1,11 @@
 <p>
-  <b>Name:</b>
-  <%=h @suggestion.name %>
+  <b>Title:</b>
+  <%=h @suggestion.title%>
+</p>
+
+<p>
+  <b>Created by:</b>
+  <%=h @suggestion.user.name or "unknown" %>
 </p>
 
 <p>

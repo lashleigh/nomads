@@ -48,7 +48,7 @@ function createSuggestionFromSearch(event) {
   var parentdiv = jQuery(this).parents(".unselected")
   var suggestionLatLng = parentdiv.find(".hiddenLatLng").text().split(', ');
   var suggestedName = parentdiv.find("a.gs-title").text();
-  jQuery.get("/map/new_suggestion", { lat: suggestionLatLng[0], lng: suggestionLatLng[1], name: suggestedName }, function(stuff) {
+  jQuery.get("/map/new_suggestion", { lat: suggestionLatLng[0], lng: suggestionLatLng[1], title: suggestedName }, function(stuff) {
     jQuery.fancybox({ content: stuff, scrolling: "no" });
   });
 }
