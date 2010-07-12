@@ -1,0 +1,21 @@
+<div id="details">
+  <h2>Tell us about yourself</h2>
+
+  <% form_for @user, :url => {:action => :details} do |f|%>
+    <div class="form_bits">
+      <%= f.label :name, "Your Nickname" %><br/>
+      <%= f.text_field :name %>
+    </div>
+    <div class="form_bits">
+      <%= f.label :email, "Email Address (optional)" %><br/>
+      <%= f.text_field :email %>
+    </div>
+    <div class="form_bits">
+      <%= f.label :fullname, "Real Name (optional)" %><br/>
+      <%= f.text_field :fullname %>
+    </div>
+    <div class="form_bits">
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+</div>

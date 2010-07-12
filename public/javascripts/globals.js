@@ -21,6 +21,7 @@ jQuery(function() {
   gLocalSearch.setSearchCompleteCallback(null, OnLocalSearch);
 
   // dosearch is the div id of the button
+  jQuery("#queryInput").change(doSearch);
   jQuery("#dosearch").click(doSearch);
   jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
   jQuery("#new_suggestion").live("submit", function(event) {
@@ -51,3 +52,5 @@ function createSuggestionFromSearch(event) {
     jQuery.fancybox({ content: stuff, scrolling: "no" });
   });
 }
+
+

@@ -15,7 +15,7 @@ class OpenidController < ApplicationController
       realm = url_for :action => 'index', :only_path => false
 
       sregreq = OpenID::SReg::Request.new
-      sregreq.request_fields(['email','nickname'], false)
+      sregreq.request_fields(['email', 'nickname', 'fullname'], false)
       openid_request.add_extension(sregreq)
 
       redirect_to openid_request.redirect_url(realm, return_to)
@@ -33,6 +33,8 @@ class OpenidController < ApplicationController
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
       unless user
+        flash[:message] = "Welcome! We have created an account for you and linked it 
+                           to this login. When you log in again, we'll remember you!"
         user = User.new
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
@@ -41,15 +43,36 @@ class OpenidController < ApplicationController
           user.fullname = sreg_resp.data['fullname']
           user.email = sreg_resp.data['email']
         end
-        user.name = user.openid unless user.name
-        user.save
+        unless user.save
+          user.errors.each do |field, message|
+            logger.info "Field #{field} has a conflict, removing the value from it."
+            user.send("#{field}=", nil)
+          end
+          user.save
+        end
       end
 
       session[:user] = user.id
-      redirect_to :controller => :home
+      unless user.attributes[:name]
+        redirect_to :action => :details 
+      else
+        redirect_to :controller => :home
+      end
     else
       flash[:error] = "Verification of your OpenID login failed: #{openid_response.message}"
       redirect_to :action => :new
+    end
+  end
+
+  def details
+    if params[:user]
+      params[:user].reject! { |k,v| k == :openid }
+      @user.update_attributes params[:user]
+      if @user.save
+        flash[:message] = "Your account details were saved successfully."
+      else
+        flash[:errors] = @user.errors.full_messages
+      end
     end
   end
 

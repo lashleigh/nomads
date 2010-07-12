@@ -2,3 +2,4 @@ tmp
 log/*.log
 db/*.sqlite3
 db/schema.rb
+.DS_Store
