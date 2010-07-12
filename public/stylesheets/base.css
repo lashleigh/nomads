@@ -237,3 +237,20 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
+#message {
+  padding: 0.5em;
+  margin: 1em 4em;
+  width: 33%;
+  border: solid 2px #4b2812;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+#errors {
+  padding: 0.5em;
+  margin: 1em 4em;
+  width: 33%;
+  color: #aa3333;
+  border: solid 2px #883333;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}

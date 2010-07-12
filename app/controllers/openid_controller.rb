@@ -33,6 +33,8 @@ class OpenidController < ApplicationController
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
       unless user
+        flash[:message] = "Welcome! We have created an account for you and linked it 
+                           to this login. When you log in again, we'll remember you!"
         user = User.new
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
@@ -41,7 +43,13 @@ class OpenidController < ApplicationController
           user.fullname = sreg_resp.data['fullname']
           user.email = sreg_resp.data['email']
         end
-        user.save
+        unless user.save
+          user.errors.each do |field, message|
+            logger.info "Field #{field} has a conflict, removing the value from it."
+            user.send("#{field}=", nil)
+          end
+          user.save
+        end
       end
 
       session[:user] = user.id
@@ -60,7 +68,11 @@ class OpenidController < ApplicationController
     if params[:user]
       params[:user].reject! { |k,v| k == :openid }
       @user.update_attributes params[:user]
-      @user.save
+      if @user.save
+        flash[:message] = "Your account details were saved successfully."
+      else
+        flash[:errors] = @user.errors.full_messages
+      end
     end
   end
 
