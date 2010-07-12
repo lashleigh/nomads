@@ -15,7 +15,7 @@ class OpenidController < ApplicationController
       realm = url_for :action => 'index', :only_path => false
 
       sregreq = OpenID::SReg::Request.new
-      sregreq.request_fields(['email','nickname'], false)
+      sregreq.request_fields(['email', 'nickname', 'fullname'], false)
       openid_request.add_extension(sregreq)
 
       redirect_to openid_request.redirect_url(realm, return_to)
@@ -41,15 +41,26 @@ class OpenidController < ApplicationController
           user.fullname = sreg_resp.data['fullname']
           user.email = sreg_resp.data['email']
         end
-        user.name = user.openid unless user.name
         user.save
       end
 
       session[:user] = user.id
-      redirect_to :controller => :home
+      unless user.attributes[:name]
+        redirect_to :action => :details 
+      else
+        redirect_to :controller => :home
+      end
     else
       flash[:error] = "Verification of your OpenID login failed: #{openid_response.message}"
       redirect_to :action => :new
+    end
+  end
+
+  def details
+    if params[:user]
+      params[:user].reject! { |k,v| k == :openid }
+      @user.update_attributes params[:user]
+      @user.save
     end
   end
 

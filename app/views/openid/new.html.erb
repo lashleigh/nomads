@@ -1,7 +1,17 @@
 <div id="container">
+  <div id="openid_choice">
+    <p>Please select your account provider:</p>
+    <ul id="openid_buttons">
+      <li><%= link_to image_tag("google.gif"), {:action => :create, :openid_url => "https://www.google.com/accounts/o8/id" } %></li>
+      <li><%= link_to image_tag("yahoo.gif"), {:action => :create, :openid_url => "http://yahoo.com" } %></li>
+    </ul> 
+  </div>
+
   <% form_tag '/openid/create', :id => "login" do %>
-    <%= label_tag 'openid_url', 'Your OpenID Login URL:' %><br/>
-    <%= text_field_tag 'openid_url', {}, :size => 50 %><br/>
-    <%= submit_tag "Log In" %>
+    <div id="openid_input_area">
+      <%= label_tag 'openid_url', 'Or enter your OpenID URL here:' %><br/>
+      <%= text_field_tag 'openid_url', {}, :size => 50 %><br/>
+    </div>
+    <%= submit_tag "Log In", :id => "openid_submit" %>
   <% end %>
 </div>

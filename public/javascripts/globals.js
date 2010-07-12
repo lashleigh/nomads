@@ -52,3 +52,5 @@ function createSuggestionFromSearch(event) {
     jQuery.fancybox({ content: stuff, scrolling: "no" });
   });
 }
+
+

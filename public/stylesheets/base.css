@@ -208,7 +208,10 @@ ul.form_images li img:hover { background: green; }
   background: url(/images/login-bg.gif) no-repeat #ffffff 5px;
   padding-left: 25px;
 }
-#login { padding: 2em 0; }
+#login {
+  padding: 2em 0;
+  clear: both;
+}
 #login_status {
   float: right;
   padding: 1em 2em;
@@ -217,4 +220,20 @@ ul.form_images li img:hover { background: green; }
 #login_status #sign_in {
   background: url(/images/login-bg.gif) no-repeat 5px;
   padding-left: 25px;
+}
+#details, #openid_choice, #login {
+  width: 1080px !important;
+  margin: 1em auto;
+}
+#openid_choice ul {
+  margin: 0;
+  padding: 0;
+}
+#openid_choice ul li { float: left; }
+#openid_choice ul li a img {
+  padding: 0.5em;
+  margin: 1em;
+  border: 5px solid #323232;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
 }
