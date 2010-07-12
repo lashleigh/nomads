@@ -12,7 +12,7 @@
 
 <% @suggestions.each do |suggestion| %>
   <tr>
-    <td><%=h suggestion.user.name or "unknown" %></td>
+    <td><%=h suggestion.user_id or "unknown" %></td>
     <td><%=h suggestion.title %></td>
     <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
     <td><%=h suggestion.content %></td>
@@ -27,4 +27,3 @@
 
 <br />
 
-<%= link_to 'New suggestion', new_suggestion_path %>

@@ -1,6 +1,10 @@
-<h1>Editing suggestion</h1>
+<div class="suggestion_text">
+  <h1>Editing suggestion</h1>
 
-<%= render :partial => "form"  %>
+  <%= render :partial => "form"  %>
 
-<%= link_to 'Show', @suggestion %> |
-<%= link_to 'Back', suggestions_path %>
+  <%= link_to 'Show', @suggestion %> |
+  <%= link_to 'Back', suggestions_path %>
+</div>
+
+<%= render :partial => "map" %>

@@ -2,6 +2,15 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
 
+  def update_location
+    suggestion = Suggestion.find(params[:id])
+    suggestion.lat = params[:latitude]
+    suggestion.lon = params[:longitude]
+    suggestion.save
+    render :text => suggestion.to_json
+  end
+
+
   def index
     @suggestions = Suggestion.all
 

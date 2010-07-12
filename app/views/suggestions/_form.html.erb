@@ -10,26 +10,23 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
-  <p>
   <%= render :partial => "display_icons" %>
-    <%= f.label :icon_id %><br />
-    <%= f.text_field :icon_id %>
-  </p>
   <p>
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </p>
-  <p>
+  <div style="display: none;" >
+    <%= f.label :icon_id %><br />
+    <%= f.text_field :icon_id %>
+    <br />
     <%= f.label :lat %><br />
     <%= f.text_field :lat %>
-  </p>
-  <p>
+    <br />
     <%= f.label :lon %><br />
     <%= f.text_field :lon %>
-  </p>
+  </div>
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Save' %>
   </p>
 <% end %>
-
 
