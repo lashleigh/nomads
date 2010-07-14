@@ -8,6 +8,7 @@ jQuery(function() {
   // only be one window open at a time.
   suggestionInfoWindow = gInfoWindow;
   imageInfoWindow = gInfoWindow;
+  var postInfoWindow = gInfoWindow;
 
   for( var i = 0; i < suggestions.length; i++) {
     suggestionList.push( new Suggestion(suggestions[i]) );
@@ -15,6 +16,21 @@ jQuery(function() {
   
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(gMap);
+
+  jQuery(posts).each(function f(i, post) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(post.latitude, post.longitude),
+      map: gMap,
+      title: post.title,
+      //draggable: true,
+      icon: post.icon_path,
+    });
+    google.maps.event.addListener(marker, 'click',
+      function() { 
+        postInfoWindow.setContent(marker.title)
+        postInfoWindow.open(gMap,marker); 
+      });
+  });
 
   jQuery(images).each(function f(i, image) {
     var marker = new google.maps.Marker({

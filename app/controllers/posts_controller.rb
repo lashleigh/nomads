@@ -1,7 +1,16 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
-  def index
+ 
+  def update_location
+    post = Post.find(params[:id])
+    post.lat = params[:latitude]
+    post.lon = params[:longitude]
+    post.save
+    render :text => post.to_json
+  end
+
+ def index
     @posts = Post.all
 
     respond_to do |format|

@@ -10,6 +10,7 @@
     <input id="dosearch" type="button" value="Find"/>
   </div>
   <script type="text/javascript">
+    var posts = <%= @posts.to_json %>;
     var images = <%= @photos.to_json %>;
     var suggestions = <%= @suggestions.to_json %>;
   </script>

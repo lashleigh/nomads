@@ -1,9 +1,11 @@
-<h1>Editing post</h1>
+<div class="suggestion_text">
+  <h1>Editing post</h1>
 
-<%= render :partial => "form"  %>
+  <%= render :partial => "form"  %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Show', @post %> |
+  <%= link_to 'Back', posts_path %>
+</div>
 
-<%= render :partial => "suggestions/map" %>
+<%= render :partial => "map" %>
 
