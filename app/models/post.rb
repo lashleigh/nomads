@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-   validates_presence_of :name, :title  
-   validates_length_of :title, :minimum => 5 
+   validates_presence_of :title
    has_many :comments
+   belongs_to :user
 end

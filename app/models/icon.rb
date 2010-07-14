@@ -6,6 +6,6 @@ class Icon < ActiveRecord::Base
   end
 
   def icon_url
-    "/images/simple_icons/#{name}.png"
+    "/images/map_icons/#{name}.png"
   end
 end

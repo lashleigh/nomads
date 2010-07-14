@@ -2,8 +2,8 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
   </p>
   <p>
     <%= f.label :title %><br />
@@ -13,6 +13,14 @@
     <%= f.label :content %><br />
     <%= f.text_area :content %>
   </p>
+  <div style="display: none;" >
+    <%= f.label :lat %><br />
+    <%= f.text_field :lat %>
+    <br />
+    <%= f.label :lon %><br />
+    <%= f.text_field :lon %>
+  </div>
+ 
   <p>
     <%= f.submit 'Create' %>
   </p>
