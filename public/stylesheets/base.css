@@ -62,7 +62,6 @@
   padding: 20px;
   border-top: 1px dashed #c9c9c9;
   text-align: center;
-  position: relative;
 }
 #about_intro {
   width: 520px;
@@ -178,6 +177,13 @@ a:visited { color: #443312; }
   padding-left: 20px;
   margin: 0px;
 }
+#full_screen_map {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+}
 #map_canvas {
   width: 600px;
   height: 550px;
@@ -190,6 +196,10 @@ a:visited { color: #443312; }
   float: right;
 }
 #map_explanation { padding: 20px; }
+#map_check_boxes {
+  margin-left: 20px;
+  margin-top: 10px;
+}
 #searchwell { float: left; }
 #photo_preload { display: none; }
 ul.form_images { overflow: hidden; }

@@ -27,7 +27,7 @@ jQuery(function() {
     });
     google.maps.event.addListener(marker, 'click',
       function() { 
-        postInfoWindow.setContent(marker.title)
+        postInfoWindow.setContent('<h3>'+ marker.title +'</h3>' + '<h4>' + post.content + '</h4>')
         postInfoWindow.open(gMap,marker); 
       });
   });
@@ -51,17 +51,17 @@ jQuery(function() {
         imageInfoWindow.open(gMap,marker); 
       });
   });
-
-  var addingPark = false;
+  jQuery(":checkbox").click(togglePics);
+  var addingSuggestion = false;
   jQuery("#make_suggestion").click(function() {
-    addingPark = true;
+    addingSuggestion = true;
     jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
   });
 
   google.maps.event.addListener(gMap, 'click', function(e) {
-    if(addingPark) {
+    if(addingSuggestion) {
       jQuery("#make_suggestion").html("Add a suggestion?");
-      addingPark = false;
+      addingSuggestion = false;
 
       var p = e.latLng;
       jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
@@ -70,6 +70,10 @@ jQuery(function() {
     }
   }); 
 });
+
+function togglePics() {
+  console.log(this);
+}
 
 // Suggestion class
 function Suggestion(somesuggestion) {

@@ -2,13 +2,21 @@
 <%= javascript_include_tag 'suggestions' %>
 <div id="container">
   <div id="map_explanation">
-    <p> Please help us make the most of our adventure by suggesting places to visit. </p>
+    <p> You can help us make the most of our adventure by suggesting places to visit. </p>
     <p> <%= link_to "Make a suggestion?", "#", { :id => "make_suggestion" } %> </p>
   </div>
   <div id="search_box">
     <input type="text" id="queryInput" placeholder="Search" style="width: 250px;"/>
     <input id="dosearch" type="button" value="Find"/>
   </div>
+  <div id="map_check_boxes">
+    <%= label_tag 'photos' %>
+    <%= check_box_tag 'photos' %>
+    <br />
+    <%= label_tag 'show_posts' %>
+    <%= check_box_tag 'show_posts' %>
+  </div>
+
   <script type="text/javascript">
     var posts = <%= @posts.to_json %>;
     var images = <%= @photos.to_json %>;
