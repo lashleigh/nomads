@@ -1,6 +1,6 @@
 class FlickrController < ApplicationController
   def index
-    @photos = FlickrPhoto.find(:all)
+    @photos = FlickrPhoto.find(:all).reverse
   end
 
   def update_location
