@@ -1,7 +1,8 @@
 class Suggestion < ActiveRecord::Base
   belongs_to :icon
   belongs_to :user
-  validates_presence_of :icon
+  validates_presence_of :user_id
+  validates_presence_of :icon, :message => "must be selected"
   validates_presence_of :title
   validates_presence_of :content
 

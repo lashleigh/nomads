@@ -8,10 +8,7 @@
 
 
 
-*/#fancybox-outer { background: #222222; }
-.fancybox-title-inside { color: #999999; }
-#new_suggestion { background-color: white; }
-#header_wrapper {
+*/#header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
   height: 122px;
   overflow: hidden;
@@ -202,7 +199,11 @@ a:visited { color: #443312; }
 }
 #searchwell { float: left; }
 #photo_preload { display: none; }
-ul.form_images { overflow: hidden; }
+ul.form_images {
+  overflow: hidden;
+  margin: 0px;
+  padding: 0px;
+}
 ul.form_images li {
   float: left;
   padding: 0px 5px;
@@ -264,3 +265,9 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
+#suggestion_errors {
+  color: #dd3333;
+  display: none;
+}
+#suggestion_errors ul { list-style: disc outside none; }
+#suggestion_errors ul li { padding: 0px 5px 2px 0px; }

@@ -24,14 +24,7 @@ jQuery(function() {
   jQuery("#queryInput").change(doSearch);
   jQuery("#dosearch").click(doSearch);
   jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
-  jQuery("#new_suggestion").live("submit", function(event) {
-      var self = jQuery(this);
-      jQuery.post(this.action, this.serialize(), function(res, text_status) {
-        new Suggestion(res);
-        jQuery.fancybox.close();
-      }, "json");
-      return false;
-  });
+
   jQuery(".icon_link").live("click", function(event) {
       var me = this;
       jQuery(".icon_link").removeClass("select");
@@ -48,9 +41,11 @@ function createSuggestionFromSearch(event) {
   var parentdiv = jQuery(this).parents(".unselected")
   var suggestionLatLng = parentdiv.find(".hiddenLatLng").text().split(', ');
   var suggestedName = parentdiv.find("a.gs-title").text();
-  jQuery.get("/map/new_suggestion", { lat: suggestionLatLng[0], lng: suggestionLatLng[1], title: suggestedName }, function(stuff) {
-    jQuery.fancybox({ content: stuff, scrolling: "no" });
-  });
+  jQuery.get("/map/new_suggestion",
+             { lat: suggestionLatLng[0],
+               lng: suggestionLatLng[1],
+               title: suggestedName },
+             function(stuff) {
+               jQuery.fancybox({ content: stuff, scrolling: "no" });
+             });
 }
-
-
