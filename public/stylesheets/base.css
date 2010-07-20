@@ -149,13 +149,22 @@ a:visited { color: #443312; }
   vertical-align: middle;
 }
 .flickr_photo { padding: 10px; }
-#photo_archive_container { padding-left: 20px; }
+#photo_archive_container {
+  padding-left: 20px;
+  overflow: hidden;
+}
 .archive_photo {
   float: left;
-  margin-top: auto;
-  margin-bottom: auto;
-  height: 250px;
+  margin: 0px 10px 0px 0px;
 }
+.archive_photo a {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  height: 240px;
+  width: 240px;
+}
+.archive_photo img { vertical-align: middle; }
 .tweet {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
