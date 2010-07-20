@@ -72,7 +72,7 @@ jQuery(function() {
 });
 
 function togglePics() {
-  console.log(this);
+  alert('toggle');
 }
 
 // Suggestion class
