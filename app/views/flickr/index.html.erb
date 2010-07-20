@@ -2,7 +2,7 @@
   <div id="photo_archive_container">
     <% @photos.each do |p| %>
       <div class="archive_photo">
-        <%= link_to(image_tag(p.url('m'), :title => p.title, :border => 0, :alt => p.title), p.url('b'), :class => "fancy", :rel =>"group") %>
+        <%= link_to(image_tag(p.url('m'), :title => p.title, :border => 0, :alt => p.title), p.url('b'), :class => "fancy", :rel =>"group", :"vertical-align" => "middle") %>
       </div>
     <% end %>
   </div>

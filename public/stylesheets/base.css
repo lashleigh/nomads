@@ -153,7 +153,12 @@ a:visited { color: #443312; }
 }
 .flickr_photo { padding: 10px; }
 #photo_archive_container { padding-left: 20px; }
-.archive_photo { float: left; }
+.archive_photo {
+  float: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 250px;
+}
 .tweet {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
