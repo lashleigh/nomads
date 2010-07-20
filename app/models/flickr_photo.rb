@@ -1,4 +1,5 @@
 class FlickrPhoto < ActiveRecord::Base
+  validates_uniqueness_of :photo_id
   FlickRawOptions = {
     "api_key" => "102b5abb3630dfebf56162816ce764c9",
     "shared_secret" => "de4a6e8f592ce5a1",
