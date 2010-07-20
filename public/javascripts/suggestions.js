@@ -53,9 +53,27 @@ jQuery(function() {
   });
   jQuery(":checkbox").click(togglePics);
   var addingSuggestion = false;
-  jQuery("#make_suggestion").click(function() {
+  jQuery("#make_suggestion").click(function(e) {
+    e.preventDefault();
     addingSuggestion = true;
     jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
+  });
+
+  // Hook into the form submission of any new suggestion, and 
+  // send to the server via ajax instead.
+  jQuery("#new_suggestion").live("submit", function(event) {
+      var self = jQuery(this);
+      jQuery.post(this.action, this.serialize(), function(res, text_status) {
+        if(res.errors) {
+          jQuery("#suggestion_errors").html('<ul><li>' + res.errors.join('</li><li>') + '</li></ul>').fadeIn(500);
+          jQuery.fancybox.resize();
+        }
+        else {
+          new Suggestion(res);
+          jQuery.fancybox.close();
+        }
+      }, "json");
+      return false;
   });
 
   google.maps.event.addListener(gMap, 'click', function(e) {
@@ -120,4 +138,3 @@ Suggestion.prototype.html = function() {
   container.appendChild(moreContent);
   return container;
 }
-

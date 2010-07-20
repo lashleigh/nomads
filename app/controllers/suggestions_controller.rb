@@ -56,6 +56,7 @@ class SuggestionsController < ApplicationController
   def create
     display_icons
     @suggestion = Suggestion.new(params[:suggestion])
+    @suggestion.user = @user if @user
 
     respond_to do |format|
       if @suggestion.save

@@ -1,4 +1,3 @@
-@import "fancy";
 @import "header";
 @import "footer";
 @import "mixin";
@@ -164,14 +163,17 @@ a {
 }
 ul.form_images {
   overflow: hidden;
-}
-ul.form_images li {
-  float: left;
-  padding: 0px 5px;
-  img:hover {
-    background: green;
+  margin: 0px;
+  padding: 0px;
+  li {
+    float: left;
+    padding: 0px 5px;
+    img:hover {
+      background: green;
+    }
   }
 }
+
 .select {
   background: red;
 }
@@ -242,4 +244,15 @@ ul.form_images li {
   border: solid 2px #833;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+}
+
+#suggestion_errors {
+  color: #D33;
+  display: none;
+  ul {
+    list-style: disc outside none;
+    li {
+      padding: 0px 5px 2px 0px;
+    }
+  }
 }
