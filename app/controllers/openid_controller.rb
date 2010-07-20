@@ -53,7 +53,7 @@ class OpenidController < ApplicationController
       end
 
       session[:user] = user.id
-      unless user.attributes[:name]
+      unless user.name
         redirect_to :action => :details 
       else
         redirect_to :controller => :home
