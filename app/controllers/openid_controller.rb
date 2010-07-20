@@ -66,12 +66,13 @@ class OpenidController < ApplicationController
 
   def details
     if params[:user]
+      logger.info "================= UPDATING USER ================="
       params[:user].reject! { |k,v| k == :openid }
       @user.update_attributes params[:user]
       if @user.save
-        flash[:message] = "Your account details were saved successfully."
+        flash.now[:message] = "Your account details were saved successfully."
       else
-        flash[:errors] = @user.errors.full_messages
+        flash.now[:errors] = @user.errors.full_messages
       end
     end
   end
