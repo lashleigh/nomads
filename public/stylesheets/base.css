@@ -94,7 +94,11 @@ p {
   text-align: justify;
   margin: 0 0 22px;
 }
-h2 { border-bottom: 3px dotted; }
+h2 {
+  border-bottom: 3px dotted;
+  margin-top: 17.4333px;
+  margin-bottom: 17.4333px;
+}
 ol, ul {
   list-style: none outside none;
   margin: 10px 0;
