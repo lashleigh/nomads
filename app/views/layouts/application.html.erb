@@ -23,41 +23,38 @@
     <%= javascript_include_tag 'googleLocalSearch' %>
   </head>
   <body>
-    <div id="header_wrapper">
-      <div id="header">
-        <a id="header-logo" href="/home"></a>
-        <div id="login_status">
-          <% if session[:user] %>
-            Logged in as <%= link_to @user.nickname, { :controller => :openid, :action => :details } %><br/>
-            <%= link_to "sign out", :controller => :openid, :action => :destroy %>
-          <% else %>
-            <%= link_to "sign in", { :controller => :openid }, :id => "sign_in" %>
-          <% end %>
+    <div id="page_wrapper">
+      <div id="header_wrapper">
+        <div id="header">
+          <a id="header-logo" href="/home"></a>
+          <div id="login_status">
+            <% if session[:user] %>
+              Logged in as <%= link_to @user.nickname, { :controller => :openid, :action => :details } %><br/>
+              <%= link_to "sign out", :controller => :openid, :action => :destroy %>
+            <% else %>
+              <%= link_to "sign in", { :controller => :openid }, :id => "sign_in" %>
+            <% end %>
+          </div>
         </div>
-        <ul id="navigation">
-          <li><a href="/flickr">Photos</a></li>
-          <li><a href="/map">Map</a></li>
-          <li><a href="/home/about">About</a></li>
-          <li><a href="/home">Home</a></li>
-        </ul>
+        <% if flash[:error] %>
+          <div id="errors"><%= flash[:error] %></div>
+        <% end %>
+        <% if flash[:errors] %>
+          <div id="errors">
+            <ul>
+              <% flash[:errors].each do |err| %>
+                <li><%= err %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if flash[:message] %>
+          <div id="message"><%= flash[:message] %></div>
+        <% end %>
+        <%= yield %>
       </div>
     </div>
-    <% if flash[:error] %>
-      <div id="errors"><%= flash[:error] %></div>
-    <% end %>
-    <% if flash[:errors] %>
-      <div id="errors">
-      <ul>
-        <% flash[:errors].each do |err| %>
-          <li><%= err %></li>
-        <% end %>
-      </ul>
-      </div>
-    <% end %>
-    <% if flash[:message] %>
-      <div id="message"><%= flash[:message] %></div>
-    <% end %>
-    <%= yield %>
+
     <div id="footer_wrapper">
       <div id="footer">
         Do we need a footer?  <br>

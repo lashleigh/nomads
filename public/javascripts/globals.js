@@ -9,7 +9,12 @@ jQuery(function() {
     zoom: 10,
     mapTypeId: 'roadmap'
   });
-  
+
+  // Toggle full screen
+  jQuery("#map_full_screen").click( function() {
+    jQuery("#map_canvas").toggleClass("full_screen");
+  });
+
   // Create one InfoWindow to open when a marker is clicked.
   gInfoWindow = new google.maps.InfoWindow;
   google.maps.event.addListener(gInfoWindow, 'closeclick', function() {
