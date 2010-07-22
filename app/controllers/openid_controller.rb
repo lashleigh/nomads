@@ -20,7 +20,7 @@ class OpenidController < ApplicationController
 
       redirect_to openid_request.redirect_url(realm, return_to)
     rescue OpenID::DiscoveryFailure
-      flash[:error] = "Couldn't find an OpenID for the specified URL"
+      flash.now[:error] = "Couldn't find an OpenID for the specified URL"
       render :action => :new
     end
   end
@@ -33,8 +33,8 @@ class OpenidController < ApplicationController
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
       unless user
-        flash[:message] = "Welcome! We have created an account for you and linked it 
-                           to this login. When you log in again, we'll remember you!"
+        flash.now[:message] = "Welcome! We have created an account for you and linked it 
+                               to this login. When you log in again, we'll remember you!"
         user = User.new
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
@@ -66,7 +66,6 @@ class OpenidController < ApplicationController
 
   def details
     if params[:user]
-      logger.info "================= UPDATING USER ================="
       params[:user].reject! { |k,v| k == :openid }
       @user.update_attributes params[:user]
       if @user.save
