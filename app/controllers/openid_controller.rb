@@ -33,8 +33,8 @@ class OpenidController < ApplicationController
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
       unless user
-        flash.now[:message] = "Welcome! We have created an account for you and linked it 
-                               to this login. When you log in again, we'll remember you!"
+        flash.now[:message] = "Welcome! We have created an account for you and linked it"+
+                              "to this login. When you log in again, we'll remember you!"
         user = User.new
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
