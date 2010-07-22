@@ -53,7 +53,7 @@ class OpenidController < ApplicationController
       end
 
       session[:user] = user.id
-      unless user.attributes[:name]
+      unless user.name
         redirect_to :action => :details 
       else
         redirect_to :controller => :home
@@ -66,12 +66,13 @@ class OpenidController < ApplicationController
 
   def details
     if params[:user]
+      logger.info "================= UPDATING USER ================="
       params[:user].reject! { |k,v| k == :openid }
       @user.update_attributes params[:user]
       if @user.save
-        flash[:message] = "Your account details were saved successfully."
+        flash.now[:message] = "Your account details were saved successfully."
       else
-        flash[:errors] = @user.errors.full_messages
+        flash.now[:errors] = @user.errors.full_messages
       end
     end
   end
