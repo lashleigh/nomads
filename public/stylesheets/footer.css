@@ -9,9 +9,13 @@
 
 
 */#footer_wrapper {
-  margin: 0px auto;
-  overflow: hidden;
+  position: relative;
+  height: 150px;
   width: 1120px;
+  margin: 0px auto;
+  margin-top: -150px;
+  clear: both;
+  z-index: -1;
 }
 #footer {
   width: 1045px;
