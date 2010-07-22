@@ -25,6 +25,7 @@ class MapController < ApplicationController
     @posts = Post.find(:all).collect { |p| p.as_hash }
     @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect { |p| p.as_hash }
     @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
+    render :layout => false
   end
 
   private

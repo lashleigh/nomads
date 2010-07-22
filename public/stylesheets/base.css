@@ -277,7 +277,7 @@ ul.form_images li img:hover { background: green; }
 }
 #message {
   padding: 0.5em;
-  margin: 1em 4em;
+  margin: 1em 20px;
   width: 33%;
   border: solid 2px #4b2812;
   -moz-border-radius: 4px;
@@ -285,7 +285,7 @@ ul.form_images li img:hover { background: green; }
 }
 #errors {
   padding: 0.5em;
-  margin: 1em 4em;
+  margin: 1em 20px;
   width: 33%;
   color: #aa3333;
   border: solid 2px #883333;
@@ -296,5 +296,8 @@ ul.form_images li img:hover { background: green; }
   color: #dd3333;
   display: none;
 }
-#suggestion_errors ul { list-style: disc outside none; }
+#suggestion_errors ul {
+  list-style: disc outside none;
+  padding: 0 15px;
+}
 #suggestion_errors ul li { padding: 0px 5px 2px 0px; }

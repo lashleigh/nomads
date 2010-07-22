@@ -43,22 +43,24 @@
           </ul>
         </div>
       </div>
-      <% if flash[:error] %>
-        <div id="errors"><%= flash[:error] %></div>
-      <% end %>
-      <% if flash[:errors] %>
-        <div id="errors">
-          <ul>
-            <% flash[:errors].each do |err| %>
-              <li><%= err %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-      <% if flash[:message] %>
-        <div id="message"><%= flash[:message] %></div>
-      <% end %>
-      <%= yield %>
+      <div id="container">
+        <% if flash[:error] %>
+          <div id="errors"><%= flash[:error] %></div>
+        <% end %>
+        <% if flash[:errors] %>
+          <div id="errors">
+            <ul>
+              <% flash[:errors].each do |err| %>
+                <li><%= err %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if flash[:message] %>
+          <div id="message"><%= flash[:message] %></div>
+        <% end %>
+        <%= yield %>
+      </div>
     </div>
 
     <div id="footer_wrapper">
