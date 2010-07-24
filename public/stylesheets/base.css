@@ -147,7 +147,6 @@ a:visited { color: #443312; }
   width: 32px;
 }
 .flickr-logo { background: url("/images/logo-flickr.png") no-repeat scroll left top transparent; }
-.twitter-logo { background: url("/images/logo-twitter.jpg") no-repeat scroll left top transparent; }
 #flickr ul {
   list-style-type: none;
   margin: 0;

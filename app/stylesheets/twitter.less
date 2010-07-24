@@ -1,15 +1,10 @@
 @import "mixin";
 
-#twitter_t {
-   width: 445px;
-   height: 34px;
-   background-image:url("your top image");
-}
+@tweet_dark: #323232;
+@tweet_light: #F5F5F5;
 
-#twitter_m {
-   width: 415px;
-   padding: 0 15px;
-   background:url("your middle image")  0 0 repeat-y;
+.twitter-logo {
+  background:url("/images/logo-twitter.jpg") no-repeat scroll left top transparent;
 }
 
 #twitter_container {
@@ -19,35 +14,29 @@
 }
 
 #twitter_update_list {
-    width: 230;
-}
-
-#twitter_update_list li {
-  .rounded_corners;
-  background: #323232;
-  color: #F5F5F5;
-  padding: 10px;
-  margin: 10px 0;
-  width: 230px;
-  p {
-  margin: 0;
+  width: 230;
+  li {
+    .rounded_corners;
+    padding: 10px;
+    margin: 10px 0;
+    width: 230px;
+    a {
+      color: #556C87;
+      border-bottom: dotted 1px;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #31353d;
+      background: #d3f1f9;
+    }
   }
 }
 
-#twitter_update_list li a {
-    color: #5f6d76;
-    border-bottom: dotted 1px;
-    text-decoration: none;
+.bensonk42 {
+  background: @tweet_dark;
+  color: @tweet_light;
 }
-
-#twitter_update_list li a:hover {
-    color: #31353d;
-    background: #d3f1f9;
+.lashleigh {
+  background: @tweet_light;
+  color: @tweet_dark;
 }
-
-#twitter_b {
-   width: 445px;
-   height: 29px;
-   background-image:url("your bottom image");
-}
-
