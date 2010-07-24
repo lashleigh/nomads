@@ -9,11 +9,11 @@ jQuery(function() {
     zoom: 10,
     mapTypeId: 'roadmap'
   });
-
-  // Toggle full screen
-  jQuery("#map_full_screen").click( function() {
-    jQuery("#map_canvas").toggleClass("full_screen");
-  });
+  function renderDirections(result) {
+    var directionsRenderer = new google.maps.DirectionsRenderer;
+    directionsRenderer.setMap(gMap);
+    directionsRenderer.setDirections(result);
+  }
 
   // Create one InfoWindow to open when a marker is clicked.
   gInfoWindow = new google.maps.InfoWindow;

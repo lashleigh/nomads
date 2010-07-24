@@ -117,7 +117,7 @@ a:visited { color: #443312; }
   overflow: auto;
   padding-bottom: 150px;
 }
-#flickr, #twitter {
+#flickr {
   float: left;
   width: 250px;
   padding: 20px;
@@ -180,17 +180,6 @@ a:visited { color: #443312; }
   margin: 5px;
   height: 180px;
 }
-.tweet {
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: #323232;
-  color: #f5f5f5;
-  padding: 10px;
-  margin: 10px 0;
-  width: 230px;
-}
-.tweet p { margin: 0; }
 #search_box {
   width: 600px;
   padding-left: 20px;
@@ -233,7 +222,7 @@ ul.form_images {
 }
 ul.form_images li {
   float: left;
-  padding: 0px 5px;
+  padding: 0px 10px 0px 0px;
 }
 ul.form_images li img:hover { background: green; }
 .select { background: red; }

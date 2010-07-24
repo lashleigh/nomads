@@ -1,14 +1,11 @@
-
-<div id="twitter">
+<div id="twitter_container">
   <div id="column_header">
     <h2> Recent Tweets </h2>
-    <a id="column-logo" class="twitter-logo" href="">Follow Benson on Twitter</a>
   </div>
+  <ul id="twitter_update_list"></ul>
 </div>
-<script type="text/javascript">
-  jQuery.getJSON('http://twitter.com/status/user_timeline/15141419.json?count=10&callback=?', function(data){
-      jQuery.each(data, function(index, item){
-        jQuery('#twitter').append('<div class="tweet"><p>' + item.text + '<br/><br/>' + item.created_at + '</p></div>');
-        });
-      });
-</script>
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="https://twitter.com/statuses/friends_timeline/170216889.json?callback=twitterCallback2&amp;count=10"></script>
+
+
+
