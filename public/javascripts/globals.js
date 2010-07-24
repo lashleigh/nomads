@@ -10,6 +10,17 @@ jQuery(function() {
     mapTypeId: 'roadmap'
   });
 
+  // Create some fancy waypoint thingies
+  var track_points = jQuery(waypoints).map(function(i, p) { return new google.maps.LatLng(p[0], p[1]) }).get();
+  console.log(track_points);
+  var polyline = new google.maps.Polyline({
+        path: track_points,
+        strokeColor: "#FF6600",
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+  polyline.setMap(gMap);
+
   // Toggle full screen
   jQuery("#map_full_screen").click( function() {
     jQuery("#map_canvas").toggleClass("full_screen");
