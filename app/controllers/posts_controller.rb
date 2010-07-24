@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  # GET /posts
-  # GET /posts.xml
- 
+  before_filter :must_be_admin
+
+  # Update Post location
   def update_location
     post = Post.find(params[:id])
     post.lat = params[:latitude]
@@ -10,7 +10,9 @@ class PostsController < ApplicationController
     render :text => post.to_json
   end
 
- def index
+  # GET /posts
+  # GET /posts.xml
+  def index
     @posts = Post.all
 
     respond_to do |format|
@@ -89,6 +91,15 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  private
+  def must_be_admin
+    unless @user and @user.admin?
+      flash[:error] = "You are not authorized to use this portion of the site."
+      redirect_to :controller => :home
+      return false
     end
   end
 end

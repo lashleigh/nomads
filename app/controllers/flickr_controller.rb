@@ -4,10 +4,12 @@ class FlickrController < ApplicationController
   end
 
   def update_location
-    photo = FlickrPhoto.find(params[:id])
-    photo.lat = params[:latitude]
-    photo.lon = params[:longitude]
-    photo.save
+    if @user.admin?
+      photo = FlickrPhoto.find(params[:id])
+      photo.lat = params[:latitude]
+      photo.lon = params[:longitude]
+      photo.save
+    end
     render :text => photo.to_json
   end
 
