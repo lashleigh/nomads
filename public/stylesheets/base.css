@@ -239,10 +239,12 @@ ul.form_images li img:hover { background: green; }
   clear: both;
 }
 #login_status {
+  color: #ffffff;
   float: right;
   padding: 1em 2em;
   text-align: right;
 }
+#login_status a { color: #ffffff; }
 #login_status #sign_in {
   background: url(/images/login-bg.gif) no-repeat 5px;
   padding-left: 25px;

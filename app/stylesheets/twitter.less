@@ -1,7 +1,8 @@
 @import "mixin";
 
-@tweet_dark: #323232;
-@tweet_light: #F5F5F5;
+@tweet_blue: #00091E;
+@tweet_light: #FFF;
+@tweet_brown: #2C1400;
 
 .twitter-logo {
   background:url("/images/logo-twitter.jpg") no-repeat scroll left top transparent;
@@ -17,11 +18,11 @@
   width: 230;
   li {
     .rounded_corners;
+    color: @tweet_light;
     padding: 10px;
     margin: 10px 0;
     width: 230px;
     a {
-      color: #556C87;
       border-bottom: dotted 1px;
       text-decoration: none;
     }
@@ -33,10 +34,10 @@
 }
 
 .bensonk42 {
-  background: @tweet_dark;
-  color: @tweet_light;
+  background: @tweet_blue;
+  a { color: #47619C; }
 }
 .lashleigh {
-  background: @tweet_light;
-  color: @tweet_dark;
+  background: @tweet_brown;
+  a { color: #AA774D; }
 }
