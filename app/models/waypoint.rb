@@ -8,6 +8,7 @@ class Waypoint < ActiveRecord::Base
 
   def self.full_track
     waypoints = Waypoint.all
+    return [] unless waypoints.length > 0
     starting_point = waypoints[0]
 
     id_to_waypoint = Hash[waypoints.collect { |w| [w.id, w] }]
@@ -33,15 +34,10 @@ class Waypoint < ActiveRecord::Base
       forward_track << p
     end
 
-    puts "nexts[1]: #{nexts[id_to_waypoint[1]].id}"
-    puts "prevs[1]: #{prevs[id_to_waypoint[1]].id}"
-
     reverse_track + [starting_point] + forward_track
   end
 
   def self.full_track_points
-    Waypoint.full_track.collect do |p|
-      [ p.suggestion.lat, p.suggestion.lon ]
-    end
+    Waypoint.full_track.collect { |p| [ p.suggestion.lat, p.suggestion.lon ] }
   end
 end
