@@ -19,12 +19,12 @@
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
+  color: #ffffff;
   padding: 10px;
   margin: 10px 0;
   width: 230px;
 }
 #twitter_update_list li a {
-  color: #556c87;
   border-bottom: dotted 1px;
   text-decoration: none;
 }
@@ -32,11 +32,7 @@
   color: #31353d;
   background: #d3f1f9;
 }
-.bensonk42 {
-  background: #323232;
-  color: #f5f5f5;
-}
-.lashleigh {
-  background: #f5f5f5;
-  color: #323232;
-}
+.bensonk42 { background: #00091e; }
+.bensonk42 a { color: #47619c; }
+.lashleigh { background: #2c1400; }
+.lashleigh a { color: #aa774d; }
