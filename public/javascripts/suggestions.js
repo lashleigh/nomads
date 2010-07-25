@@ -54,7 +54,7 @@ jQuery(function() {
 
   $(".close_info").live("click", function(e) {
       e.preventDefault(); 
-      $(".message").slideUp(800);
+      $(".message").slideUp(600);
       addingSuggestion = false;
   });
   var addingSuggestion = false;
@@ -62,11 +62,11 @@ jQuery(function() {
     e.preventDefault();
     if(logged_in) {
       addingSuggestion = true;
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please click on the map </p>").slideDown(800);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please click on the map </p>").slideDown(600);
     }
     else {
       addingSuggestion = false;
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(600);
     }
   });
 
@@ -89,7 +89,7 @@ jQuery(function() {
 
   google.maps.event.addListener(gMap, 'click', function(e) {
     if(addingSuggestion) {
-      jQuery(".message").slideUp(800);
+      jQuery(".message").slideUp(600);
       addingSuggestion = false;
 
       var p = e.latLng;

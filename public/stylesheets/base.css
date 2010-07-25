@@ -261,10 +261,6 @@ ul.form_images li {
 ul.form_images li img:hover { background: green; }
 .select { background: red; }
 .hiddenLatLng { display: none; }
-.addSuggestionFromSearch {
-  margin: 0;
-  padding: 0;
-}
 #openid_url {
   background: url(/images/login-bg.gif) no-repeat #ffffff 5px;
   padding-left: 25px;
@@ -300,21 +296,28 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-.close_info { float: right; }
+.close_info {
+  float: right;
+  padding: 35px 29px 0 0;
+}
 .message_container {
+  position: absolute;
+  width: 100%;
   background: #ffff99;
   z-index: 9999;
-  margin: 0 auto;
+  top: 123px;
 }
 .message {
+  margin: 0 auto;
   width: 1120px;
-  padding: 15px 50px;
   font-size: 150%;
   display: none;
+  height: 100px;
 }
 .message p {
-  padding: 0 40px 0 20px;
+  margin: 0;
   text-align: center;
+  padding: 35px 0 0 0;
 }
 #message {
   padding: 0.5em;
