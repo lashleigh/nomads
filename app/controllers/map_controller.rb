@@ -6,6 +6,7 @@ class MapController < ApplicationController
     @photos = FlickrPhoto.find(:all, :order => "id ASC", :limit => 5).collect { |p| p.as_hash }
     @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
     @waypoints = Waypoint.full_track_points
+    render :layout => false
   end
 
   # For rendering in a fancybox

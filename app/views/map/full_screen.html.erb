@@ -45,6 +45,12 @@
           </ul>
         </div>
       </div>
+      <div id="sub_header_wrapper"> <div id="sub_header">
+          <div id="map_explanation">
+            <%= link_to "Make a suggestion?", "/", { :id => "make_suggestion" } %>
+            <%= link_to "View map smaller", "/map", { :id => "shrink_map" } %>
+          </div>
+      </div> </div>
       <% if flash[:error] %>
         <div id="errors"><%= flash[:error] %></div>
       <% end %>
@@ -61,8 +67,6 @@
         <div id="message"><%= flash[:message] %></div>
       <% end %>
       <div id="full_screen_container">
-        <%= link_to "Make a suggestion?", "/", { :id => "make_suggestion" } %>
-        <%= link_to "View map smaller", "/map" %>
 
         <script type="text/javascript">
           var posts = <%= @posts.to_json %>;
