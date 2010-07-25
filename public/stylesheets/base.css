@@ -28,6 +28,7 @@
 #sub_header a:hover { text-decoration: underline; }
 #sub_header a:focus { text-decoration: underline; }
 #sub_header a:visited { color: #ffffff; }
+.index { height: 123px !important; }
 #header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
   height: 122px;
