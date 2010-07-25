@@ -51,21 +51,22 @@ jQuery(function() {
         imageInfoWindow.open(gMap,marker); 
       });
   });
- 
-  $(".close_info").bind("click", function(e) {
+
+  $(".close_info").live("click", function(e) {
       e.preventDefault(); 
       $(".message").slideUp(800);
+      addingSuggestion = false;
   });
   var addingSuggestion = false;
   jQuery("#make_suggestion").click(function(e) {
     e.preventDefault();
     if(logged_in) {
       addingSuggestion = true;
-      jQuery(".message").append("<p> Please click on the map </p>").slideDown(800);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please click on the map </p>").slideDown(800);
     }
     else {
       addingSuggestion = false;
-      jQuery(".message").append("<p> Please <a id='signin' class='make_suggestion' href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a id='signin' class='make_suggestion' href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
     }
   });
 
