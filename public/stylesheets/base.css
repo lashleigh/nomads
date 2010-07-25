@@ -291,3 +291,15 @@ ul.form_images li img:hover { background: green; }
   padding: 0 15px;
 }
 #suggestion_errors ul li { padding: 0px 5px 2px 0px; }
+table.zebra {
+  margin: 1em;
+  border-spacing: 0px;
+  text-align: left;
+}
+table.zebra th { padding: 0.25em 0.75em; }
+table.zebra td { padding: 0.75em; }
+table.zebra td.suggestion_content { width: 45%; }
+table.zebra tr.odd {
+  border-collapse: collapse;
+  background-color: #dddddd;
+}
