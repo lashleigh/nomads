@@ -2,7 +2,6 @@
 
 <table class="zebra">
   <tr>
-    <th>Icon</th>
     <th>User</th>
     <th>Title</th>
     <th>Content</th>
@@ -12,8 +11,13 @@
 
 <% @posts.each do |post| %>
   <tr>
-    <td><%=image_tag("map_icons/blog.png") %></td>
-    <td><%=h post.user_id %></td>
+    <td>
+      <% if post.user %>
+        <%=h post.user.nickname %>
+      <% else %>
+        <em>none</em>
+      <% end %>
+    </td>
     <td><%=h post.title %></td>
     <td class="zebra_content"><%=h truncate(post.content, :length => 300) %></td>
     <td><%=h "%0.5f" % post.lat %></td>
@@ -25,8 +29,7 @@
 <% end %>
 </table>
 
-<br />
-
 <div class="scaffold">
+  <%= link_to "Map", :controller => :map %> |
   <%= link_to 'New post', new_post_path %>
 </div>
