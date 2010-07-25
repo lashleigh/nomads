@@ -93,6 +93,8 @@ class SuggestionsController < ApplicationController
   # PUT /suggestions/1.xml
   def update
     @suggestion = Suggestion.find(params[:id])
+    values = params[:suggestion]
+    values.reject { |k,v| k == :user_id }
 
     respond_to do |format|
       if @suggestion.update_attributes(params[:suggestion])
