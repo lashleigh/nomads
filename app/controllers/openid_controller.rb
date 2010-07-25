@@ -5,6 +5,10 @@ require 'openid/store/filesystem'
 
 class OpenidController < ApplicationController
   def index
+    if request.env['HTTP_REFERER']
+      session[:back_to] = request.env['HTTP_REFERER'] 
+    end
+
     redirect_to :action => :new
   end
 
@@ -56,7 +60,12 @@ class OpenidController < ApplicationController
       unless user.name
         redirect_to :action => :details 
       else
-        redirect_to :controller => :home
+        if session[:back_to]
+          redirect_to session[:back_to]
+          session[:back_to] = nil
+        else
+          redirect_to :controller => :home
+        end
       end
     else
       flash[:error] = "Verification of your OpenID login failed: #{openid_response.message}"
@@ -78,7 +87,7 @@ class OpenidController < ApplicationController
 
   def destroy
     session[:user] = nil
-    redirect_to :controller => :home
+    redirect_to :back
   end
 
   protected
