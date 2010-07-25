@@ -65,7 +65,7 @@ jQuery(function() {
     }
     else {
       addingSuggestion = false;
-      jQuery(".message").html("<p> Please <a id='signin' class='make_suggestion' href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+      jQuery(".message").append("<p> Please <a id='signin' class='make_suggestion' href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
     }
   });
 
