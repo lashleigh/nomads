@@ -47,8 +47,17 @@
       </div>
       <div id="sub_header_wrapper"> <div id="sub_header">
           <div id="map_explanation">
-            <%= link_to "Make a suggestion?", "/", { :id => "make_suggestion" } %>
             <%= link_to "View map smaller", "/map", { :id => "shrink_map" } %>
+            <h3> You can help us make the most of our adventure by
+              <%= link_to "suggesting", "#", {:id => "make_suggestion"} %>
+              places to visit.
+            </h3>
+
+            <div id="search_box">
+              <input type="text" id="queryInput" placeholder="Search" style="width: 250px;"/>
+              <input id="dosearch" type="button" value="Find"/>
+              <input id="clearsearch" type="button" value="Clear"/>
+            </div>
           </div>
       </div> </div>
       <% if flash[:error] %>
@@ -75,6 +84,7 @@
           var waypoints = <%= @waypoints.to_json %>;
         </script>
         <div id="map_canvas" class="full_screen" ></div>
+        <div id="searchwell"></div>
       </div>
 
       <div id="photo_preload">

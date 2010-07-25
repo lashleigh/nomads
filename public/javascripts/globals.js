@@ -36,6 +36,13 @@ jQuery(function() {
   gLocalSearch.setSearchCompleteCallback(null, OnLocalSearch);
 
   // dosearch is the div id of the button
+  jQuery("#clearsearch").click( function() {
+      jQuery("#searchwell").html("");
+      jQuery("#queryInput").val("");
+      for (var i = 0; i < gCurrentResults.length; i++) {
+        gCurrentResults[i].marker().setMap(null);
+      }
+  });
   jQuery("#queryInput").change(doSearch);
   jQuery("#dosearch").click(doSearch);
   jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
