@@ -58,7 +58,7 @@ jQuery(function() {
       addingSuggestion = false;
   });
   var addingSuggestion = false;
-  jQuery("#make_suggestion").click(function(e) {
+  jQuery(".make_suggestion").click(function(e) {
     e.preventDefault();
     if(logged_in) {
       addingSuggestion = true;
@@ -66,7 +66,7 @@ jQuery(function() {
     }
     else {
       addingSuggestion = false;
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a id='signin' class='make_suggestion' href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
     }
   });
 

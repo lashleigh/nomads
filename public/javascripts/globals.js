@@ -45,7 +45,15 @@ jQuery(function() {
   });
   jQuery("#queryInput").change(doSearch);
   jQuery("#dosearch").click(doSearch);
-  jQuery(".addSuggestionFromSearch").live("click", createSuggestionFromSearch);
+  jQuery(".addSuggestionFromSearch").live("click", function(e) {
+    e.preventDefault();
+    if(logged_in) {
+      createSuggestionFromSearch(e);
+    }
+    else {
+      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+    }
+  });
 
   jQuery(".icon_link").live("click", function(event) {
       var me = this;
