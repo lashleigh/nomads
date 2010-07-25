@@ -93,13 +93,4 @@ class PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-  private
-  def must_be_admin
-    unless @user and @user.admin?
-      flash[:error] = "You are not authorized to use this portion of the site."
-      redirect_to :controller => :home
-      return false
-    end
-  end
 end

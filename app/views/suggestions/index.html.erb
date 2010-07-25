@@ -1,6 +1,10 @@
-<h1>Listing suggestions</h1>
+<% if @user.admin? %>
+  <h1>All suggestions</h1>
+<% else %>
+  <h1>Your suggestions</h1>
+<% end %>
 
-<table>
+<table class="zebra">
   <tr>
     <th>User</th>
     <th>Title</th>
@@ -12,10 +16,16 @@
 
 <% @suggestions.each do |suggestion| %>
   <tr>
-    <td><%=h suggestion.user_id or "unknown" %></td>
+    <td>
+      <% if suggestion.user %>
+        <%=h suggestion.user.nickname %>
+      <% else %>
+        <em>none</em>
+      <% end %>
+    </td>
     <td><%=h suggestion.title %></td>
     <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
-    <td><%=h suggestion.content %></td>
+    <td class="suggestion_content"><%=h suggestion.content %></td>
     <td><%=h "%0.5f" % suggestion.lat %></td>
     <td><%=h "%0.5f" % suggestion.lon %></td>
     <td><%= link_to 'Show', suggestion %></td>
