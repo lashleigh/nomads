@@ -15,8 +15,11 @@ class MapController < ApplicationController
     @suggestion.lon = params[:lng]
     @suggestion.title = params[:title]
     @suggestion.icon_id = params[:icon_id]
-    unless @suggestion.lat and @suggestion.lon
+
+    if not @suggestion.lat and @suggestion.lon
       render :text => "<h3>Please provide the coordinates of your suggestion.</h3>"
+    elsif not @user
+      render :text => "<h3>You must be logged in to make a suggestion.</h3>"
     else
       render :layout => false
     end

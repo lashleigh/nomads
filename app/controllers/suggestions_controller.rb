@@ -1,18 +1,25 @@
 class SuggestionsController < ApplicationController
-  # GET /suggestions
-  # GET /suggestions.xml
+  before_filter :must_be_user
 
+  # Updates the location of a suggestion
   def update_location
     suggestion = Suggestion.find(params[:id])
-    suggestion.lat = params[:latitude]
-    suggestion.lon = params[:longitude]
-    suggestion.save
+    if @user.admin? or suggestion.user == @user
+      suggestion.lat = params[:latitude]
+      suggestion.lon = params[:longitude]
+      suggestion.save
+    end
     render :text => suggestion.to_json
   end
 
-
+  # GET /suggestions
+  # GET /suggestions.xml
   def index
-    @suggestions = Suggestion.all
+    if @user.admin?
+      @suggestions = Suggestion.all
+    else
+      @suggestions = Suggestion.find_all_by_user_id @user.id
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +31,11 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1.xml
   def show
     @suggestion = Suggestion.find(params[:id])
+    unless @suggestion.user == @user or @user.admin?
+      flash[:error] = "You are not authorized to edit that suggestion."
+      redirect_to :action => :home
+      return
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -47,6 +59,12 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions/1/edit
   def edit
+    unless @suggestion.user == @user or @user.admin?
+      flash[:error] = "You are not authorized to edit that suggestion."
+      redirect_to :action => :home
+      return
+    end
+
     display_icons 
     @suggestion = Suggestion.find(params[:id])
   end
@@ -56,7 +74,7 @@ class SuggestionsController < ApplicationController
   def create
     display_icons
     @suggestion = Suggestion.new(params[:suggestion])
-    @suggestion.user = @user if @user
+    @suggestion.user = @user
 
     respond_to do |format|
       if @suggestion.save

@@ -1,4 +1,8 @@
-<h1>Listing suggestions</h1>
+<% if @user.admin? %>
+  <h1>All suggestions</h1>
+<% else %>
+  <h1>Your suggestions</h1>
+<% end %>
 
 <table class="zebra">
   <tr>
