@@ -1,6 +1,31 @@
 @wrapper_side :url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
 @wrapper_center:url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
 
+@sub_wrapper_side :url("/images/solid_blue.png") repeat-x scroll 0 0 transparent;
+@sub_wrapper_center:url("/images/sub_header_blue.png") no-repeat scroll 40px 0 transparent;
+
+#sub_header_wrapper {
+  background: @sub_wrapper_side;
+  height: 50px;
+  overflow: hidden;
+}
+
+#sub_header {
+  background:@sub_wrapper_center;
+  height:50px;
+  margin:0 auto;
+  position:relative;
+  width:1120px;
+  color: #FFF;
+  a {
+    outline: none;
+    text-decoration: none;
+    :hover {text-decoration: underline;}
+    :focus {text-decoration: underline;}
+    :visited {color: #FFF;}
+  }
+}
+
 #header_wrapper {
   background: @wrapper_side;
   height: 122px;

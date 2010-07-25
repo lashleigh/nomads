@@ -8,7 +8,27 @@
 
 
 
-*/#header_wrapper {
+*/#sub_header_wrapper {
+  background: url("/images/solid_blue.png") repeat-x scroll 0 0 transparent;
+  height: 50px;
+  overflow: hidden;
+}
+#sub_header {
+  background: url("/images/sub_header_blue.png") no-repeat scroll 40px 0 transparent;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+  width: 1120px;
+  color: #ffffff;
+}
+#sub_header a {
+  outline: none;
+  text-decoration: none;
+}
+#sub_header a:hover { text-decoration: underline; }
+#sub_header a:focus { text-decoration: underline; }
+#sub_header a:visited { color: #ffffff; }
+#header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
   height: 122px;
   overflow: hidden;
@@ -202,6 +222,10 @@ a:visited { color: #443312; }
   width: 100% !important;
   margin: 0 !important;
   padding: 0 !important;
+}
+#shrink_map {
+  float: right;
+  padding: 1em 25px;
 }
 #map_controls {
   width: 15%;
