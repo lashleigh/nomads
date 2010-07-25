@@ -1,7 +1,7 @@
 <% if @user.admin? %>
-  <h1>All suggestions</h1>
+  <h1 class="scaffold">All suggestions</h1>
 <% else %>
-  <h1>Your suggestions</h1>
+  <h1 class="scaffold">Your suggestions</h1>
 <% end %>
 
 <table class="zebra">
@@ -25,7 +25,7 @@
     </td>
     <td><%=h suggestion.title %></td>
     <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
-    <td class="suggestion_content"><%=h suggestion.content %></td>
+    <td class="zebra_content"><%=h truncate(suggestion.content, :length => 300) %></td>
     <td><%=h "%0.5f" % suggestion.lat %></td>
     <td><%=h "%0.5f" % suggestion.lon %></td>
     <td><%= link_to 'Show', suggestion %></td>

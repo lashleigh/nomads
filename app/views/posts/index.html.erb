@@ -1,6 +1,6 @@
-<h1>Listing posts</h1>
+<h1 class="scaffold">Listing posts</h1>
 
-<table>
+<table class="zebra">
   <tr>
     <th>Icon</th>
     <th>User</th>
@@ -15,7 +15,7 @@
     <td><%=image_tag("map_icons/blog.png") %></td>
     <td><%=h post.user_id %></td>
     <td><%=h post.title %></td>
-    <td><%=h post.content %></td>
+    <td class="zebra_content"><%=h truncate(post.content, :length => 300) %></td>
     <td><%=h "%0.5f" % post.lat %></td>
     <td><%=h "%0.5f" % post.lon %></td>
     <td><%= link_to 'Show', post %></td>
@@ -27,4 +27,6 @@
 
 <br />
 
-<%= link_to 'New post', new_post_path %>
+<div class="scaffold">
+  <%= link_to 'New post', new_post_path %>
+</div>

@@ -2,21 +2,21 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Suggestions: <%= controller.action_name %></title>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Posts: <%= controller.action_name %></title>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-  <%= stylesheet_link_tag 'scaffold' %>
-  <%= stylesheet_link_tag 'base' %>
-  <%= stylesheet_link_tag 'suggestion' %>
-  <%= javascript_include_tag 'map_for_post' %>
-</head>
-<body>
+    <%= stylesheet_link_tag 'scaffold' %>
+    <%= stylesheet_link_tag 'base' %>
+    <%= stylesheet_link_tag 'suggestion' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'map_for_post' %>
+  </head>
+  <body>
+    <p style="color: green"><%= flash[:notice] %></p>
 
-<p style="color: green"><%= flash[:notice] %></p>
+    <%= yield %>
 
-<%= yield %>
-
-</body>
+    </body>
 </html>

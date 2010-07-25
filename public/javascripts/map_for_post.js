@@ -29,7 +29,5 @@ jQuery(function() {
 
 function select(me) {
   jQuery("#suggestion_icon_id").val(me.title);
-  me.addClassName("select");
+  jQuery(me).addClass("select");
 }
-
-
