@@ -59,14 +59,13 @@ class SuggestionsController < ApplicationController
 
   # GET /suggestions/1/edit
   def edit
+    @suggestion = Suggestion.find(params[:id])
     unless @suggestion.user == @user or @user.admin?
       flash[:error] = "You are not authorized to edit that suggestion."
       redirect_to :action => :home
       return
     end
-
     display_icons 
-    @suggestion = Suggestion.find(params[:id])
   end
 
   # POST /suggestions
