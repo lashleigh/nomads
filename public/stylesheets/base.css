@@ -300,20 +300,19 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-.message {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-  left: 0;
+.close_info { float: right; }
+.message_container {
   background: #ffff99;
-  border: 1px solid #ffcc00;
-  font-size: 150%;
-  padding: 15px 50px;
   z-index: 9999;
+  margin: 0 auto;
+}
+.message {
+  width: 1120px;
+  padding: 15px 50px;
+  font-size: 150%;
   display: none;
 }
 .message p {
-  margin: 0;
   padding: 0 40px 0 20px;
   text-align: center;
 }
