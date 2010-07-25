@@ -46,8 +46,10 @@
         </div>
       </div>
       <div id="sub_header_wrapper"> <div id="sub_header">
-        <%= link_to "Make a suggestion?", "/", { :id => "make_suggestion" } %>
-        <%= link_to "View map smaller", "/map", { :id => "shrink_map" } %>
+          <div id="map_explanation">
+            <%= link_to "Make a suggestion?", "/", { :id => "make_suggestion" } %>
+            <%= link_to "View map smaller", "/map", { :id => "shrink_map" } %>
+          </div>
       </div> </div>
       <% if flash[:error] %>
         <div id="errors"><%= flash[:error] %></div>

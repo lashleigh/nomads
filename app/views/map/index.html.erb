@@ -47,9 +47,11 @@
       </div>
       <div id="sub_header_wrapper" class="index"> <div id="sub_header" class="index">
           <div id="map_explanation">
-            <h3> You can help us make the most of our adventure by suggesting places to visit. </h3>
-            <p> <%= link_to "Make a suggestion?", "#", {:id => "make_suggestion"} %> </p>
-            <p> <%= link_to "View Map Full Screen", "/map/full_screen", {:id => "shrink_map"} %> </p>
+            <%= link_to "View Map Full Screen", "/map/full_screen", {:id => "shrink_map"} %>
+            <h3> You can help us make the most of our adventure by
+              <%= link_to "suggesting", "#", {:id => "make_suggestion"} %>
+              places to visit.
+            </h3>
 
             <div id="search_box">
               <input type="text" id="queryInput" placeholder="Search" style="width: 250px;"/>
