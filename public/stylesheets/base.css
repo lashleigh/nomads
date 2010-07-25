@@ -26,9 +26,12 @@
   outline: none;
   text-decoration: none;
 }
-#sub_header a:hover { text-decoration: underline; }
+#sub_header a:hover {
+  text-decoration: none;
+  background: #ffffff;
+  color: #222222;
+}
 #sub_header a:focus { text-decoration: underline; }
-#sub_header a:visited { color: #ffffff; }
 .index { height: 100px !important; }
 #header_wrapper {
   background: url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
@@ -229,6 +232,10 @@ a:visited { color: #443312; }
   float: right;
   padding: 0 25px;
 }
+#make_suggestion {
+  background: #02112e;
+  padding: 0.25em 0.5em;
+}
 #map_controls {
   width: 15%;
   float: right;
@@ -290,6 +297,23 @@ ul.form_images li img:hover { background: green; }
   border: 5px solid #323232;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
+}
+.message {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  left: 0;
+  background: #ffff99;
+  border: 1px solid #ffcc00;
+  font-size: 150%;
+  padding: 15px 50px;
+  z-index: 9999;
+  display: none;
+}
+.message p {
+  margin: 0;
+  padding: 0 40px 0 20px;
+  text-align: center;
 }
 #message {
   padding: 0.5em;

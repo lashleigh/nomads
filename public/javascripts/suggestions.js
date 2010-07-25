@@ -51,12 +51,12 @@ jQuery(function() {
         imageInfoWindow.open(gMap,marker); 
       });
   });
-  jQuery(":checkbox").click(togglePics);
+  
   var addingSuggestion = false;
   jQuery("#make_suggestion").click(function(e) {
     e.preventDefault();
     addingSuggestion = true;
-    jQuery("#make_suggestion").html("Click on the map to show us where your suggestion resides");
+    jQuery(".message").html("<p> Please click on the map </p>").fadeIn(1100);
   });
 
   // Hook into the form submission of any new suggestion, and 
@@ -78,7 +78,7 @@ jQuery(function() {
 
   google.maps.event.addListener(gMap, 'click', function(e) {
     if(addingSuggestion) {
-      jQuery("#make_suggestion").html("Add a suggestion?");
+      jQuery(".message").fadeOut(1100);
       addingSuggestion = false;
 
       var p = e.latLng;
