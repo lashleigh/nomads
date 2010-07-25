@@ -45,9 +45,8 @@
           </ul>
         </div>
       </div>
-      <div id="sub_header_wrapper" class="index"> <div id="sub_header" class="index">
+      <div id="sub_header_wrapper"> <div id="sub_header">
           <div id="map_explanation">
-            <%= link_to "View Map Full Screen", "/map/full_screen", {:id => "shrink_map"} %>
             <h3> You can help us make the most of our adventure by
               <%= link_to "suggesting", "#", {:id => "make_suggestion"} %>
               places to visit.
@@ -56,6 +55,7 @@
             <div id="search_box">
               <input type="text" id="queryInput" placeholder="Search" style="width: 250px;"/>
               <input id="dosearch" type="button" value="Find"/>
+              <input id="clearsearch" type="button" value="Clear"/>
             </div>
           </div>
       </div> </div>
@@ -74,14 +74,15 @@
       <% if flash[:message] %>
         <div id="message"><%= flash[:message] %></div>
       <% end %>
-      <div id = "container">
+      <div id="full_screen_container">
+
         <script type="text/javascript">
           var posts = <%= @posts.to_json %>;
           var images = <%= @photos.to_json %>;
           var suggestions = <%= @suggestions.to_json %>;
           var waypoints = <%= @waypoints.to_json %>;
         </script>
-        <div id="map_canvas"></div>
+        <div id="map_canvas" class="full_screen" ></div>
         <div id="searchwell"></div>
       </div>
 
@@ -95,4 +96,5 @@
     </div>
   </body>
 </html>
+
 
