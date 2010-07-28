@@ -298,10 +298,10 @@ ul.form_images li img:hover { background: green; }
 }
 .close_info { margin: 0 0 0 5em; }
 .message_container {
-  background: #000000;
+  background: #1d1d1d;
   position: absolute;
   width: 100%;
-  z-index: 9999;
+  z-index: 99;
   top: 122px;
 }
 .message {

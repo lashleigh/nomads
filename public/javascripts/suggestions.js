@@ -74,7 +74,7 @@ jQuery(function() {
   // send to the server via ajax instead.
   jQuery("#new_suggestion").live("submit", function(event) {
       var self = jQuery(this);
-      jQuery.post(this.action, this.serialize(), function(res, text_status) {
+      jQuery.post(this.action, self.serialize(), function(res, text_status) {
         if(res.errors) {
           jQuery("#suggestion_errors").html('<ul><li>' + res.errors.join('</li><li>') + '</li></ul>').fadeIn(500);
           jQuery.fancybox.resize();
@@ -82,6 +82,7 @@ jQuery(function() {
         else {
           new Suggestion(res);
           jQuery.fancybox.close();
+          $(".message").slideUp(600);
         }
       }, "json");
       return false;
@@ -89,8 +90,6 @@ jQuery(function() {
 
   google.maps.event.addListener(gMap, 'click', function(e) {
     if(addingSuggestion) {
-      jQuery(".message").slideUp(600);
-      addingSuggestion = false;
 
       var p = e.latLng;
       jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
