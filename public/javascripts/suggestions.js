@@ -62,11 +62,11 @@ jQuery(function() {
     e.preventDefault();
     if(logged_in) {
       addingSuggestion = true;
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please click on the map </p>").slideDown(600);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><h3> Please click on the map </h3>").slideDown(600);
     }
     else {
       addingSuggestion = false;
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(600);
+      jQuery(".message").html("<a class='close_info' href=''>X</a><h3> Please <a href='/openid'> sign in</a> to make a suggestion. </h3>").slideDown(600);
     }
   });
 

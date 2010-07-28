@@ -230,26 +230,40 @@ ul.form_images {
 }
 .close_info {
   float: right;
-  padding: 35px 29px 0 0;
+  margin: 35px 59px 0 0 !important;
+  a {
+  }
 }
 .message_container {  
+  background: url("/images/solid_yellow.png");
   position: absolute;
   width: 100%;
-  background: #ff9;  
   z-index: 9999;
-  top: 123px;
+  top: 122px;
 }  
 .message {
+  background: url("/images/sub_header_yellow.png") no-repeat scroll 40px 0 transparent ;  
   margin: 0 auto;
   width: 1120px;
-  font-size: 150%;  
   display: none;
   height: 100px;
-}
-.message p {  
-  margin: 0;
-  text-align: center;  
-  padding: 35px 0 0 0;
+  color: #FFF;
+  h3 {  
+    margin: 0;
+    text-align: center;  
+    padding: 35px 0 0 0;
+  }
+  a {
+    color: #FFF;
+    background: #be8600;
+    padding: 5px 8px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+  }
+  a:hover { 
+    color: #000; 
+    background: #FFF;
+  }
 }  
 #message {
   padding: 0.5em;
