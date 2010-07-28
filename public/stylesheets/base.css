@@ -296,19 +296,15 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
-.close_info {
-  float: right;
-  margin: 35px 59px 0 0 !important;
-}
+.close_info { margin: 0 0 0 5em; }
 .message_container {
-  background: url("/images/solid_yellow.png");
+  background: #000000;
   position: absolute;
   width: 100%;
   z-index: 9999;
   top: 122px;
 }
 .message {
-  background: url("/images/sub_header_yellow.png") no-repeat scroll 40px 0 transparent;
   margin: 0 auto;
   width: 1120px;
   display: none;
@@ -316,13 +312,15 @@ ul.form_images li img:hover { background: green; }
   color: #ffffff;
 }
 .message h3 {
-  margin: 0;
+  width: 25em;
+  height: 2em;
+  margin: 0 auto;
   text-align: center;
-  padding: 35px 0 0 0;
+  padding: 37px 8px 17px;
 }
 .message a {
-  color: #ffffff;
-  background: #be8600;
+  color: #000000;
+  background: #fff155;
   padding: 5px 8px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
