@@ -368,6 +368,7 @@ ul.form_images li img:hover { background: green; }
 }
 #suggestion_errors ul li { padding: 0px 5px 2px 0px; }
 #suggestion_content { width: 410px; }
+#suggestion_title { width: 220px; }
 table.zebra {
   margin: 1em;
   border-spacing: 0px;
