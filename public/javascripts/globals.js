@@ -70,6 +70,7 @@ function select(me) {
 function createSuggestionFromSearch(event) {
   var parentdiv = jQuery(this).parents(".unselected")
   var suggestionLatLng = parentdiv.find(".hiddenLatLng").text().split(', ');
+  console.log(suggestionLatLng);
   var suggestedName = parentdiv.find("a.gs-title").text();
   jQuery.get("/map/new_suggestion",
              { lat: suggestionLatLng[0],

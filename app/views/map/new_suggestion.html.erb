@@ -1,6 +1,7 @@
-<%= javascript_include_tag 'fancy_map' %>
 <div id="new_suggestion">
-  <div id="fancy_map"> </div>
+  <div id="fancy_map"> <%= image_tag( image_path("http://maps.google.com/maps/api/staticmap?center=#{@suggestion.lat},#{@suggestion.lon}
+                                                 &zoom=15&size=172x141&maptype=roadmap&markers=color:red|
+                                                 #{@suggestion.lat},#{@suggestion.lon}&sensor=false")) %> </div>
   <h1>New Suggestion</h1>
   <%= render :partial => "/suggestions/display_icons" %>
 

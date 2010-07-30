@@ -99,10 +99,6 @@ jQuery(function() {
   }); 
 });
 
-function togglePics() {
-  alert('toggle');
-}
-
 // Suggestion class
 function Suggestion(somesuggestion) {
   var me = this;
