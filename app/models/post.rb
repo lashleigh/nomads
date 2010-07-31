@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
       "latitude" => lat,
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
+      "user" => user.name,
       "content" => content }
   end
 

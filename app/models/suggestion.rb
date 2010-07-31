@@ -12,6 +12,7 @@ class Suggestion < ActiveRecord::Base
       "latitude" => lat,
       "longitude" => lon,
       "icon_path" => icon ? icon.marker_url : "/images/map_icons/misc.png",
+      "user" => user.name,
       "content" => content }
   end
 end

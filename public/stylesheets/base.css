@@ -133,12 +133,13 @@ ol, ul {
   margin: 10px 0;
 }
 a {
+  color: #29a129;
   outline: none;
   text-decoration: none;
 }
 a:hover { text-decoration: underline; }
 a:focus { text-decoration: underline; }
-a:visited { color: #443312; }
+a:visited { color: #274b9c; }
 #page_wrapper { min-height: 100%; }
 #container {
   width: 1120px;

@@ -26,7 +26,7 @@ jQuery(function() {
   });
 
   // Create one InfoWindow to open when a marker is clicked.
-  gInfoWindow = new google.maps.InfoWindow;
+  gInfoWindow = new google.maps.InfoWindow({maxWidth: 240});
   google.maps.event.addListener(gInfoWindow, 'closeclick', function() {
     unselectMarkers();
   });
