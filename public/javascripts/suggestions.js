@@ -70,7 +70,6 @@ jQuery(function() {
 });
 
 function post_or_suggestion(i, ps) {
-  console.log(ps);
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(ps.latitude, ps.longitude),
     map: gMap,
