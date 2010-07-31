@@ -11,13 +11,13 @@ jQuery(function() {
     position: new google.maps.LatLng(post.latitude, post.longitude),
     map: sMap,
     title: post.title,
-    draggable: true,
+    draggable: (document.location.pathname.indexOf("edit") != -1),
     icon: post.icon_path,
   });
   google.maps.event.addListener(marker, 'dragend', function(evt) {
-    post.latitude = evt.latLng.lat()
-    post.longitude = evt.latLng.lng()
-    jQuery.post("/posts/update_location", post)
+    console.log(evt);
+    $("#post_lat").val(evt.latLng.lat())
+    $("#post_lon").val(evt.latLng.lng())
   });
   jQuery(".icon_link").live("click", function(event) {
       var me = this;
