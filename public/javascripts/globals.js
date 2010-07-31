@@ -51,7 +51,7 @@ jQuery(function() {
       createSuggestionFromSearch(e);
     }
     else {
-      jQuery(".message").html("<a class='close_info' href=''>X</a><p> Please <a href='/openid'> sign in</a> to make a suggestion. </p>").slideDown(800);
+      jQuery(".message").html("<h3> Please <a href='/openid'> sign in</a> to make a suggestion. <a class='close_info' href=''>X</a></h3>").slideDown(600);
     }
   });
 
