@@ -36,6 +36,9 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
+    @post.lat = Post.last.lat
+    @post.lon = Post.last.lon
+    @post.user = @user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -52,6 +55,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
+    @post.user = @user
 
     respond_to do |format|
       if @post.save

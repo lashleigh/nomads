@@ -1,5 +1,9 @@
+<%= javascript_include_tag 'map_for_post' %>
+<div class="suggestion_text">
 <h1>New post</h1>
 
 <%= render :partial => "form"  %>
 
 <%= link_to 'Back', posts_path %>
+</div>
+<%= render :partial => "map" %>
