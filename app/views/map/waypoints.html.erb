@@ -1,0 +1,22 @@
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+<script type="text/javascript">
+  $(function() {
+    $("#sortable").sortable({
+      placeholder: 'ui-state-highlight'
+    });
+    $("#sortable").disableSelection();
+  });
+</script>
+
+<div class="demo">
+
+  <ul id="sortable">
+    <% @waypoints.each do |w| %>
+      <li>
+      <%= w.suggestion.title %>
+      </li>
+    <% end %>
+  </ul>
+
+</div><!-- End demo -->
+

@@ -1,4 +1,5 @@
 class Suggestion < ActiveRecord::Base
+  has_one :waypoint
   belongs_to :icon
   belongs_to :user
   validates_presence_of :user_id, :message => "must be logged in"

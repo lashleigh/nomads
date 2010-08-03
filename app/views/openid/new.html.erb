@@ -1,5 +1,18 @@
 <div id="container">
   <div id="openid_choice">
+    <p>We think it's important to track all contributions to our site.  In
+    order to do this, we need a way to keep track of who contributes each
+    piece of information.  Rather than creating yet another login for you
+    to remember, we decided to use something called OpenID; it allows you
+    to use your login from an existing site that supports OpenID to tell
+    us who you are.  It provides us with a unique way for us to identify
+    you, and an assurance that you are who you claim to be, without our
+    site ever seeing your password.  We won't know your email address or
+    your login unless you tell us separately.  If you do not have a google
+    or a yahoo account, you can use any OpenID compatible provider to log
+    in; you'll just need to provide us with the OpenID URL.  If you know
+    of an OpenID provider you'd like to use, feel free to use it, and if
+    you need to register for a new one, we recommend the <%= link_to "myOpenID", "http://myopenid.com" %> service.</p>
     <p>Please select your account provider:</p>
     <ul id="openid_buttons">
       <li><%= link_to image_tag("google.gif"), {:action => :create, :openid_url => "https://www.google.com/accounts/o8/id" } %></li>
@@ -9,7 +22,7 @@
 
   <% form_tag '/openid/create', :id => "login" do %>
     <div id="openid_input_area">
-      <%= label_tag 'openid_url', 'Or enter your OpenID URL here:' %><br/>
+      <%= label_tag 'openid_url', "Or enter your #{link_to 'OpenID URL', 'https://www.myopenid.com/'} here:" %><br/>
       <%= text_field_tag 'openid_url', {}, :size => 50 %><br/>
     </div>
     <%= submit_tag "Log In", :id => "openid_submit" %>

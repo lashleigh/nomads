@@ -15,7 +15,6 @@ jQuery(function() {
     icon: post.icon_path,
   });
   google.maps.event.addListener(marker, 'dragend', function(evt) {
-    console.log(evt);
     $("#post_lat").val(evt.latLng.lat())
     $("#post_lon").val(evt.latLng.lng())
   });
