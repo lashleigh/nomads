@@ -12,12 +12,9 @@
   width: 520px;
   padding: 20px;
 }
-#about_intro p {
-  margin: 0;
-  padding: 0;
-}
 .about {
   float: left;
   width: 520px;
-  padding: 20px;
+  padding: 20px 20px 0px;
 }
+.trip { width: 1075px; }

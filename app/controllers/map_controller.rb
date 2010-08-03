@@ -26,6 +26,10 @@ class MapController < ApplicationController
     end
   end
 
+  def waypoints
+    @waypoints= Waypoint.find(:all)
+  end
+
   private
   def set_icons
     @icons = Icon.all
