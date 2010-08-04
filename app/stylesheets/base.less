@@ -24,7 +24,7 @@ h1 {
   margin-bottom: 17.4333px;
 }
 h2 {
-  border-bottom: 3px dotted;
+  border-bottom: none;
   margin-top: 17.4333px;
   margin-bottom: 17.4333px;
 }
@@ -72,6 +72,14 @@ a {
   h2 {
     position: absolute;
   }
+  a {
+    color: #4B2812;
+    border-bottom: 3px dotted;
+    :hover {
+      text-decoration: none;
+      border-bottom: 4px dotted; 
+    }
+  }
 }
 #column-logo {
   display:block;
@@ -84,6 +92,7 @@ a {
 }
 .flickr-logo {
   background:url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
 }
 #flickr ul {
   list-style-type: none;

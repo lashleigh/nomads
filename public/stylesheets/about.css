@@ -15,6 +15,21 @@
 .about {
   float: left;
   width: 520px;
-  padding: 20px 20px 0px;
+  padding: 0px 20px 0px;
 }
-.trip { width: 1075px; }
+.about h2 { border-bottom: none; }
+.about h2 a { border-bottom: 3px dotted; }
+.about h2 a:hover {
+  text-decoration: none;
+  border-bottom: 4px dotted;
+}
+.trip {
+  margin: 20px 0 0 0;
+  width: 1120px;
+}
+.trip h2 { border-bottom: 3px dotted; }
+.simple_route {
+  padding: 20px 0 0 20px;
+  width: 520px;
+  float: left;
+}

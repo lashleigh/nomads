@@ -96,9 +96,24 @@
 .about {
   float: left;
   width: 520px;
-  padding: 20px 20px 0px;
+  padding: 0px 20px 0px;
 }
-.trip { width: 1075px; }
+.about h2 { border-bottom: none; }
+.about h2 a { border-bottom: 3px dotted; }
+.about h2 a:hover {
+  text-decoration: none;
+  border-bottom: 4px dotted;
+}
+.trip {
+  margin: 20px 0 0 0;
+  width: 1120px;
+}
+.trip h2 { border-bottom: 3px dotted; }
+.simple_route {
+  padding: 20px 0 0 20px;
+  width: 520px;
+  float: left;
+}
 #sortable {
   list-style-type: none;
   width: 60%;
@@ -138,7 +153,7 @@ h1 {
   margin-bottom: 17.4333px;
 }
 h2 {
-  border-bottom: 3px dotted;
+  border-bottom: none;
   margin-top: 17.4333px;
   margin-bottom: 17.4333px;
 }
@@ -181,6 +196,14 @@ a:visited { color: #274b9c; }
   width: 250px;
 }
 #column_header h2 { position: absolute; }
+#column_header a {
+  color: #4b2812;
+  border-bottom: 3px dotted;
+}
+#column_header a:hover {
+  text-decoration: none;
+  border-bottom: 4px dotted;
+}
 #column-logo {
   display: block;
   position: absolute;
@@ -190,7 +213,10 @@ a:visited { color: #274b9c; }
   text-indent: -99999em;
   width: 32px;
 }
-.flickr-logo { background: url("/images/logo-flickr.png") no-repeat scroll left top transparent; }
+.flickr-logo {
+  background: url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
+}
 #flickr ul {
   list-style-type: none;
   margin: 0;
