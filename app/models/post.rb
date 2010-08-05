@@ -14,7 +14,7 @@ class Post < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
       "user" => user.name,
-      "content" => content }
+      "content" => textilize(content) }
   end
 
 end

@@ -78,7 +78,7 @@ function post_or_suggestion(i, ps) {
     icon: ps.icon_path,
   });
   google.maps.event.addListener(marker, 'click', function() { 
-    gInfoWindow.setContent('<h3>'+ marker.title +'</h3>' + '<h4>' + ps.content + '</h4>' + '</br><h5>by ' + ps.user + '</h5>')
+    gInfoWindow.setContent('<h3>'+ marker.title +'</h3>' + ps.content + '<h5>by ' + ps.user + '</h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }

@@ -16,6 +16,6 @@ class Suggestion < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => icon ? icon.marker_url : "/images/map_icons/misc.png",
       "user" => user.name,
-      "content" => content }
+      "content" => textilize(content) }
   end
 end
