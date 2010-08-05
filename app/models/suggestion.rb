@@ -16,6 +16,14 @@ class Suggestion < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => icon ? icon.marker_url : "/images/map_icons/misc.png",
       "user" => user.name,
-      "content" => textilize(content) }
+      "content" => textilize(shorten(content)) }
+  end
+
+  def shorten(content)
+    if content.length > 150
+      content[0..150] + "..."
+    else
+      content
+    end
   end
 end

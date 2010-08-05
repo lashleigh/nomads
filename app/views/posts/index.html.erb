@@ -19,7 +19,7 @@
       <% end %>
     </td>
     <td><%=h post.title %></td>
-    <td class="zebra_content"><%=h truncate(post.content, :length => 300) %></td>
+    <td class="zebra_content"><%=textilize truncate(post.content, :length => 300) %></td>
     <td><%=h "%0.5f" % post.lat %></td>
     <td><%=h "%0.5f" % post.lon %></td>
     <td><%= link_to 'Show', post %></td>

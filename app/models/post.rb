@@ -14,7 +14,15 @@ class Post < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
       "user" => user.name,
-      "content" => textilize(content) }
+      "content" => textilize(shorten(content)) }
+  end
+
+  def shorten(content)
+    if content.length > 150
+      content[0..150] + "..."
+    else
+      content
+    end
   end
 
 end
