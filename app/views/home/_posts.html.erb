@@ -8,7 +8,7 @@
       <h3><%=h post.title %></h3>
       <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.user.nickname %> </p>
       <div id="PostContent" class="hide" style="display:block; overflow: hidden;">
-        <p><%=h post.content %></p>
+        <p><%=textilize post.content %></p>
       </div>
     </div>
 
