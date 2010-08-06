@@ -15,10 +15,11 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
   def index
-    if !@user or @user.admin?
-      @suggestions = Suggestion.all
+    if !@user 
+      @suggestions = Suggestion.all.reverse
     else
-      @suggestions = Suggestion.find_all_by_user_id @user.id
+      @my_suggestions = Suggestion.find_all_by_user_id @user.id
+      @suggestions = Suggestion.all.reverse
     end
 
     respond_to do |format|

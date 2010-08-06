@@ -1,8 +1,8 @@
 <%= javascript_include_tag 'map_for_post' %>
 <div class="suggestion_text">
 <p>
-  <b>User:</b>
-  <%=h @post.user_id %>
+  <b>Created by:</b>
+  <%=h @post.user.nickname or "unknown" %>
 </p>
 
 <p>
@@ -17,9 +17,14 @@
 
 <%= link_to 'Map', "/map" %> |
 <%= link_to 'Back', posts_path %>
+  <script type="text/javascript">
+    var admin = false;
+  </script>
 <% if @user and @user.admin? %>
   | <%= link_to 'Edit', edit_post_path(@post) %> |
-  <%= link_to 'Manage Comments', post_comments_path(@post) %>
+  <script type="text/javascript">
+    var admin = true;
+  </script>
 <% end %>
 </div>
 

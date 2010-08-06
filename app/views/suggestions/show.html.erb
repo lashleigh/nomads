@@ -33,7 +33,7 @@
 
 <%= link_to 'Map', "/map" %> |
 <%= link_to 'Back', suggestions_path %>
-<% if @user and @user.admin? %>
+<% if @user and (@suggestion.user==@user or @user.admin?) %>
   | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
 <% end %>
 </div>

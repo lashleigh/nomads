@@ -1,6 +1,6 @@
 <div id="posts">
   <div id="column_header">
-    <h2> Recent Posts </h2>
+    <h2> <%= link_to "Recent Posts", posts_path %> </h2>
   </div>
 
   <% @posts.each do |post| %>

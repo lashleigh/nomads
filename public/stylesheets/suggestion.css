@@ -9,13 +9,15 @@
 
 
 */.suggestion_text {
-  margin-left: 20px;
-  margin-right: 40px;
+  margin: 20px 40px;
   width: 400px;
   float: left;
 }
+.suggestion_text p { margin: 14px 0; }
 #map_canvas {
+  margin: 30px 0;
   width: 350px;
   height: 350px;
   float: left;
 }
+.listing_suggestions, .listing_posts { padding: 20px 0; }

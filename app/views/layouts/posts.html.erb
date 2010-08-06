@@ -8,14 +8,39 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <%= stylesheet_link_tag 'scaffold' %>
-    <%= stylesheet_link_tag 'base' %>
     <%= stylesheet_link_tag 'suggestion' %>
+    <%= stylesheet_link_tag 'base' %>
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <p style="color: green"><%= flash[:notice] %></p>
+    <div id="page_wrapper">
+      <%= render :partial => "home/header" %>
+      <div id="container">
+        <% if flash[:error] %>
+          <div id="errors"><%= flash[:error] %></div>
+        <% end %>
+        <% if flash[:errors] %>
+          <div id="errors">
+            <ul>
+              <% flash[:errors].each do |err| %>
+                <li><%= err %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <% if flash[:message] %>
+          <div id="message"><%= flash[:message] %></div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
 
-    <%= yield %>
-
-    </body>
+    <div id="footer_wrapper">
+      <div id="footer">
+        Do we need a footer?  <br>
+        What would we put down here? <br>
+        Footers, much like bow ties, are cool.
+      </div>
+    </div>
+  </body>
 </html>
