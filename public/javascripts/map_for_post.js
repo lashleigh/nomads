@@ -1,7 +1,7 @@
 
 $(function() {
   // Initialize the map with default UI.
-  var postMap = new google.maps.Map(document.getElementById("map_canvas"), {
+  var postMap = new google.maps.Map(document.getElementById("map_canvas_for_post"), {
     center: new google.maps.LatLng(post.latitude, post.longitude),
     zoom: 7,
     mapTypeId: 'roadmap'
