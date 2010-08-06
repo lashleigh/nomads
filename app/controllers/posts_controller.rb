@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :must_be_admin, :except => [:index, :show]
+
 
   # Update Post location
   def update_location

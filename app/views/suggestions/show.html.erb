@@ -34,7 +34,7 @@
 <%= link_to 'Map', "/map" %> |
 <%= link_to 'Back', suggestions_path %>
 <% if @user and @user.admin? %>
-  <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+  | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
 <% end %>
 </div>
 <%= render :partial => "map" %>

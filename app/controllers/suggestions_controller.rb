@@ -1,4 +1,5 @@
 class SuggestionsController < ApplicationController
+  before_filter :must_be_user, :except => [:index, :show]
 
   # Updates the location of a suggestion
   def update_location
@@ -65,6 +66,12 @@ class SuggestionsController < ApplicationController
   # POST /suggestions.xml
   def create
     display_icons
+    unless @user
+      flash[:error] = "You must be logged in to create a suggestion"
+      redirect_to(suggestions_url)
+      return
+    end
+
     @suggestion = Suggestion.new(params[:suggestion])
     @suggestion.user = @user
 
@@ -87,16 +94,24 @@ class SuggestionsController < ApplicationController
   def update
     @suggestion = Suggestion.find(params[:id])
     values = params[:suggestion]
-    values.reject { |k,v| k == :user_id }
+    values.reject! { |k,v| k == :user_id }
 
     respond_to do |format|
-      if @suggestion.update_attributes(params[:suggestion])
-        flash[:notice] = 'Suggestion was successfully updated.'
-        format.html { redirect_to(@suggestion) }
-        format.xml  { head :ok }
+      if @user and (@user.admin? or @suggestion.user == @user)
+        if @suggestion.update_attributes(params[:suggestion])
+          flash[:notice] = 'Suggestion was successfully updated.'
+          format.html { redirect_to(@suggestion) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @suggestion.errors, :status => :unprocessable_entity }
+        end
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @suggestion.errors, :status => :unprocessable_entity }
+        format.html do
+          flash[:error] = "Sorry that suggestion does not belong to you."
+          redirect_to(@suggestion)
+        end
+        format.xml { render :xml => "That suggestion does not belong to you." }
       end
     end
   end
@@ -105,7 +120,11 @@ class SuggestionsController < ApplicationController
   # DELETE /suggestions/1.xml
   def destroy
     @suggestion = Suggestion.find(params[:id])
-    @suggestion.destroy
+    if @user and (@user.admin? or @suggestion.user == @user)
+      @suggestion.destroy
+    else
+      flash[:error] = "It appears you attempted to delete a suggestion that you did not create. Perhaps you need to log in?"
+    end
 
     respond_to do |format|
       format.html { redirect_to(suggestions_url) }
