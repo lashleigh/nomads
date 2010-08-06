@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_filter :must_be_admin
 
   # Update Post location
   def update_location

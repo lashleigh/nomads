@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
 
   def as_hash
     { "id" => id,
+      "link" => "posts/#{id}",
       "title" => title,
       "latitude" => lat,
       "longitude" => lon,
@@ -18,10 +19,12 @@ class Post < ActiveRecord::Base
   end
 
   def shorten(content)
-    if content.length > 150
-      content[0..150] + "..."
+    maxlen = 100
+    s = content[0..maxlen]
+    if s.include? ' '
+      s[0..s.rindex(' ')-1] + '...'
     else
-      content
+      s
     end
   end
 

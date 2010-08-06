@@ -11,6 +11,7 @@ class Suggestion < ActiveRecord::Base
 
   def as_hash
     { "id" => id,
+      "link" => "suggestions/#{id}",
       "title" => title,
       "latitude" => lat,
       "longitude" => lon,
@@ -20,10 +21,12 @@ class Suggestion < ActiveRecord::Base
   end
 
   def shorten(content)
-    if content.length > 150
-      content[0..150] + "..."
+    maxlen = 100
+    s = content[0..maxlen]
+    if s.include? ' '
+      s[0..s.rindex(' ')-1] + '...'
     else
-      content
+      s
     end
   end
 end

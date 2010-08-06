@@ -1,5 +1,4 @@
 class SuggestionsController < ApplicationController
-  before_filter :must_be_user
 
   # Updates the location of a suggestion
   def update_location
@@ -15,7 +14,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
   def index
-    if @user.admin?
+    if !@user or @user.admin?
       @suggestions = Suggestion.all
     else
       @suggestions = Suggestion.find_all_by_user_id @user.id
@@ -31,12 +30,6 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1.xml
   def show
     @suggestion = Suggestion.find(params[:id])
-    unless @suggestion.user == @user or @user.admin?
-      flash[:error] = "You are not authorized to edit that suggestion."
-      redirect_to :action => :home
-      return
-    end
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @suggestion }

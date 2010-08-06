@@ -52,6 +52,7 @@ jQuery(function() {
         else {
           post_or_suggestion(0, res);
           jQuery.fancybox.close();
+          addingSuggestion = false;
           $(".message").slideUp(600);
         }
       }, "json");
@@ -78,7 +79,7 @@ function post_or_suggestion(i, ps) {
     icon: ps.icon_path,
   });
   google.maps.event.addListener(marker, 'click', function() { 
-    gInfoWindow.setContent('<h3>'+ marker.title +'</h3>' + ps.content + '<h5>by ' + ps.user + '</h5>')
+    gInfoWindow.setContent('<h3><a href="'+ ps.link + '">' + marker.title +'</a></h3>' + ps.content + '<h5>by ' + ps.user + '</h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }

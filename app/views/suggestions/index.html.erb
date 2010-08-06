@@ -1,4 +1,4 @@
-<% if @user.admin? %>
+<% if !@user or @user.admin? %>
   <h1 class="scaffold">All suggestions</h1>
 <% else %>
   <h1 class="scaffold">Your suggestions</h1>
@@ -26,12 +26,14 @@
         </td>
         <td><%=h suggestion.title %></td>
         <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
-        <td class="zebra_content"><%=h truncate(suggestion.content, :length => 300) %></td>
+        <td class="zebra_content"><%=textilize truncate(suggestion.content, :length => 300) %></td>
         <td><%=h "%0.5f" % suggestion.lat %></td>
         <td><%=h "%0.5f" % suggestion.lon %></td>
         <td><%= link_to 'Show', suggestion %></td>
-        <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
-        <td><%= link_to 'Destroy', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% if @user and @user.admin? %>
+          <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
+          <td><%= link_to 'Destroy', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
+        <% end %>
       </tr>
     <% end %>
   <% else %>

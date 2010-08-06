@@ -1,5 +1,5 @@
 
-jQuery(function() {
+$(function() {
   // Initialize the map with default UI.
   var sMap = new google.maps.Map(document.getElementById("map_canvas"), {
     center: new google.maps.LatLng(suggestion.latitude, suggestion.longitude),
@@ -18,15 +18,15 @@ jQuery(function() {
     $("#suggestion_lat").val(evt.latLng.lat())
     $("#suggestion_lon").val(evt.latLng.lng())
   });
-  jQuery(".icon_link").live("click", function(event) {
+  $(".icon_link").live("click", function(event) {
       var me = this;
-      jQuery(".icon_link").removeClass("select");
+      $(".icon_link").removeClass("select");
       select(me); 
   });
 
 });
 
 function select(me) {
-  jQuery("#suggestion_icon_id").val(me.title);
-  jQuery(me).addClass("select");
+  $("#suggestion_icon_id").val(me.title);
+  $(me).addClass("select");
 }
