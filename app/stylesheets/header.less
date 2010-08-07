@@ -1,3 +1,4 @@
+@import "mixin";
 @wrapper_side :url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
 @wrapper_center:url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
 
@@ -57,21 +58,24 @@
 }
 #navigation {
   position: absolute;
-  right: 15px;
-  top: 58px;
+  right: 16px;
+  top: 75px;
   width: 400px;
   li {
     float: right;
-    height: 43px;
   }
   li a {
     color: #FFF;
     display: block;
     font-size: 15px;
-    height: 43px;
-    line-height: 43px;
-    padding: 0 14px;
+    padding: 3px 6px;
+    margin: 0 6px;
     text-shadow: 0 1px 1px #213454;
+    :hover {
+      .rounded_corners(4px);
+      background-color: #000;
+      text-decoration: none;
+    }
   }
 }
 
