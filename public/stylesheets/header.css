@@ -45,6 +45,17 @@
   position: relative;
   width: 1120px;
 }
+#header h1 {
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  float: left;
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
+  padding: 50px 0 0 20px;
+}
 #header-logo {
   background: url("/images/nomads.png") no-repeat scroll 0 0 transparent;
   display: block;

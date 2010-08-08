@@ -1,3 +1,24 @@
+@import "mixin";
+#suggestion_errors {
+  color: #D33;
+  display: none;
+  ul {
+    list-style: disc outside none;
+    padding: 0 15px;
+    li {
+      padding: 0px 5px 2px 0px;
+    }
+  }
+}
+
+#suggestion_content {
+  width: 410px;
+}
+
+#suggestion_title {
+  width: 220px;
+}
+
 .suggestion_text {
   margin: 20px 40px;
   width: 400px;
@@ -18,3 +39,8 @@
   padding: 20px 0;
 }
 
+.make_suggestion {
+  background: #204794;
+  padding: 5px 8px;
+  .rounded_corners(3px);
+}
