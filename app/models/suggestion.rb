@@ -23,7 +23,7 @@ class Suggestion < ActiveRecord::Base
   def shorten(content)
     maxlen = 100
     s = content[0..maxlen]
-    if s.include? ' '
+    if( s.length > maxlen and s.include? ' ')
       s[0..s.rindex(' ')-1] + '...'
     else
       s
