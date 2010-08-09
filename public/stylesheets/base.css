@@ -75,7 +75,7 @@
 #navigation li a {
   color: #ffffff;
   display: block;
-  font-size: 15px;
+  font-size: 16px;
   padding: 3px 6px;
   margin: 0 6px;
   text-shadow: 0 1px 1px #213454;
@@ -94,7 +94,6 @@
   margin: 0px auto;
   margin-top: -150px;
   clear: both;
-  z-index: -1;
 }
 #footer {
   width: 1045px;
