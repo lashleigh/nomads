@@ -1,9 +1,12 @@
-<div id = "about_intro" style = "display:none;">
+<div id="about_intro" style="display:none;">
   <h1> So, you want to know more about us? </h1>
   <p> Fantastic! Here are some very short bios.  </p>
 </div>
-<div class = "about trip">
-  <h2> The Trip </h2>
+<div class="trip">
+<div class="about">
+  <div id="column_header">
+    <h2> The Trip </h2>
+  </div>
   <p>
   The plan is to ride our bike all around the United States; carry our own gear, camp out and 
   see as much of our country as we can manage. Starting in Port Angeles, WA we will ride south 
@@ -14,9 +17,14 @@
   side trips we have planned it will end up being at least 10,000 miles (16,000 km). 
   </p>
 </div>
+  <%= image_tag("simple_route.png", :class => "simple_route") %>   
+</div>
+<div style="clear:both;"></div>
     
-<div class = "about">
-  <h2><%= link_to "About Ashleigh", "http://hi.im/ashleigh" %></h2>
+<div class="about">
+  <div id="column_header">
+    <h2><%= link_to "About Ashleigh", "http://hi.im/ashleigh" %></h2>
+  </div>
   <p> 
     Ashleigh, having studied both math and physics, is good at everything.  She
     understands how the universe works, and can learn any skill she needs to
@@ -25,8 +33,10 @@
     off a bit conceited. 
   </p>
 </div>
-<div class = "about">
-  <h2><%= link_to "About Benson", "http://hi.im/bensonk" %></h2>
+<div class="about">
+  <div id="column_header">
+    <h2><%= link_to "About Benson", "http://hi.im/bensonk" %></h2>
+  </div>
   <p class="about_benson">
     Benson is a programmer by trade, and grew up with a love of the outdoors.
     He was born and raised in Port Angeles, WA, and went to school at

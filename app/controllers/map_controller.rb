@@ -27,7 +27,9 @@ class MapController < ApplicationController
   end
 
   def waypoints
-    @waypoints= Waypoint.find(:all)
+    @waypoints = Waypoint.full_track
+    @way_tracks = Waypoint.full_track_points
+    @positions = Post.all + Suggestion.all
   end
 
   private

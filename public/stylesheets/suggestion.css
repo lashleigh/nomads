@@ -8,14 +8,34 @@
 
 
 
-*/.suggestion_text {
-  margin-left: 20px;
-  margin-right: 40px;
+*/#suggestion_errors {
+  color: #dd3333;
+  display: none;
+}
+#suggestion_errors ul {
+  list-style: disc outside none;
+  padding: 0 15px;
+}
+#suggestion_errors ul li { padding: 0px 5px 2px 0px; }
+#suggestion_content { width: 410px; }
+#suggestion_title { width: 220px; }
+.suggestion_text {
+  margin: 20px 40px;
   width: 400px;
   float: left;
 }
-#map_canvas {
+.suggestion_text p { margin: 14px 0; }
+#map_canvas_for_post, #map_canvas_for_suggestion {
+  margin: 30px 0;
   width: 350px;
   height: 350px;
   float: left;
+}
+.listing_suggestions, .listing_posts { padding: 20px 0; }
+.make_suggestion {
+  background: #204794;
+  padding: 5px 8px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
 }

@@ -1,4 +1,5 @@
-<h1 class="scaffold">Listing posts</h1>
+<div class="listing_posts">
+<h2 class="scaffold">Listing posts</h2>
 
 <table class="zebra">
   <tr>
@@ -19,17 +20,22 @@
       <% end %>
     </td>
     <td><%=h post.title %></td>
-    <td class="zebra_content"><%=h truncate(post.content, :length => 300) %></td>
+    <td class="zebra_content"><%=textilize truncate(post.content, :length => 300) %></td>
     <td><%=h "%0.5f" % post.lat %></td>
     <td><%=h "%0.5f" % post.lon %></td>
     <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if @user and @user.admin? %>
+      <td><%= link_to 'Edit', edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
+</div>
 
 <div class="scaffold">
-  <%= link_to "Map", :controller => :map %> |
-  <%= link_to 'New post', new_post_path %>
+  <%= link_to "Map", :controller => :map %>
+  <% if @user and @user.admin? %>
+    | <%= link_to 'New post', new_post_path %>
+  <% end %>
 </div>

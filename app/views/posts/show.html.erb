@@ -1,8 +1,8 @@
 <%= javascript_include_tag 'map_for_post' %>
 <div class="suggestion_text">
 <p>
-  <b>User:</b>
-  <%=h @post.user_id %>
+  <b>Created by:</b>
+  <%=h @post.user.nickname or "unknown" %>
 </p>
 
 <p>
@@ -12,25 +12,20 @@
 
 <p>
   <b>Content:</b>
-  <%=h @post.content %>
+  <%=textilize @post.content %>
 </p>
 
-<h2>Comments</h2> 
-  <% @post.comments.each do |c| %>  
-  <p>  
-    <b>Commenter:</b>  
-    <%=h c.commenter %>  
-  </p>  
-  <p>  
-    <b>Comment:</b>  
-    <%=h c.body %>  
-  </p> 
-<% end %> 
-
 <%= link_to 'Map', "/map" %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %> |
-<%= link_to 'Manage Comments', post_comments_path(@post) %>
+<%= link_to 'Back', posts_path %>
+  <script type="text/javascript">
+    var admin = false;
+  </script>
+<% if @user and @user.admin? %>
+  | <%= link_to 'Edit', edit_post_path(@post) %> |
+  <script type="text/javascript">
+    var admin = true;
+  </script>
+<% end %>
 </div>
 
 <%= render :partial => "map" %>

@@ -1,10 +1,10 @@
 class Waypoint < ActiveRecord::Base
-  belongs_to :suggestion
+  belongs_to :position, :polymorphic => true
 
   belongs_to :prev_waypoint, :class_name => "Waypoint"
   has_one :next_waypoint, :class_name => "Waypoint", :foreign_key => :prev_waypoint_id
 
-  validates_presence_of :suggestion
+  validates_presence_of :position
 
   def self.full_track
     waypoints = Waypoint.all
@@ -38,6 +38,9 @@ class Waypoint < ActiveRecord::Base
   end
 
   def self.full_track_points
-    Waypoint.full_track.collect { |p| [ p.suggestion.lat, p.suggestion.lon ] }
+    Waypoint.full_track.collect { |p| [ p.position.lat, p.position.lon ] }
+  end
+
+  def self.insert
   end
 end

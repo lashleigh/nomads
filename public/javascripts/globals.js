@@ -4,9 +4,11 @@ var gInfoWindow;
 
 jQuery(function() {
   // Initialize the map with default UI.
+  var center_lat = posts[posts.length - 1].latitude;
+  var center_lon = posts[posts.length - 1].longitude;
   gMap = new google.maps.Map(document.getElementById("map_canvas"), {
-    center: new google.maps.LatLng(47.6543, -122.2634),
-    zoom: 10,
+    center: new google.maps.LatLng(center_lat, center_lon),
+    zoom: 9,
     mapTypeId: 'roadmap'
   });
 

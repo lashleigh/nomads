@@ -1,8 +1,8 @@
 @import "header";
-@import "footer";
+@import "waypoints";
 @import "mixin";
+@import "footer";
 @import "about";
-@import "jqueryui";
 
 @background: #FFFFFF;
 * { margin: 0; padding: 0; }
@@ -17,20 +17,28 @@ body {
 }
 p {
   text-align: justify;
-  margin: 0 0 22px;
+  margin: 0 0 2px;
 }
 h1 {
   margin-top: 10px;
   margin-bottom: 17.4333px;
 }
 h2 {
-  border-bottom: 3px dotted;
+  border-bottom: none;
   margin-top: 17.4333px;
   margin-bottom: 17.4333px;
 }
-ol, ul {
+li {
+  margin: 0;
+  padding: 0;
+}
+ol, ul{
+  padding: 4px 0 4px 25px;
+}
+ol.no_dot_list, ul.no_dot_list {
   list-style:none outside none;
   margin: 10px 0;
+  padding: 0;
 }
 a {
   color: #29A129;
@@ -64,6 +72,12 @@ a {
     margin: 10px 0;
     padding: 0;
   }
+  p {
+    margin: 0 0 22px;
+  }
+}
+#PostContent {
+  padding: 0 0 8px 0;
 }
 #column_header {
   height: 50px;
@@ -71,6 +85,14 @@ a {
   width: 250px;
   h2 {
     position: absolute;
+  }
+  a {
+    color: #4B2812;
+    border-bottom: 3px dotted;
+    :hover {
+      text-decoration: none;
+      border-bottom: 4px dotted; 
+    }
   }
 }
 #column-logo {
@@ -84,6 +106,7 @@ a {
 }
 .flickr-logo {
   background:url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
 }
 #flickr ul {
   list-style-type: none;
@@ -155,12 +178,7 @@ a {
   float: right;
   padding: 0 25px;
 }
-.make_suggestion {
-  background: #204794;
-  padding: 5px 8px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-}
+
 #map_controls {
   width: 15%;
   float: right;
@@ -222,11 +240,21 @@ ul.form_images {
 }
 
 #details, #openid_choice, #login {
-  width: 540px !important;
-  margin: 1em 20px;
+  float: left;
+  width: 400px !important;
+  margin: 0 20px;
+}
+
+#openid_explain  {
+  float: left;
+  width: 630px;
+  padding: 30px 0 0 22px;
 }
 
 #openid_choice {
+  p {
+    padding: 30px 0 0 20px;
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -234,7 +262,7 @@ ul.form_images {
       float: left; 
       a img {
         padding: 0.5em;
-        margin: 1em;
+        margin: 0 10px 0 20px;
         border: 5px solid #323232;
         -moz-border-radius: 5px;
         -webkit-border-radius: 5px;
@@ -294,26 +322,6 @@ ul.form_images {
   border: solid 2px #833;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-}
-
-#suggestion_errors {
-  color: #D33;
-  display: none;
-  ul {
-    list-style: disc outside none;
-    padding: 0 15px;
-    li {
-      padding: 0px 5px 2px 0px;
-    }
-  }
-}
-
-#suggestion_content {
-  width: 410px;
-}
-
-#suggestion_title {
-  width: 220px;
 }
 
 table.zebra {

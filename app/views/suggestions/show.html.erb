@@ -17,7 +17,7 @@
 
 <p>
   <b>Content:</b>
-  <%=h @suggestion.content %>
+  <%=textilize @suggestion.content %>
 </p>
 
 <div style="display: none;" >
@@ -32,7 +32,9 @@
 </div>
 
 <%= link_to 'Map', "/map" %> |
-<%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
 <%= link_to 'Back', suggestions_path %>
+<% if @user and (@suggestion.user==@user or @user.admin?) %>
+  | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+<% end %>
 </div>
 <%= render :partial => "map" %>

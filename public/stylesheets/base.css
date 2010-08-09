@@ -45,6 +45,17 @@
   position: relative;
   width: 1120px;
 }
+#header h1 {
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+  float: left;
+  font-size: 70px;
+  font-weight: bold;
+  margin: 0;
+  padding: 50px 0 0 20px;
+}
 #header-logo {
   background: url("/images/nomads.png") no-repeat scroll 0 0 transparent;
   display: block;
@@ -56,22 +67,49 @@
 }
 #navigation {
   position: absolute;
-  right: 15px;
-  top: 58px;
+  right: 16px;
+  top: 75px;
   width: 400px;
 }
-#navigation li {
-  float: right;
-  height: 43px;
-}
+#navigation li { float: right; }
 #navigation li a {
   color: #ffffff;
   display: block;
   font-size: 15px;
-  height: 43px;
-  line-height: 43px;
-  padding: 0 14px;
+  padding: 3px 6px;
+  margin: 0 6px;
   text-shadow: 0 1px 1px #213454;
+}
+#navigation li a:hover {
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #000000;
+  text-decoration: none;
+}
+#sortable_waypoints, #sortable_positions {
+  float: left;
+  list-style-type: none;
+  width: 250px;
+}
+#sortable_waypoints li {
+  color: #dddddd;
+  background: #274b9c;
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+}
+#sortable_positions li {
+  color: #dddddd;
+  background: #2c1400;
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+}
+.ui-state-highlight {
+  background: #29a129 !important;
+  height: 1.5em;
+  line-height: 1.2em;
 }
 #footer_wrapper {
   position: relative;
@@ -80,7 +118,6 @@
   margin: 0px auto;
   margin-top: -150px;
   clear: both;
-  z-index: -1;
 }
 #footer {
   width: 1045px;
@@ -96,25 +133,23 @@
 .about {
   float: left;
   width: 520px;
-  padding: 20px 20px 0px;
+  padding: 0px 20px 0px;
 }
-.trip { width: 1075px; }
-#sortable {
-  list-style-type: none;
-  width: 60%;
+.about h2 { border-bottom: none; }
+.about h2 a { border-bottom: 3px dotted; }
+.about h2 a:hover {
+  text-decoration: none;
+  border-bottom: 4px dotted;
 }
-#sortable li {
-  color: #dddddd;
-  background: #274b9c;
-  margin: 0 5px 5px 5px;
-  padding: 5px;
-  font-size: 1.2em;
-  height: 1.5em;
+.trip {
+  margin: 20px 0 0 0;
+  width: 1120px;
 }
-.ui-state-highlight {
-  background: #29a129 !important;
-  height: 1.5em;
-  line-height: 1.2em;
+.trip h2 { border-bottom: 3px dotted; }
+.simple_route {
+  padding: 20px 0 0 20px;
+  width: 520px;
+  float: left;
 }
 * {
   margin: 0;
@@ -131,20 +166,26 @@ body {
 }
 p {
   text-align: justify;
-  margin: 0 0 22px;
+  margin: 0 0 2px;
 }
 h1 {
   margin-top: 10px;
   margin-bottom: 17.4333px;
 }
 h2 {
-  border-bottom: 3px dotted;
+  border-bottom: none;
   margin-top: 17.4333px;
   margin-bottom: 17.4333px;
 }
-ol, ul {
+li {
+  margin: 0;
+  padding: 0;
+}
+ol, ul { padding: 4px 0 4px 25px; }
+ol.no_dot_list, ul.no_dot_list {
   list-style: none outside none;
   margin: 10px 0;
+  padding: 0;
 }
 a {
   color: #29a129;
@@ -175,12 +216,22 @@ a:visited { color: #274b9c; }
   margin: 10px 0;
   padding: 0;
 }
+.post p { margin: 0 0 22px; }
+#PostContent { padding: 0 0 8px 0; }
 #column_header {
   height: 50px;
   position: relative;
   width: 250px;
 }
 #column_header h2 { position: absolute; }
+#column_header a {
+  color: #4b2812;
+  border-bottom: 3px dotted;
+}
+#column_header a:hover {
+  text-decoration: none;
+  border-bottom: 4px dotted;
+}
 #column-logo {
   display: block;
   position: absolute;
@@ -190,7 +241,10 @@ a:visited { color: #274b9c; }
   text-indent: -99999em;
   width: 32px;
 }
-.flickr-logo { background: url("/images/logo-flickr.png") no-repeat scroll left top transparent; }
+.flickr-logo {
+  background: url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
+}
 #flickr ul {
   list-style-type: none;
   margin: 0;
@@ -259,12 +313,6 @@ a:visited { color: #274b9c; }
   float: right;
   padding: 0 25px;
 }
-.make_suggestion {
-  background: #204794;
-  padding: 5px 8px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-}
 #map_controls {
   width: 15%;
   float: right;
@@ -308,9 +356,16 @@ ul.form_images li img:hover { background: green; }
   padding-left: 25px;
 }
 #details, #openid_choice, #login {
-  width: 540px !important;
-  margin: 1em 20px;
+  float: left;
+  width: 400px !important;
+  margin: 0 20px;
 }
+#openid_explain {
+  float: left;
+  width: 630px;
+  padding: 30px 0 0 22px;
+}
+#openid_choice p { padding: 30px 0 0 20px; }
 #openid_choice ul {
   margin: 0;
   padding: 0;
@@ -318,7 +373,7 @@ ul.form_images li img:hover { background: green; }
 #openid_choice ul li { float: left; }
 #openid_choice ul li a img {
   padding: 0.5em;
-  margin: 1em;
+  margin: 0 10px 0 20px;
   border: 5px solid #323232;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -373,17 +428,6 @@ ul.form_images li img:hover { background: green; }
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
 }
-#suggestion_errors {
-  color: #dd3333;
-  display: none;
-}
-#suggestion_errors ul {
-  list-style: disc outside none;
-  padding: 0 15px;
-}
-#suggestion_errors ul li { padding: 0px 5px 2px 0px; }
-#suggestion_content { width: 410px; }
-#suggestion_title { width: 220px; }
 table.zebra {
   margin: 1em;
   border-spacing: 0px;

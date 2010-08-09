@@ -8,7 +8,10 @@
 
 
 
-*/.twitter-logo { background: url("/images/logo-twitter.jpg") no-repeat scroll left top transparent; }
+*/.twitter-logo {
+  background: url("/images/logo-twitter.jpg") no-repeat scroll left top transparent;
+  border-bottom: none !important;
+}
 #twitter_container {
   float: left;
   width: 250px;

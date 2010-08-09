@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_filter :must_be_admin
+  before_filter :must_be_admin, :except => [:index, :show]
+
 
   # Update Post location
   def update_location
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.all
+    @posts = Post.all.reverse
 
     respond_to do |format|
       format.html # index.html.erb

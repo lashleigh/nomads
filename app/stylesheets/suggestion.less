@@ -1,12 +1,46 @@
-.suggestion_text {
-  margin-left: 20px;
-  margin-right: 40px;
-  width: 400px;
-  float: left;
+@import "mixin";
+#suggestion_errors {
+  color: #D33;
+  display: none;
+  ul {
+    list-style: disc outside none;
+    padding: 0 15px;
+    li {
+      padding: 0px 5px 2px 0px;
+    }
+  }
 }
 
-#map_canvas {
+#suggestion_content {
+  width: 410px;
+}
+
+#suggestion_title {
+  width: 220px;
+}
+
+.suggestion_text {
+  margin: 20px 40px;
+  width: 400px;
+  float: left;
+  p {
+    margin: 14px 0;
+  }
+}
+
+#map_canvas_for_post, #map_canvas_for_suggestion {
+  margin: 30px 0;
   width: 350px;
   height: 350px;
   float: left;
+}
+
+.listing_suggestions, .listing_posts {
+  padding: 20px 0;
+}
+
+.make_suggestion {
+  background: #204794;
+  padding: 5px 8px;
+  .rounded_corners(3px);
 }

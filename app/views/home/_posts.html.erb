@@ -1,6 +1,6 @@
 <div id="posts">
   <div id="column_header">
-    <h2> Recent Posts </h2>
+    <h2> <%= link_to "Recent Posts", posts_path %> </h2>
   </div>
 
   <% @posts.each do |post| %>
@@ -8,7 +8,7 @@
       <h3><%=h post.title %></h3>
       <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.user.nickname %> </p>
       <div id="PostContent" class="hide" style="display:block; overflow: hidden;">
-        <p><%=h post.content %></p>
+        <%=textilize post.content %>
       </div>
     </div>
 
