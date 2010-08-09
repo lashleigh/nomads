@@ -1,7 +1,8 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script type="text/javascript">
   $(function() {
-    $("#sortable").sortable({
+    $("#sortable_waypoints, #sortable_suggestions").sortable({
+      connectWith: '.connectedSortable',
       placeholder: 'ui-state-highlight'
     });
     $("#sortable").disableSelection();
@@ -9,11 +10,17 @@
 </script>
 
 <div class="demo">
-
-  <ul id="sortable">
+  <ul id="sortable_waypoints" class="connectedSortable" >
     <% @waypoints.each do |w| %>
       <li>
       <%= w.suggestion.title %>
+      </li>
+    <% end %>
+  </ul>
+  <ul id="sortable_suggestions" class="connectedSortable" >
+    <% @suggestions.each do |s| %>
+      <li>
+      <%= s.title %>
       </li>
     <% end %>
   </ul>

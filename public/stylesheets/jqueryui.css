@@ -8,17 +8,24 @@
 
 
 
-*/#sortable {
+*/#sortable_waypoints, #sortable_suggestions {
+  float: left;
   list-style-type: none;
-  width: 60%;
+  width: 250px;
 }
-#sortable li {
+#sortable_waypoints li {
   color: #dddddd;
   background: #274b9c;
   margin: 0 5px 5px 5px;
   padding: 5px;
   font-size: 1.2em;
-  height: 1.5em;
+}
+#sortable_suggestions li {
+  color: #dddddd;
+  background: #274b9c;
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
 }
 .ui-state-highlight {
   background: #29a129 !important;

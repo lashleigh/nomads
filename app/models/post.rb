@@ -5,6 +5,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :lat
   validates_presence_of :lon
   has_many :comments
+  has_one :waypoint, :as => :position
   belongs_to :user
 
   def as_hash
@@ -14,7 +15,7 @@ class Post < ActiveRecord::Base
       "latitude" => lat,
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
-      "user" => user.name,
+      "user" => user.nickname,
       "content" => textilize(shorten(content)) }
   end
 

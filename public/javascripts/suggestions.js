@@ -1,3 +1,4 @@
+var waypoint_array = []
 jQuery(function() {
   // By using the same info window as the google search there will
   // only be one window open at a time.
