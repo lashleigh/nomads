@@ -1,0 +1,27 @@
+@import "mixin";
+
+#map_for_waypoints {
+  float: left;
+  margin: 20px;
+  width: 450px;
+  height: 450px;
+}
+
+#sortable_waypoints, #sortable_positions { 
+  float: left;
+  list-style-type: none; 
+  width: 250px; 
+}
+#sortable_waypoints li {
+  .sortable_basic_style();
+}
+
+#sortable_positions li { 
+  .sortable_basic_style(#2C1400);
+}
+.ui-state-highlight { 
+  background: #29A129 !important;
+  height: 1.5em; 
+  line-height: 1.2em; 
+}
+

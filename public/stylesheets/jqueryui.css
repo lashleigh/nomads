@@ -8,7 +8,7 @@
 
 
 
-*/#sortable_waypoints, #sortable_suggestions {
+*/#sortable_waypoints, #sortable_positions {
   float: left;
   list-style-type: none;
   width: 250px;
@@ -20,9 +20,9 @@
   padding: 5px;
   font-size: 1.2em;
 }
-#sortable_suggestions li {
+#sortable_positions li {
   color: #dddddd;
-  background: #274b9c;
+  background: #2c1400;
   margin: 0 5px 5px 5px;
   padding: 5px;
   font-size: 1.2em;
