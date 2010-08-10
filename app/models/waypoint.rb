@@ -4,7 +4,35 @@ class Waypoint < ActiveRecord::Base
   belongs_to :prev_waypoint, :class_name => "Waypoint"
   has_one :next_waypoint, :class_name => "Waypoint", :foreign_key => :prev_waypoint_id
 
+  validates_uniqueness_of :prev_waypoint
+  validates_uniqueness_of :next_waypoint
   validates_presence_of :position
+
+  def insert_between(x = nil, y = nil)
+    self.remove_from_track
+
+    before = x
+    after = y
+
+    before.next_waypoint = self
+    self.next_waypoint = after
+
+    before.save
+    self.save
+    after.save
+  end
+
+  def remove_from_track
+    before = self.prev_waypoint
+    after = self.next_waypoint
+
+    before.next_waypoint = after
+    self.prev_waypoint = nil
+
+    before.save
+    self.save
+    after.save
+  end
 
   def self.full_track
     waypoints = Waypoint.all
@@ -40,5 +68,4 @@ class Waypoint < ActiveRecord::Base
   def self.full_track_points
     Waypoint.full_track.collect { |p| [ p.position.lat, p.position.lon ] }
   end
-
 end
