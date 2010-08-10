@@ -29,7 +29,7 @@ class MapController < ApplicationController
   def waypoints
     @waypoints = Waypoint.full_track
     @way_tracks = Waypoint.full_track_points
-    @positions = Post.all + Suggestion.all
+    @positions = Post.all + Suggestion.all - Waypoint.all.collect { |w| w.position }
   end
 
   private

@@ -41,6 +41,4 @@ class Waypoint < ActiveRecord::Base
     Waypoint.full_track.collect { |p| [ p.position.lat, p.position.lon ] }
   end
 
-  def self.insert
-  end
 end
