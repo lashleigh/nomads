@@ -1,12 +1,12 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<%= stylesheet_link_tag 'waypoints' %>
 <%= javascript_include_tag 'map_for_waypoints' %>
+<%= stylesheet_link_tag 'waypoints' %>
 <script type="text/javascript">
   $(function() {
     $("#sortable_waypoints, #sortable_positions").sortable({
       connectWith: '.connectedSortable',
-      placeholder: 'ui-state-highlight'
+      placeholder: 'ui-state-highlight',
     });
     $("#sortable").disableSelection();
   });
@@ -16,16 +16,16 @@
 <div class="demo">
   <ul id="sortable_waypoints" class="connectedSortable" >
     <% @waypoints.each do |w| %>
-      <li>
-      <%= w.position.title %>
-      </li>
+      <% content_tag_for :li, w do %>
+        <%= w.position.title %>
+      <% end %>
     <% end %>
   </ul>
   <ul id="sortable_positions" class="connectedSortable" >
     <% @positions.each do |s| %>
-      <li>
-      <%= s.title %>
-      </li>
+      <% content_tag_for :li, s do %>
+        <%= s.title %>
+      <% end %>
     <% end %>
   </ul>
 </div><!-- End demo -->

@@ -87,10 +87,17 @@
   background-color: #000000;
   text-decoration: none;
 }
+#map_for_waypoints {
+  float: left;
+  margin: 20px;
+  width: 450px;
+  height: 450px;
+}
 #sortable_waypoints, #sortable_positions {
   float: left;
   list-style-type: none;
   width: 250px;
+  margin: 20px 0 0;
 }
 #sortable_waypoints li {
   color: #dddddd;

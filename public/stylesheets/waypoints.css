@@ -14,3 +14,28 @@
   width: 450px;
   height: 450px;
 }
+#sortable_waypoints, #sortable_positions {
+  float: left;
+  list-style-type: none;
+  width: 250px;
+  margin: 20px 0 0;
+}
+#sortable_waypoints li {
+  color: #dddddd;
+  background: #274b9c;
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+}
+#sortable_positions li {
+  color: #dddddd;
+  background: #2c1400;
+  margin: 0 5px 5px 5px;
+  padding: 5px;
+  font-size: 1.2em;
+}
+.ui-state-highlight {
+  background: #29a129 !important;
+  height: 1.5em;
+  line-height: 1.2em;
+}
