@@ -1,4 +1,3 @@
-
 $(function() {
   // Initialize the map with default UI.
   var track_points = jQuery(waypoints).map(function(i, p) { return new google.maps.LatLng(p[0], p[1]) }).get();
@@ -7,7 +6,7 @@ $(function() {
 
   var waypointsMap = new google.maps.Map(document.getElementById("map_for_waypoints"), {
     center: new google.maps.LatLng(current_lat, current_lon),
-    zoom: 7,
+    zoom: 5,
     mapTypeId: 'roadmap'
   });
 
@@ -18,13 +17,28 @@ $(function() {
         strokeWeight: 2
       });
   polyline.setMap(waypointsMap);
-  $("#sortable_waypoints").sortable({receive: function(event) {
-    something = event.originalEvent.target;
-    position_as_string = something.id
-    prev_waypoint_as_string = something.previousElementSibling ? something.previousElementSibling.id : false
-    next_waypoint_as_string = something.nextElementSibling ? something.nextElementSibling.id : false
-    console.log(position_as_string, prev_waypoint_as_string, next_waypoint_as_string)
-    $.post('/waypoint/new', {position_as_string: position_as_string, prev_waypoint_as_string: prev_waypoint_as_string, next_waypoint_as_string: next_waypoint_as_string})
-  }});
+
+  $("#sortable_waypoints, #sortable_positions").sortable({
+    connectWith: '.connectedSortable',
+    placeholder: 'ui-state-highlight',
+  });
+  $("#sortable").disableSelection();
+
+  $("#sortable_waypoints").sortable({
+    receive: new_waypoint, 
+    remove: remove_waypoint,
+  });
 });
 
+function new_waypoint(event) {
+  something = event.originalEvent.target;
+  position_as_string = something.id
+  prev = something.previousElementSibling ? something.previousElementSibling.id : false
+  next = something.nextElementSibling ? something.nextElementSibling.id : false
+  $.post('/waypoint/new', {position_as_string: position_as_string, prev_waypoint_as_string: prev, next_waypoint_as_string: next} )
+}
+
+function remove_waypoint(event) {
+  position_id = event.originalEvent.target.id.split("_")[1];
+  $.post('/waypoint/destroy', {id: position_id});
+}
