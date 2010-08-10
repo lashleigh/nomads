@@ -21,9 +21,10 @@ $(function() {
   $("#sortable_waypoints").sortable({receive: function(event) {
     something = event.originalEvent.target;
     position_as_string = something.id
-    prev_waypoint_as_string = something.previousElementSibling.id
-    console.log(position_as_string, prev_waypoint_as_string)
-    $.post('/waypoint/new', {position_as_string: position_as_string, prev_waypoint_as_string: prev_waypoint_as_string})//$(this).sortable('serialize', 'refresh'));
+    prev_waypoint_as_string = something.previousElementSibling ? something.previousElementSibling.id : false
+    next_waypoint_as_string = something.nextElementSibling ? something.nextElementSibling.id : false
+    console.log(position_as_string, prev_waypoint_as_string, next_waypoint_as_string)
+    $.post('/waypoint/new', {position_as_string: position_as_string, prev_waypoint_as_string: prev_waypoint_as_string, next_waypoint_as_string: next_waypoint_as_string})
   }});
 });
 
