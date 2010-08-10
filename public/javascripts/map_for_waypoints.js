@@ -27,7 +27,13 @@ $(function() {
   $("#sortable_waypoints").sortable({
     receive: new_waypoint, 
     remove: remove_waypoint,
+    start: start_sort,
+    stop: stop_sort,
   });
+
+  $("#sortable_positions").sortable( {
+    receive: remove_waypoint,
+  }
 });
 
 function new_waypoint(event) {
@@ -41,4 +47,24 @@ function new_waypoint(event) {
 function remove_waypoint(event) {
   position_id = event.originalEvent.target.id.split("_")[1];
   $.post('/waypoint/destroy', {id: position_id});
+}
+
+function start_sort(event) {
+  position_id = event.originalEvent.target.id.split("_")[1];
+  $.post('/waypoint/start_sort', {id: position_id});
+}
+
+function stop_sort(event) {
+  this_event = event;
+  my_parent = this_event.target.id;
+  if(my_parent == "sortable_waypoints") {
+    something = event.originalEvent.target;
+    position_as_string = something.id
+    prev = something.previousElementSibling ? something.previousElementSibling.id : false
+    next = something.nextElementSibling ? something.nextElementSibling.id : false
+    $.post('/waypoint/stop_sort', {position_as_string: position_as_string, prev_waypoint_as_string: prev, next_waypoint_as_string: next} )
+  }
+  else {
+    remove_waypoint(this_event); 
+  }
 }

@@ -18,6 +18,38 @@ class WaypointController < ApplicationController
     render :text => "ok"
   end
 
+  def start_sort
+    @waypoint = Waypoint.find(params[:id])
+    if @waypoint.next_waypoint and @waypoint.prev_waypoint 
+      @next = @waypoint.next_waypoint
+      @prev = @waypoint.prev_waypoint
+      @next.prev_waypoint = @prev
+      @next.save
+    end
+    if !@waypoint.prev_waypoint
+      @next = @waypoint.next_waypoint
+      @next.prev_waypoint = nil
+      @next.save
+    end
+    render :text => "ok"
+  end
+
+  def stop_sort
+    @waypoint = Waypoint.find(params[:position_as_string].split("_")[1])
+    if params[:prev_waypoint_as_string] != "false"
+      @waypoint.prev_waypoint_id = params[:prev_waypoint_as_string].split("_")[1] 
+    end
+    @waypoint.save
+
+    if params[:next_waypoint_as_string] != "false"
+      next_id = params[:next_waypoint_as_string].split("_")[1]
+      @next = Waypoint.find_by_id(next_id)
+      @next.prev_waypoint = @waypoint
+      @next.save
+    end
+    render :text => "ok"
+  end
+
   def destroy
     @waypoint = Waypoint.find(params[:id])
     if @waypoint.next_waypoint and @waypoint.prev_waypoint 
