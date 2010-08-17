@@ -33,7 +33,7 @@ $(function() {
 
   $("#sortable_positions").sortable( {
     receive: remove_waypoint,
-  }
+  })
 });
 
 function new_waypoint(event) {

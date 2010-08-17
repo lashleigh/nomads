@@ -1,4 +1,11 @@
-class WaypointController < ApplicationController
+class WaypointsController < ApplicationController
+  before_filter :must_be_admin
+
+  def index
+    @waypoints = Waypoint.full_track
+    @way_tracks = Waypoint.full_track_points
+    @positions = Post.all + Suggestion.all - Waypoint.all.collect { |w| w.position }
+  end
 
   def new
     @waypoint = Waypoint.new
