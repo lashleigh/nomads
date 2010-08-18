@@ -11,7 +11,9 @@ class Waypoint < ActiveRecord::Base
     return [] unless waypoints.length > 0
     starting_point = waypoints[0]
 
-    id_to_waypoint = Hash[waypoints.collect { |w| [w.id, w] }.compact]
+    pairs = waypoints.collect { |w| [w.id, w] }.compact
+    logger.error "waypoint pairs =======> #{pairs}"
+    id_to_waypoint = Hash[pairs]
     prevs = {}
     nexts = {}
     waypoints.each do |w|
