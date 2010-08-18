@@ -13,15 +13,7 @@ jQuery(function() {
   });
 
   // Create some fancy waypoint thingies
-  var track_points = jQuery(waypoints).map(function(i, p) { return new google.maps.LatLng(p[0], p[1]) }).get();
-  var polyline = new google.maps.Polyline({
-        path: track_points,
-        strokeColor: "#FF6600",
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-      });
-  polyline.setMap(gMap);
-
+  draw_track();
   // Toggle full screen
   jQuery("#map_full_screen").click( function() {
     jQuery("#map_canvas").toggleClass("full_screen");
@@ -63,6 +55,17 @@ jQuery(function() {
       select(me); 
   });
 });
+
+function draw_track() {
+  var track_points = jQuery(waypoints).map(function(i, p) { return new google.maps.LatLng(p[0], p[1]) }).get();
+  var polyline = new google.maps.Polyline({
+        path: track_points,
+        strokeColor: "#FF6600",
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+  polyline.setMap(gMap);
+}
 
 function select(me) {
   jQuery("#suggestion_icon_id").val(me.title);

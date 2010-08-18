@@ -25,7 +25,7 @@ class WaypointsController < ApplicationController
     render :text => "ok"
   end
 
-  def start_sort
+  def update_waypoints
     @waypoint = Waypoint.find(params[:id])
     if @waypoint.next_waypoint and @waypoint.prev_waypoint 
       @next = @waypoint.next_waypoint
@@ -33,16 +33,13 @@ class WaypointsController < ApplicationController
       @next.prev_waypoint = @prev
       @next.save
     end
+    
     if !@waypoint.prev_waypoint
       @next = @waypoint.next_waypoint
       @next.prev_waypoint = nil
       @next.save
     end
-    render :text => "ok"
-  end
 
-  def stop_sort
-    @waypoint = Waypoint.find(params[:position_as_string].split("_")[1])
     if params[:prev_waypoint_as_string] != "false"
       @waypoint.prev_waypoint_id = params[:prev_waypoint_as_string].split("_")[1] 
     end
