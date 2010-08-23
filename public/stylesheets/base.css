@@ -148,6 +148,10 @@
   text-decoration: none;
   border-bottom: 4px dotted;
 }
+.photo_explanation {
+  width: 520px;
+  padding: 40px;
+}
 .trip {
   margin: 20px 0 0 0;
   width: 1120px;
