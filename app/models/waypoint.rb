@@ -39,7 +39,9 @@ class Waypoint < ActiveRecord::Base
     return [] unless waypoints.length > 0
     starting_point = waypoints[0]
 
-    id_to_waypoint = Hash[waypoints.collect { |w| [w.id, w] }]
+    id_to_waypoint = Hash.new
+    waypoints.each { |w| id_to_waypoint[w.id] = w }
+
     prevs = {}
     nexts = {}
     waypoints.each do |w|
