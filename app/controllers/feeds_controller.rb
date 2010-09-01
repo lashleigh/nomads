@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   def atom
-    @posts = Post.all.reverse
+    @posts = Post.find :all, :order => "created_at DESC"
     render :layout => false
   end
 end
