@@ -20,11 +20,16 @@ $(function() {
     connectWith: '.connectedSortable',
     placeholder: 'ui-state-highlight',
   });
-  $("#sortable").disableSelection();
+  $("#sortable").disableSelection();  //not sure what this does??
 
   $("#sortable_waypoints").sortable({
+    start: function(event, ui) {
+      var start_pos = ui.item.index();
+      ui.item.attr('class', start_pos);
+    },
     receive: new_waypoint, 
     remove: remove_waypoint,
+    stop: update_waypoints,
   });
 
 });
@@ -44,12 +49,7 @@ function draw_track() {
   polyline.setMap(waypointsMap);
 }
 
-function delegate(event) {
-  something = event.target.id;
-  if(something == "sortable_waypoints") { update_waypoints(event) }
-}
-
-function new_waypoint(event) {
+function new_waypoint(event, ui) {
   something = event.originalEvent.target;
   position_as_string = something.id
   prev = something.previousElementSibling ? something.previousElementSibling.id : false
@@ -58,12 +58,12 @@ function new_waypoint(event) {
   draw_track();
 }
 
-function remove_waypoint(event) {
+function remove_waypoint(event, ui) {
   position_id = event.originalEvent.target.id.split("_")[1];
   $.post('/waypoints/destroy', {id: position_id});
 }
 
-function update_waypoints(event) {
+function update_waypoints(event, ui) {
   something = event.originalEvent.target
   position_id = something.id.split("_")[1];
   prev = something.previousElementSibling ? something.previousElementSibling.id : false
