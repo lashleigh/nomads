@@ -37,10 +37,6 @@
   <% if @user and (@suggestion.user==@user or @user.admin?) %>
     | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
   <% end %>
-</div>
-
-<div id="map_and_comment_container">
-  <%= render :partial => "map" %>
 
   <div id="comments">
     <h3>Comments</h3>
@@ -72,3 +68,8 @@
     <% end %>
   </div>
 </div>
+
+<div id="map_and_comment_container">
+  <%= render :partial => "map" %>
+</div>
+
