@@ -1,40 +1,41 @@
 <%= javascript_include_tag 'map_for_suggestion' %>
 <div class="suggestion_text">
-<p>
-  <b>Title:</b>
-  <%=h @suggestion.title%>
-</p>
 
-<p>
-  <b>Created by:</b>
-  <%=h @suggestion.user.nickname or "unknown" %>
-</p>
+  <h2>
+    <%=h @suggestion.title%>
+  </h2>
 
-<p>
-  <b>Type:</b>
-  <%=h @suggestion.icon.name %>
-</p>
+  <div id="body">
+    <%=textilize @suggestion.content %>
+  </div>
 
-<p>
-  <b>Content:</b>
-  <%=textilize @suggestion.content %>
-</p>
+  <p id="metadata">
+    <span id="description">
+      <%=h @suggestion.icon.description %>
+    </span>
+    <span id="author">
+      suggested by <%=h @suggestion.user.nickname or "unknown" %>
+    </span>
+    <span id="timestamp">
+      <%= distance_of_time_in_words_to_now @suggestion.created_at %> ago.
+    </span>
+  </p>
 
-<div style="display: none;" >
-  <p>
+  <div style="display: none;" >
+    <p>
     <b>Lat:</b>
     <%=h @suggestion.lat %>
-  </p>
-  <p>
+    </p>
+    <p>
     <b>Lon:</b>
     <%=h @suggestion.lon %>
-  </p>
-</div>
+    </p>
+  </div>
 
-<%= link_to 'Map', "/map" %> |
-<%= link_to 'Back', suggestions_path %>
-<% if @user and (@suggestion.user==@user or @user.admin?) %>
-  | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
-<% end %>
+  <%= link_to 'Map', "/map" %> |
+  <%= link_to 'Back', suggestions_path %>
+  <% if @user and (@suggestion.user==@user or @user.admin?) %>
+    | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
+  <% end %>
 </div>
 <%= render :partial => "map" %>
