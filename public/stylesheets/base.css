@@ -452,3 +452,8 @@ table.zebra tr.odd {
   background-color: #dddddd;
 }
 .scaffold { margin: 0.25em 21px; }
+#comments {
+  clear: both;
+  margin: 1.5em 0;
+}
+.comment { margin: 5em 0; }

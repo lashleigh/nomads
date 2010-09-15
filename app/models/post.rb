@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :lat
   validates_presence_of :lon
-  has_many :comments
+  has_many :comments, :as => :position
   has_one :waypoint, :as => :position
   belongs_to :user
 
@@ -29,4 +29,11 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def author
+    if user
+      user.name
+    else
+      "unknown"
+    end
+  end
 end

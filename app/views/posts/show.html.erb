@@ -1,31 +1,39 @@
 <%= javascript_include_tag 'map_for_post' %>
 <div class="suggestion_text">
-<p>
-  <b>Created by:</b>
-  <%=h @post.user.nickname or "unknown" %>
-</p>
+  <h2><%=h @post.title %></h2>
+  <div id="post_author">posted by <%=h @post.author or "unknown" %></div>
+  <div id="post_body">
+    <%=textilize @post.content %>
+  </div>
 
-<p>
-  <b>Title:</b>
-  <%=h @post.title %>
-</p>
-
-<p>
-  <b>Content:</b>
-  <%=textilize @post.content %>
-</p>
-
-<%= link_to 'Map', "/map" %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Map', "/map" %>
+  | <%= link_to 'Back', posts_path %>
   <script type="text/javascript">
     var admin = false;
   </script>
-<% if @user and @user.admin? %>
-  | <%= link_to 'Edit', edit_post_path(@post) %> |
-  <script type="text/javascript">
-    var admin = true;
-  </script>
-<% end %>
+  <% if @user and @user.admin? %>
+    | <%= link_to 'Edit', edit_post_path(@post) %>
+    <script type="text/javascript">
+      var admin = true;
+    </script>
+  <% end %>
+
+  <div id="comments">
+    <h3>Comments</h3>
+    <% if @post.comments.length > 0 %>
+      <% @post.comments.each do |comment| %>
+        <div class="comment">
+          <span class="comment_body"><%= textilize comment.body %></span>
+          <div class="comment_metadata">
+            <span class="comment_author">By <%= h comment.author %></span>
+            <span class="comment_timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p><em>no comments yet.</em></p>
+    <% end %>
+  </div>
 </div>
 
 <%= render :partial => "map" %>
