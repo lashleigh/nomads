@@ -223,11 +223,12 @@ a:visited { color: #274b9c; }
   width: 500px;
   padding: 20px;
 }
+.post { margin: 1.5em 0; }
 .post h3 {
   margin: 10px 0;
   padding: 0;
 }
-.post p { margin: 0 0 22px; }
+.post p { margin: 0 0 15px; }
 #PostContent { padding: 0 0 8px 0; }
 #column_header {
   height: 50px;
@@ -453,7 +454,20 @@ table.zebra tr.odd {
 }
 .scaffold { margin: 0.25em 21px; }
 #comments {
-  clear: both;
+  float: left;
   margin: 1.5em 0;
 }
-.comment { margin: 5em 0; }
+.comment { margin: 1em 0; }
+.comment p { margin: 0.3em 0 !important; }
+#comment_body {
+  width: 350px;
+  height: 170px;
+}
+#comment_submit {
+  display: block;
+  margin: 0.75em 0;
+}
+.comment_metadata {
+  font-style: italic;
+  font-size-adjust: 0.5;
+}

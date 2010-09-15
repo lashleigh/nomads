@@ -68,12 +68,14 @@ a {
   padding: 20px;
 }
 .post {
+  margin: 1.5em 0;
+
   h3 {
     margin: 10px 0;
     padding: 0;
   }
   p {
-    margin: 0 0 22px;
+    margin: 0 0 15px;
   }
 }
 #PostContent {
@@ -328,34 +330,44 @@ table.zebra {
   margin: 1em;
   border-spacing: 0px;
   text-align: left;
-
   th {
     padding: 0.25em 0.75em;
   }
-
   td {
     padding: 0.75em;
   }
-
   td.zebra_content {
     width: 45%;
   }
-  
   tr.odd {
     border-collapse: collapse;
     background-color: #DDD;
   }
 }
-
 .scaffold {
   margin: 0.25em 21px;
 }
-
 #comments {
-  clear: both;
+  float: left;
   margin: 1.5em 0;
 }
-
 .comment {
   margin: 1em 0;
+  p {
+    margin: 0.3em 0 !important;
+  }
+  p#foo {
+  }
+}
+#comment_body {
+  width: 350px;
+  height: 170px;
+}
+#comment_submit {
+  display: block;
+  margin: 0.75em 0;
+}
+.comment_metadata {
+  font-style: italic;
+  font-size-adjust: 0.5;
 }
