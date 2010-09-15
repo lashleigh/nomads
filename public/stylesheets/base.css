@@ -453,21 +453,3 @@ table.zebra tr.odd {
   background-color: #dddddd;
 }
 .scaffold { margin: 0.25em 21px; }
-#comments {
-  float: left;
-  margin: 1.5em 0;
-}
-.comment { margin: 1em 0; }
-.comment p { margin: 0.3em 0 !important; }
-#comment_body {
-  width: 350px;
-  height: 170px;
-}
-#comment_submit {
-  display: block;
-  margin: 0.75em 0;
-}
-.comment_metadata {
-  font-style: italic;
-  font-size-adjust: 0.5;
-}

@@ -38,4 +38,37 @@
     | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
   <% end %>
 </div>
-<%= render :partial => "map" %>
+
+<div id="map_and_comment_container">
+  <%= render :partial => "map" %>
+
+  <div id="comments">
+    <h3>Comments</h3>
+    <% if @suggestion.comments.length > 0 %>
+      <% @suggestion.comments.each do |comment| %>
+        <div class="comment">
+          <span class="comment_body"><%= textilize comment.body %></span>
+          <div class="comment_metadata">
+            <span class="comment_author">By <%= h comment.author %></span>
+            <span class="comment_timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p><em>no comments yet.</em></p>
+    <% end %>
+    <% if @user %>
+      <div id="add_comment">
+        <h4>Add a comment</h4>
+        <% form_for "comment", :url => { :controller => "comments", :action => "suggestion", :id => @suggestion.id } do |f| %>
+          <%= f.text_area :body %>
+          <%= f.submit :Post %>
+        <% end %>
+      </div>
+    <% else %>
+      <div id="add_comment">
+        <%= link_to "Log in", :controller => :openid %> to add comments.
+      </div>
+    <% end %>
+  </div>
+</div>
