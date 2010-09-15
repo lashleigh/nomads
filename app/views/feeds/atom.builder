@@ -3,7 +3,7 @@ atom_feed do |feed|
   feed.updated(@posts.first.created_at)
  
   @posts.each do |post|
-    feed.entry([@project, @type, post]) do |entry|
+    feed.entry(post) do |entry|
       entry.id
       entry.title(post.title)
       entry.content(textilize(post.content).to_s, :type => :html)
