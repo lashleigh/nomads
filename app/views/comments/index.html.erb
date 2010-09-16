@@ -1,25 +1,18 @@
-<h1>Comments for <%= @post.title %></h1>
+<h1>All Comments</h1>
 
-<table>
+<table class="zebra">
   <tr>
     <th>Commenter</th>
+    <th>About</th>
     <th>Body</th>
   </tr>
 
-<% for comment in @comments %>
+<% @comments.each do |comment| %>
   <tr>
-    <td><%=h comment.commenter %></td>
-    <td><%=h comment.body %></td>
-    <td><%= link_to 'Show', post_comment_path(@post, comment) %></td>
-    <td>
-       <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
-     </td>
-    <td><%= link_to 'Destroy', post_comment_path(@post, comment), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= h comment.author %></td>
+    <td><%= link_to comment.position_name, comment.position %></td>
+    <td><%= h comment.position_id %></td>
+    <td><%= h comment.body %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New comment', new_post_comment_path(@post) %>
-<%= link_to 'Back to Post', @post %>
