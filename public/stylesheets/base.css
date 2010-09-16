@@ -459,3 +459,4 @@ table.zebra tr.odd {
 }
 .coordiantes { display: none; }
 #new_post_link { font-size-adjust: 0.5; }
+a img { border: none; }
