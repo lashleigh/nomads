@@ -16,11 +16,10 @@ class Post < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
       "user" => user.nickname,
-      "content" => textilize(shorten(content)) }
+      "content" => textilize(short_content) }
   end
 
-  def shorten(content)
-    maxlen = 100
+  def short_content(maxlen = 100)
     s = content[0..maxlen]
     if( s.length > maxlen and s.include? ' ')
       s[0..s.rindex(' ')-1] + '...'

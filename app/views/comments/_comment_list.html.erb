@@ -5,10 +5,10 @@
     <% position.comments.each do |comment| %>
       <div class="comment">
         <span class="comment_body"><%= textilize comment.body %></span>
-        <div class="comment_metadata">
-          <span class="comment_author">By <%= h comment.author %></span>
-          <span class="comment_timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-          <% if @user.admin? or @user == comment.user %>
+        <div class="metadata">
+          <span class="author">By <%= h comment.author %></span>
+          <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
+          <% if @user and (@user.admin? or @user == comment.user) %>
             <span class="edit_links">
               <%= link_to image_tag("edit.png"), :controller => :comments, :action => :edit, :id => comment.id %>
               <%= link_to image_tag("remove.png"), { :controller => :comments, :action => :destroy, :id => comment.id }, { :confirm => "Are you sure?"} %>

@@ -1,0 +1,31 @@
+<% post = summary -%>
+<h2><%=link_to post.title, post %></h2>
+
+<div class="metadata">
+  <span class="author">Posted by <%= h post.author %></span>
+  <span class="timestamp"><%= distance_of_time_in_words_to_now post.created_at %> ago</span>
+  <% if @user and @user.admin? %>
+    <span class="edit_links">
+      <%= link_to image_tag("edit.png"), edit_post_path(post) %>
+      <%= link_to image_tag("remove.png"),  post, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+  <% end %>
+</div>
+
+<div class="post_content">
+  <%=textilize post.short_content(500) %>
+</div>
+
+<div class="coordiantes">
+  Position: 
+  <span><%=h "%0.5f" % post.lat %></span>,
+  <span><%=h "%0.5f" % post.lon %></span>
+</div>
+
+<p class="comment_link">
+  <% if post.comments.length > 0 %>
+    <%= link_to pluralize(post.comments.length, "comment"), post_url(post) + "#comments" %>
+  <% else %>
+    <%= link_to "no comments", post_url(post) + "#comments" %>
+  <% end %>
+</p>

@@ -1,22 +1,24 @@
 <%= javascript_include_tag 'map_for_post' %>
+<script type="text/javascript">
+  var admin = <%= (@user and @user.admin?).to_json %>;
+</script>
+
 <div class="suggestion_text">
-  <h2><%=h @post.title %></h2>
-  <div id="post_author">posted by <%=h @post.author or "unknown" %></div>
+  <h2><%= link_to @post.title, @post %></h2>
+  <div id="post_author">
+    posted by <%=h @post.author or "unknown" %>
+    <% if @user and @user.admin? %>
+      <span class="edit_links">
+        <%= link_to image_tag("edit.png"), edit_post_path(@post) %>
+        <%= link_to image_tag("remove.png"), @post, :confirm => 'Are you sure?', :method => :delete %>
+      </span>
+    <% end %>
+  </div>
   <div id="post_body">
     <%=textilize @post.content %>
   </div>
 
-  <%= link_to 'Map', "/map" %>
-  | <%= link_to 'Back', posts_path %>
-  <script type="text/javascript">
-    var admin = false;
-  </script>
-  <% if @user and @user.admin? %>
-    | <%= link_to 'Edit', edit_post_path(@post) %>
-    <script type="text/javascript">
-      var admin = true;
-    </script>
-  <% end %>
+  <%= link_to 'All posts', posts_path %>
 </div>
 
 <div id="map_and_comment_container">

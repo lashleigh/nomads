@@ -1,41 +1,9 @@
 <div class="listing_posts">
-<h2 class="scaffold">Listing posts</h2>
-
-<table class="zebra">
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Latitude</th>
-    <th>Longitude</th>
-  </tr>
-
-<% @posts.each do |post| %>
-  <tr>
-    <td>
-      <% if post.user %>
-        <%=h post.user.nickname %>
-      <% else %>
-        <em>none</em>
-      <% end %>
-    </td>
-    <td><%=h post.title %></td>
-    <td class="zebra_content"><%=textilize truncate(post.content, :length => 300) %></td>
-    <td><%=h "%0.5f" % post.lat %></td>
-    <td><%=h "%0.5f" % post.lon %></td>
-    <td><%= link_to 'Show', post %></td>
+  <h1>
+    Blog Posts
     <% if @user and @user.admin? %>
-      <td><%= link_to 'Edit', edit_post_path(post) %></td>
-      <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
+      <span id="new_post_link">(<%= link_to 'New', new_post_path %>)</span>
     <% end %>
-  </tr>
-<% end %>
-</table>
-</div>
+  </h1>
 
-<div class="scaffold">
-  <%= link_to "Map", :controller => :map %>
-  <% if @user and @user.admin? %>
-    | <%= link_to 'New post', new_post_path %>
-  <% end %>
-</div>
+<%= render :partial => 'summary', :collection => @posts %>

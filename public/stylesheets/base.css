@@ -453,3 +453,9 @@ table.zebra tr.odd {
   background-color: #dddddd;
 }
 .scaffold { margin: 0.25em 21px; }
+.metadata {
+  font-style: italic;
+  font-size-adjust: 0.5;
+}
+.coordiantes { display: none; }
+#new_post_link { font-size-adjust: 0.5; }

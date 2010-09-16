@@ -3,19 +3,5 @@
     <h2> <%= link_to "Recent Posts", posts_path %> </h2>
   </div>
 
-  <% @posts.each do |post| %>
-    <div class="post">
-      <h3><%=link_to h(post.title), post %></h3>
-      <p>Published <%=h post.created_at.to_formatted_s(:short) %> by <%=h post.user.nickname %> </p>
-      <div id="PostContent" class="hide" style="display:block; overflow: hidden;">
-        <%=textilize post.content %>
-        <% if post.comments.length > 0 %>
-          <%= link_to pluralize(post.comments.length, "comment"), post_url(post) + "#comments" %>
-        <% else %>
-          <%= link_to "no comments", post_url(post) + "#comments" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
+  <%= render :partial => 'posts/summary', :collection => @posts %>
 </div>
