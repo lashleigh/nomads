@@ -19,6 +19,7 @@
 #suggestion_errors ul li { padding: 0px 5px 2px 0px; }
 #suggestion_content { width: 410px; }
 #suggestion_title { width: 220px; }
+.latlon_display { width: 66px; }
 .suggestion_text {
   margin: 20px 40px;
   width: 648px;
