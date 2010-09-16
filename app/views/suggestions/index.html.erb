@@ -11,28 +11,7 @@
       <th>Lat</th>
       <th>Lon</th>
     </tr>
-  
-    <% @my_suggestions.each do |suggestion| %>
-      <tr>
-        <td>
-          <% if suggestion.user %>
-            <%=h suggestion.user.nickname %>
-          <% else %>
-            <em>none</em>
-          <% end %>
-        </td>
-        <td><%=h suggestion.title %></td>
-        <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
-        <td class="zebra_content"><%=textilize truncate(suggestion.content, :length => 300) %></td>
-        <td><%=h "%0.5f" % suggestion.lat %></td>
-        <td><%=h "%0.5f" % suggestion.lon %></td>
-        <td><%= link_to 'Show', suggestion %></td>
-        <% if @user and (suggestion.user==@user or @user.admin?) %>
-          <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
-          <td><%= link_to 'Destroy', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% end %>
-      </tr>
-    <% end %>
+    <%= render :partial => 'suggestion_row', :collection => @my_suggestions %>
   </table>
   </div>
 <% end %>
@@ -41,27 +20,7 @@
 <h2 class="scaffold">All suggestions</h2>
 <table class="zebra">
   <% if @suggestions.length > 0 %>
-    <% @suggestions.each do |suggestion| %>
-      <tr>
-        <td>
-          <% if suggestion.user %>
-            <%=h suggestion.user.nickname %>
-          <% else %>
-            <em>none</em>
-          <% end %>
-        </td>
-        <td><%=h suggestion.title %></td>
-        <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
-        <td class="zebra_content"><%=textilize truncate(suggestion.content, :length => 300) %></td>
-        <td><%=h "%0.5f" % suggestion.lat %></td>
-        <td><%=h "%0.5f" % suggestion.lon %></td>
-        <td><%= link_to 'Show', suggestion %></td>
-        <% if @user and @user.admin? %>
-          <td><%= link_to 'Edit', edit_suggestion_path(suggestion) %></td>
-          <td><%= link_to 'Destroy', suggestion, :confirm => 'Are you sure?', :method => :delete %></td>
-        <% end %>
-      </tr>
-    <% end %>
+    <%= render :partial => 'suggestion_row', :collection => @suggestions %>
   <% else %>
     <p class="hint">No suggestions yet</p>
   <% end %>

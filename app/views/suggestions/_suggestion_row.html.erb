@@ -1,0 +1,21 @@
+<% suggestion = suggestion_row -%>
+<tr>
+  <td>
+    <% if suggestion.user %>
+      <%=h suggestion.user.nickname %>
+    <% else %>
+      <em>none</em>
+    <% end %>
+  </td>
+  <td><%= link_to suggestion.title, suggestion%></td>
+  <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
+  <td class="zebra_content"><%=textilize truncate(suggestion.content, :length => 100) %></td>
+  <td><%=h "%0.4f" % suggestion.lat %></td>
+  <td><%=h "%0.4f" % suggestion.lon %></td>
+  <% if @user and (suggestion.user == @user or @user.admin?) %>
+    <td class="edit_and_delete_links">
+      <%= link_to image_tag("edit.png"), edit_suggestion_path(suggestion) %>
+      <%= link_to image_tag("remove.png"), suggestion, :confirm => 'Are you sure?', :method => :delete %>
+    </td>
+  <% end %>
+</tr>

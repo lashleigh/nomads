@@ -19,26 +19,27 @@
     <span id="timestamp">
       <%= distance_of_time_in_words_to_now @suggestion.created_at %> ago.
     </span>
+    <% if @user and (@suggestion.user == @user or @user.admin?) %>
+      <span class="edit_links">
+        <%= link_to image_tag('edit.png'), edit_suggestion_path(@suggestion) %>
+      </span>
+    <% end %>
   </p>
 
   <div style="display: none;" >
     <p>
-    <b>Lat:</b>
-    <%=h @suggestion.lat %>
+      <b>Lat:</b>
+      <%=h @suggestion.lat %>
     </p>
     <p>
-    <b>Lon:</b>
-    <%=h @suggestion.lon %>
+      <b>Lon:</b>
+      <%=h @suggestion.lon %>
     </p>
   </div>
 
-  <%= link_to 'Map', "/map" %> |
-  <%= link_to 'Back', suggestions_path %>
-  <% if @user and (@suggestion.user==@user or @user.admin?) %>
-    | <%= link_to 'Edit', edit_suggestion_path(@suggestion) %> |
-  <% end %>
-
   <%= render :partial => "comments/comment_list", :object => @suggestion %>
+
+  <%= link_to 'Suggestion list', suggestions_path %>
 </div>
 
 <div id="map_and_comment_container">

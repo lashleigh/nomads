@@ -450,8 +450,9 @@ table.zebra td { padding: 0.75em; }
 table.zebra td.zebra_content { width: 45%; }
 table.zebra tr.odd {
   border-collapse: collapse;
-  background-color: #dddddd;
+  background-color: #eeeeee;
 }
+table.zebra tr:hover { background: #ffffd9; }
 .scaffold { margin: 0.25em 21px; }
 .metadata {
   font-style: italic;
