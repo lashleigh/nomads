@@ -8,7 +8,7 @@
     <% end %>
   </td>
   <td><%= link_to suggestion.title, suggestion%></td>
-  <td><%=image_tag( suggestion.icon.icon_url ) if suggestion.icon %></td>
+  <td><%= image_tag(suggestion.icon.icon_url) if suggestion.icon %></td>
   <td class="zebra_content"><%=textilize truncate(suggestion.content, :length => 100) %></td>
   <td class="latlon_display"><%=h "%0.4f" % suggestion.lat %></td>
   <td class="latlon_display"><%=h "%0.4f" % suggestion.lon %></td>
