@@ -1,32 +1,17 @@
 
 <% if @my_suggestions and @my_suggestions.length > 0 %>
   <div class="listing_suggestions">
-  <h2 class="scaffold">Your suggestions</h2>
+  <h2 class="scaffold">Suggestions</h2>
   <table class="zebra">
     <tr>
       <th>User</th>
       <th>Title</th>
-      <th>Icon</th>
+      <th>Type</th>
       <th>Content</th>
-      <th class="latlon_display">Lat</th>
-      <th class="latlon_display">Lon</th>
+      <th></th>
     </tr>
     <%= render :partial => 'suggestion_row', :collection => @my_suggestions %>
+    <%= render :partial => 'suggestion_row', :collection => (@suggestions - @my_suggestions) %>
   </table>
   </div>
 <% end %>
-
-<div class="listing_suggestions">
-<h2 class="scaffold">All suggestions</h2>
-<table class="zebra">
-  <% if @suggestions.length > 0 %>
-    <%= render :partial => 'suggestion_row', :collection => @suggestions %>
-  <% else %>
-    <p class="hint">No suggestions yet</p>
-  <% end %>
-</table>
-</div>
-
-<div class="scaffold">
-  <%= link_to 'Map', "/map" %>
-</div>

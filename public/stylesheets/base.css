@@ -447,7 +447,7 @@ table.zebra {
 }
 table.zebra th { padding: 0.25em 0.75em; }
 table.zebra td { padding: 0.75em; }
-table.zebra td.zebra_content { width: 45%; }
+table.zebra td.zebra_content { width: 65%; }
 table.zebra tr.odd {
   border-collapse: collapse;
   background-color: #eeeeee;
