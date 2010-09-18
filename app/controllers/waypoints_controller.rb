@@ -3,8 +3,11 @@ class WaypointsController < ApplicationController
 
   def index
     @waypoints = Waypoint.full_track
-    @way_tracks = Waypoint.full_track_points
-    @positions = Post.all + Suggestion.all - Waypoint.all.collect { |w| w.position }
+    @waypoint_track = Waypoint.full_track_points
+
+    @posts = Post.all
+    @suggestions = Suggestion.all
+    @positions = @posts + @suggestions - Waypoint.all.collect { |w| w.position }
   end
 
   def new

@@ -31,7 +31,6 @@ $(function() {
     remove: remove_waypoint,
     stop: update_waypoints,
   });
-
 });
 
 function draw_track() {
