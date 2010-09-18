@@ -5,14 +5,6 @@
 
 <script type="text/javascript">
   var waypoints = <%= @waypoint_track.to_json %>;
-  var waypoint_objects = $.map(<%= @waypoints.to_json %>, function(x) { return x.waypoint });
-  var position_objects = { "Post": {}, "Suggestion": {} };
-  $.each(<%= @posts.to_json %>, function(i, x) {
-    position_objects["Post"][x.post.id] = x.post
-  });
-  $.each(<%= @suggestions.to_json %>, function(i, x) {
-    position_objects["Suggestion"][x.suggestion.id] = x.suggestion
-  });
 </script>
 
 <div class="demo">

@@ -53,13 +53,22 @@ function new_waypoint(event, ui) {
   position_as_string = something.id
   prev = something.previousElementSibling ? something.previousElementSibling.id : false
   next = something.nextElementSibling ? something.nextElementSibling.id : false
-  $.post('/waypoints/new', {position_as_string: position_as_string, prev_waypoint_as_string: prev, next_waypoint_as_string: next} )
+  $.post('/waypoints/new',
+         {position_as_string: position_as_string, prev_waypoint_as_string: prev, next_waypoint_as_string: next},
+         function(res, txtStatus) {
+           $(something).attr("id", res).attr("class", "waypoint");
+         });
   draw_track();
 }
 
 function remove_waypoint(event, ui) {
-  position_id = event.originalEvent.target.id.split("_")[1];
-  $.post('/waypoints/destroy', {id: position_id});
+  something = event.originalEvent.target;
+  position_id = something.id.split("_")[1];
+  $.post('/waypoints/destroy',
+         {id: position_id},
+         function(res, txtStatus) { 
+           $(something).attr("id", res).attr("class", "position");
+         });
 }
 
 function update_waypoints(event, ui) {
