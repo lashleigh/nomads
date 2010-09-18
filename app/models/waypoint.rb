@@ -3,9 +3,6 @@ class Waypoint < ActiveRecord::Base
 
   belongs_to :prev_waypoint, :class_name => "Waypoint"
   has_one :next_waypoint, :class_name => "Waypoint", :foreign_key => :prev_waypoint_id
-
-  validates_uniqueness_of :prev_waypoint
-  validates_uniqueness_of :next_waypoint
   validates_presence_of :position
 
   def insert_between(x = nil, y = nil)
@@ -69,5 +66,13 @@ class Waypoint < ActiveRecord::Base
 
   def self.full_track_points
     Waypoint.full_track.collect { |p| [ p.position.lat, p.position.lon ] }
+  end
+
+  def title
+    if position
+      position.title
+    else
+      "untitled"
+    end
   end
 end
