@@ -1,10 +1,17 @@
 class User < ActiveRecord::Base
   has_many :suggestions
   has_many :posts
+  has_many :comments
   validates_uniqueness_of :openid
   validates_uniqueness_of :name, :allow_nil => true, :allow_blank => true
   validates_uniqueness_of :email, :allow_nil => true, :allow_blank => true
   def nickname
-    (self.name.nil? or self.name == "") ? "Guest_#{id}" : self.name
+    if self.name and self.name != ""
+      self.name
+    elsif self.fullname and self.fullname != ""
+      self.fullname
+    else
+      "Guest_#{id}"
+    end
   end
 end
