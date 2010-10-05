@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @comments }
+      format.xml { render :xml => @comments }
     end
   end
 
@@ -19,7 +20,11 @@ class CommentsController < ApplicationController
 
   def show
     comment = Comment.find params[:id]
-    redirect_to comment.position
+    respond_to do |format|
+      format.html { redirect_to comment.position }
+      format.json { render :json => comment }
+      format.xml { render :xml => comment }
+    end
   end
 
   def update
