@@ -30,4 +30,12 @@ class Suggestion < ActiveRecord::Base
       s
     end
   end
+
+  def author
+    if user
+      user.name
+    else
+      "unknown"
+    end
+  end
 end

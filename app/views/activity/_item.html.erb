@@ -1,0 +1,15 @@
+<li >
+  <span class="author<%= item.user.admin? ? ' admin_action' : ""%>">
+    <%= h item.author %>
+  </span>
+
+  <% if Comment === item %>
+    commented on <%= link_to item.position.title, item.position %>
+  <% elsif Post === item %>
+    wrote a blog post: <%= link_to item.title, item %>
+  <% elsif Suggestion === item %>
+    suggested <%= link_to item.title, item %>
+  <% end %>
+
+  <%= distance_of_time_in_words_to_now item.created_at %> ago
+</li>

@@ -2,6 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :suggestions
   map.resources :comments
   map.resources :posts
+  map.resources :activity
 
   # The priority is based upon order of creation: first created -> highest priority.
 

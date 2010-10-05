@@ -461,3 +461,10 @@ table.zebra tr:hover { background: #ffffd9; }
 .coordiantes { display: none; }
 #new_post_link { font-size-adjust: 0.5; }
 a img { border: none; }
+#navigation { width: 600px; }
+ul#activity { margin: 2em 0 0 0; }
+ul#activity li {
+  list-style: none outside none;
+  margin: 0.75em 0;
+}
+ul#activity .admin_action { font-style: italic; }

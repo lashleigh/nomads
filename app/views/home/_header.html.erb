@@ -13,6 +13,9 @@
     <ul id="navigation" class="no_dot_list">
       <li><a href="/home/about">About</a></li>
       <li><a href="/flickr">Photos</a></li>
+      <% if @user and @user.admin? %>
+        <li><%= link_to "Activity", activity_index_path %></li>
+      <% end %>
       <li><a href="/map">Map</a></li>
       <li><a href="/home">Home</a></li>
     </ul>
