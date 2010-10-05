@@ -10,8 +10,8 @@
           <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
           <% if @user and (@user.admin? or @user == comment.user) %>
             <span class="edit_links">
-              <%= link_to image_tag("edit.png"), :controller => :comments, :action => :edit, :id => comment.id %>
-              <%= link_to image_tag("remove.png"), { :controller => :comments, :action => :destroy, :id => comment.id }, { :confirm => "Are you sure?"} %>
+              <%= link_to image_tag("edit.png"), edit_comment_path(comment) %>
+              <%= link_to image_tag("remove.png"), comment, :method => :delete, :confirm => "Are you sure?" %>
             </span>
           <% end %>
         </div>

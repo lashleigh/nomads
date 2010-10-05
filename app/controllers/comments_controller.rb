@@ -4,16 +4,22 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.find(:all, :order => "created_at DESC")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @comments }
+    end
   end
 
   def create
     comment = Comment.new params[:comment]
     comment.user = @user
     comment.save
-    redirect_to comment.position
+    redirect_to comment
   end
 
-  def edit
+  def show
+    comment = Comment.find params[:id]
+    redirect_to comment.position
   end
 
   def update
