@@ -2,7 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :suggestions
   map.resources :comments
   map.resources :posts
-  map.resources :activity,  :collection => { :plain => :get }
+  map.resources :activity, :collection => { :plain => :get }
+  map.resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
 

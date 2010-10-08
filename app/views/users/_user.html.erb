@@ -1,0 +1,8 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.fullname %></td>
+  <% if @user and @user.admin? %>
+    <td><%= mail_to user.email %></td>
+    <td><%= user.openid %></td>
+  <% end %>
+</tr>
