@@ -9,6 +9,10 @@ class ActivityController < ApplicationController
   end
 
   def plain
+    @urls = @items.collect do |item|
+      url_for item
+    end
+
     @items.collect! do |item|
       if Comment === item
         "#{item.author} commented on #{item.position.title}"
@@ -21,7 +25,7 @@ class ActivityController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @items }
+      format.json { render :json => @items.zip(@urls) }
     end
   end
 
