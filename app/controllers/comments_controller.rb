@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_filter :must_be_user
   before_filter :must_own_comment, :only => [ :edit, :update, :destroy ]
 
   def index

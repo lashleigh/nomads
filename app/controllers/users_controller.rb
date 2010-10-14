@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def index
     if params[:since]
-      @users = User.find(:all, :conditions => "id > #{params[:since].to_i}")
+      @users = User.find(:all, :conditions => [ "updated_at > ?",  params[:since] ])
     else
       @users = User.all
     end

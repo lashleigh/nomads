@@ -16,7 +16,7 @@ class SuggestionsController < ApplicationController
   # GET /suggestions.xml
   def index
     if params[:since]
-      all = Suggestion.find(:all, :conditions => "id > #{params[:since].to_i}").reverse
+      all = Suggestion.find(:all, :conditions => [ "updated_at > ?",  params[:since] ]).reverse
     else
       all = Suggestion.find(:all).reverse
     end
