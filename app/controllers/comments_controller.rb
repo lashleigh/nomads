@@ -2,7 +2,12 @@ class CommentsController < ApplicationController
   before_filter :must_own_comment, :only => [ :edit, :update, :destroy ]
 
   def index
-    @comments = Comment.find(:all, :order => "created_at DESC")
+    if params[:since]
+      @comments = Comment.find :all, :order => "created_at DESC", :conditions => [ "updated_at > ?",  params[:since] ]
+    else
+      @comments = Comment.find :all, :order => "created_at DESC"
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @comments }
