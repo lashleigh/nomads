@@ -26,6 +26,7 @@
   padding: 10px;
   margin: 10px 0;
   width: 230px;
+  overflow: hidden;
 }
 #twitter_update_list li a {
   border-bottom: dotted 1px;
