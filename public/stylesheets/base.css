@@ -148,10 +148,6 @@
   text-decoration: none;
   border-bottom: 4px dotted;
 }
-.photo_explanation {
-  width: 520px;
-  padding: 40px;
-}
 .trip {
   margin: 20px 0 0 0;
   width: 1120px;
@@ -274,7 +270,14 @@ a:visited { color: #274b9c; }
   vertical-align: middle;
 }
 .flickr_photo { padding: 10px; }
-#photo_archive_container { overflow: hidden; }
+#photo_archive_container {
+  margin-left: 15px;
+  overflow: hidden;
+}
+.photo_explanation {
+  width: 520px;
+  padding: 40px 0px 40px 15px;
+}
 .archive_photo {
   float: left;
   overflow: hidden;
@@ -287,7 +290,7 @@ a:visited { color: #274b9c; }
 .archive_photo img {
   vertical-align: middle;
   margin: 5px;
-  height: 180px;
+  width: 208px;
 }
 #search_box {
   width: 600px;
