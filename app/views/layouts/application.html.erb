@@ -1,44 +1,14 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Nomads</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <title>Nomads &mdash; Benson and Ashleigh's Bicycling Adventure</title>
-    <link rel="alternate" type="application/atom+xml" href="/feeds/atom">
-    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+<%= yield %>
 
-    <script type="text/javascript" src="/javascripts/jquery.min.js"></script>
-    <script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-    <script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
-    <%= stylesheet_link_tag 'base' %>
-    <%= stylesheet_link_tag 'twitter' %>
-    <%= javascript_include_tag 'fancybox' %>
-    <%= javascript_include_tag 'twitter' %>
-  </head>
-  <body>
-    <div id="page_wrapper">
-      <%= render :partial => "home/header" %>
-      <div id="container">
-        <% if flash[:error] %>
-          <div id="errors"><%= flash[:error] %></div>
-        <% end %>
-        <% if flash[:errors] %>
-          <div id="errors">
-            <ul>
-              <% flash[:errors].each do |err| %>
-                <li><%= err %></li>
-              <% end %>
-            </ul>
-          </div>
-        <% end %>
-        <% if flash[:message] %>
-          <div id="message"><%= flash[:message] %></div>
-        <% end %>
-        <%= yield %>
-      </div>
-    </div>
-    <%= render :partial => "home/footer" %>
-  </body>
+</body>
 </html>

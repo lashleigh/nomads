@@ -1,8 +1,3 @@
-require 'openid'
-require 'openid/consumer'
-require 'openid/extensions/sreg'
-require 'openid/store/filesystem'
-
 class OpenidController < ApplicationController
   def index
     if request.env['HTTP_REFERER']

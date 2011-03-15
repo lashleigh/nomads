@@ -4,17 +4,17 @@
     <a id="header-logo" href="/home"></a>
     <div id="login_status">
       <% if session[:user] %>
-        Logged in as <%= link_to @user.nickname, { :controller => :openid, :action => :details } %><br/>
-        <%= link_to "sign out", :controller => :openid, :action => :destroy %>
+        Logged in as <%= link_to @user.nickname, details_path %><br/>
+        <%= link_to "sign out", signout_path %>
       <% else %>
-        <%= link_to "sign in", { :controller => :openid }, :id => "sign_in" %>
+        <%= link_to "sign in", signin_path %>
       <% end %>
     </div>
     <ul id="navigation" class="no_dot_list">
-      <li><a href="/home/about">About</a></li>
-      <li><a href="/flickr">Photos</a></li>
-      <li><a href="/map">Map</a></li>
-      <li><a href="/home">Home</a></li>
+      <li> <%= link_to "About", about_url %> </li> 
+      <li> <%= link_to "Photos", photos_url %> </li> 
+      <li> <%= link_to "Map", map_url %> </li> 
+      <li> <%= link_to "Home", root_url %> </li> 
     </ul>
   </div>
 </div>

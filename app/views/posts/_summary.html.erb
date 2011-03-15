@@ -2,7 +2,7 @@
 <h2><%=link_to post.title, post %></h2>
 
 <div class="metadata">
-  <span class="author">Posted by <%= h post.author %></span>
+  <span class="author">Posted by <%= post.author %></span>
   <span class="timestamp"><%= distance_of_time_in_words_to_now post.created_at %> ago</span>
   <% if @user and @user.admin? %>
     <span class="edit_links">
@@ -13,13 +13,13 @@
 </div>
 
 <div class="post_content">
-  <%=textilize post.short_content(500) %>
+  <%=textilize(post.short_content(500)).html_safe %>
 </div>
 
 <div class="coordiantes">
   Position: 
-  <span><%=h "%0.5f" % post.lat %></span>,
-  <span><%=h "%0.5f" % post.lon %></span>
+  <span><%="%0.5f" % post.lat %></span>,
+  <span><%="%0.5f" % post.lon %></span>
 </div>
 
 <p class="comment_link">
