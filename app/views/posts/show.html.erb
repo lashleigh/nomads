@@ -1,12 +1,12 @@
 <%= javascript_include_tag 'map_for_post' %>
 <script type="text/javascript">
-  var admin = <%= (@user and @user.admin?).to_json %>;
+  var admin = <%= (@user and @user.admin?).to_json.html_safe %>;
 </script>
 
 <div class="suggestion_text">
   <h2><%= link_to @post.title, @post %></h2>
   <div id="post_author">
-    posted by <%=h @post.author or "unknown" %>
+    posted by <%= @post.author or "unknown" %>
     <% if @user and @user.admin? %>
       <span class="edit_links">
         <%= link_to image_tag("edit.png"), edit_post_path(@post) %>
@@ -15,7 +15,7 @@
     <% end %>
   </div>
   <div id="post_body">
-    <%=textilize @post.content %>
+    <%=red @post.content %>
   </div>
 
   <%= link_to 'All posts', posts_path %>

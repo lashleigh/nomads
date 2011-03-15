@@ -2,7 +2,7 @@
   <div id="openid_choice">
     <p>Please select your account provider:</p>
     <ul id="openid_buttons" class="no_dot_list">
-      <li><%= link_to image_tag("google.gif"), {:action => :create, :openid_url => "https://www.google.com/accounts/o8/id" } %></li>
+      <li><%= link_to image_tag("google.gif"), "/openid/create?openid_url=https://www.google.com/accounts/o8/id" %></li>
       <li><%= link_to image_tag("yahoo.gif"), {:action => :create, :openid_url => "http://yahoo.com" } %></li>
     </ul> 
   <% form_tag '/openid/create', :id => "login" do %>

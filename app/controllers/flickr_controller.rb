@@ -1,5 +1,4 @@
 class FlickrController < ApplicationController
-  layout 'posts'
   def index
     @photos = FlickrPhoto.find(:all).reverse
   end

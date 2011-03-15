@@ -64,11 +64,11 @@
       <div id="full_screen_container">
 
         <script type="text/javascript">
-          var posts = <%= @posts.to_json %>;
-          var images = <%= @photos.to_json %>;
-          var suggestions = <%= @suggestions.to_json %>;
-          var waypoints = <%= @waypoints.to_json %>;
-          var logged_in = <%= (not @user.nil?).to_json %>
+          var posts = <%= @posts.to_json.html_safe %>;
+          var images = <%= @photos.to_json.html_safe %>;
+          var suggestions = <%= @suggestions.to_json.html_safe %>;
+          var waypoints = <%= @waypoints.to_json.html_safe %>;
+          var logged_in = <%= (not @user.nil?).to_json.html_safe %>
         </script>
         <div id="map_canvas" class="full_screen" ></div>
         <div id="searchwell"></div>

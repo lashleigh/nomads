@@ -1,19 +1,18 @@
 Nomads::Application.routes.draw do
   resources :suggestions
+  resources :openid
   resources :posts do 
     resources :comments
   end
   root :to => "home#index"
 
-  match "/openid/create" => "openid#create", :as => :signin
+  match "/openid/new", :as => :signin
   match "/openid/details" => "openid#details", :as => :details
   match "/openid/destroy" => "openid#destroy", :as => :signout
 
   match "/about" => "home#about", :as => :about
   match "/photos" => "flickr#index", :as => :photos
   match "/map" => "map#index", :as => :map
-  #match "/auth/:provider/callback" => "sessions#create"  
-  #match "/signout" => "sessions#destroy", :as => :signout  
 
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
