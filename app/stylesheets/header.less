@@ -1,25 +1,21 @@
 @import "mixin";
-@wrapper_side :url("/images/solid_green.png") repeat-x scroll 0 0 transparent;
-@wrapper_center:url("/images/header_green.png") no-repeat scroll 40px 0 transparent;
-
-@sub_wrapper_side :url("/images/solid_blue.png") repeat-x scroll 0 0 transparent;
-@sub_wrapper_center:url("/images/sub_header_blue.png") no-repeat scroll 40px 0 transparent;
-
 @full_screen_height: 100px;
 @index_height: 100px;
+
+
 #sub_header_wrapper {
-  background: @sub_wrapper_side;
   height: @full_screen_height;
   overflow: hidden;
+  background: #243E9A;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#4569AF), to(#243E9A));
 }
 
 #sub_header {
-  background:@sub_wrapper_center;
   height: @full_screen_height;
   margin:0 auto;
   position:relative;
-  width:1120px;
   color: #FFF;
+  width: 1120px;
   a {
     color: #FFF;
     outline: none;
@@ -36,12 +32,12 @@
   height: @index_height !important;
 }
 #header_wrapper {
-  background: @wrapper_side;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#00A52D), to(#00700F));
   height: 122px;
   overflow: hidden;
 }
 #header {
-  background:@wrapper_center;
+  //background:@wrapper_center;
   height:122px;
   margin:0 auto;
   position:relative;

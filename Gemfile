@@ -10,7 +10,7 @@ gem 'RedCloth', '4.2.3'
 gem 'flickraw'
 gem 'less'
 
-gem 'openid'
+gem 'ruby-openid'
 # Use unicorn as the web server
 # gem 'unicorn'
 

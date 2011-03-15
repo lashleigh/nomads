@@ -1,12 +1,14 @@
 Nomads::Application.routes.draw do
   resources :suggestions
-  resources :openid
   resources :posts do 
     resources :comments
   end
   root :to => "home#index"
 
+  match "/openid" => "openid#index"
   match "/openid/new", :as => :signin
+  match "/openid/create" => "openid#create"
+  match "/openid/complete" => "openid#complete"
   match "/openid/details" => "openid#details", :as => :details
   match "/openid/destroy" => "openid#destroy", :as => :signout
 

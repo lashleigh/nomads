@@ -1,3 +1,7 @@
+require 'openid/consumer'
+require 'openid/extensions/sreg'
+require 'openid/store/filesystem'
+
 class OpenidController < ApplicationController
   def index
     if request.env['HTTP_REFERER']
@@ -26,8 +30,9 @@ class OpenidController < ApplicationController
 
   def complete
     current_url = url_for(:action => 'complete', :only_path => false)
-    parameters = params.reject { |k,v| request.path_parameters[k] }
+    parameters = params.reject { |k,v| request.path_parameters[k.to_sym] }
     openid_response = openid_consumer.complete parameters, current_url
+    logger.info(openid_response)
 
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
