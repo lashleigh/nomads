@@ -1,7 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :must_be_user
   before_filter :must_own_comment, :except => [:index, :create]
-  before_filter :dump_session
 
   def index
     @comments = Comment.find(:all, :order => "created_at DESC")
