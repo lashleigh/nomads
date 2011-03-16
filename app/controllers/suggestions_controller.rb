@@ -17,10 +17,9 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
   def index
-    if !@user 
-      @suggestions = Suggestion.all.reverse
+    if @user 
+      @suggestions = @user.suggestions + (Suggestion.all.reverse - @user.suggestions)
     else
-      @my_suggestions = Suggestion.find_all_by_user_id @user.id
       @suggestions = Suggestion.all.reverse
     end
 

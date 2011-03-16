@@ -1,6 +1,5 @@
 
-<% if @my_suggestions and @my_suggestions.length > 0 %>
-  <div class="listing_suggestions">
+<div class="listing_suggestions">
   <h2 class="scaffold">Suggestions</h2>
   <table class="zebra">
     <tr>
@@ -10,8 +9,6 @@
       <th>Content</th>
       <th></th>
     </tr>
-    <%= render :partial => 'suggestion_row', :collection => @my_suggestions %>
-    <%= render :partial => 'suggestion_row', :collection => (@suggestions - @my_suggestions) %>
+    <%= render :partial => 'suggestion_row', :collection => @suggestions %>
   </table>
-  </div>
-<% end %>
+</div>
