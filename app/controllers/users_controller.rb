@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    if params[:since]
+      @users = User.find(:all, :conditions => "id > #{params[:since].to_i}")
+    else
+      @users = User.all
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => tidy(@users) }

@@ -13,7 +13,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @posts = Post.find :all, :order => "created_at DESC"
+    if params[:since]
+      @posts = Post.find :all, :order => "created_at DESC", :conditions => "id > #{params[:since].to_i}"
+    else
+      @posts = Post.find :all, :order => "created_at DESC"
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @posts }

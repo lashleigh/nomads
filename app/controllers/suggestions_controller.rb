@@ -17,10 +17,17 @@ class SuggestionsController < ApplicationController
   # GET /suggestions
   # GET /suggestions.xml
   def index
-    if @user 
-      @suggestions = @user.suggestions + (Suggestion.all.reverse - @user.suggestions)
+    if params[:since]
+      all = Suggestion.find(:all, :conditions => "id > #{params[:since].to_i}").reverse
     else
-      @suggestions = Suggestion.all.reverse
+      all = Suggestion.find(:all).reverse
+    end
+
+    if @user
+      # Put the user's suggestions at the top
+      @suggestions = @user.suggestions + (all - @user.suggestions)
+    else
+      @suggestions = all
     end
 
     respond_to do |format|
