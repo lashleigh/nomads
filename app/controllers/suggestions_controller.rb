@@ -1,5 +1,6 @@
 class SuggestionsController < ApplicationController
   before_filter :must_be_user, :except => [:index, :show]
+  before_filter :display_icons
   layout 'posts'
 
   # Updates the location of a suggestion
@@ -42,7 +43,6 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/new
   # GET /suggestions/new.xml
   def new
-    display_icons
     @suggestion = Suggestion.new
     @suggestion.lat = params[:lat]
     @suggestion.lon = params[:lng]
@@ -56,18 +56,11 @@ class SuggestionsController < ApplicationController
   # GET /suggestions/1/edit
   def edit
     @suggestion = Suggestion.find(params[:id])
-    unless @suggestion.user == @user or @user.admin?
-      flash[:error] = "You are not authorized to edit that suggestion."
-      redirect_to :action => :home
-      return
-    end
-    display_icons 
   end
 
   # POST /suggestions
   # POST /suggestions.xml
   def create
-    display_icons
     unless @user
       flash[:error] = "You must be logged in to create a suggestion"
       redirect_to(suggestions_url)
@@ -105,6 +98,7 @@ class SuggestionsController < ApplicationController
           format.html { redirect_to(@suggestion) }
           format.xml  { head :ok }
         else
+          #format.html { redirect_to edit_suggestion_path }
           format.html { render :action => "edit" }
           format.xml  { render :xml => @suggestion.errors, :status => :unprocessable_entity }
         end
