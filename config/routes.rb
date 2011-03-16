@@ -2,6 +2,7 @@ Nomads::Application.routes.draw do
   post "/posts/update_location" => "posts#update_location"
   post "/map/new_suggestion" => "map#new_suggestion"
 
+  resources :comments
   resources :suggestions do
     resources :comments
   end

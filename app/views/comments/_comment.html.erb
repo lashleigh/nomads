@@ -1,5 +1,3 @@
-<% comment = suggestion_comment-%>
-
 <div class="comment">
   <span class="comment_body"><%= red comment.body %></span>
   <div class="metadata">
@@ -7,7 +5,7 @@
     <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
     <% if @user and (@user.admin? or @user == comment.user) %>
       <span class="edit_links">
-        <%= link_to image_tag("edit.png"), edit_suggestion_comment_path(@suggestion, comment) %>
+        <%= link_to image_tag("edit.png"), edit_comment_path(comment) %>
         <%= link_to image_tag("remove.png"), [comment.position, comment], :confirm => "Are you sure?", :method => :delete %>
       </span>
     <% end %>

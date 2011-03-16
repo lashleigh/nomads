@@ -23,11 +23,11 @@
   <div id="comments">
     <h3>Comments</h3>
     <% if @post.comments.length > 0 %>
-      <%= render :partial => "comments/post_comment", :collection => @post.comments %>
+      <%= render :partial => "comments/comment", :collection => @post.comments %>
     <% else %>
       <p><em>no comments yet.</em></p>
     <% end %>
 
-    <%= render "comments/post_form" %>
+    <%= render :partial => "comments/form", :locals => {:which => @post} %>
   </div>
 </div>
