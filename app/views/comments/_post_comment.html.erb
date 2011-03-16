@@ -1,0 +1,15 @@
+<% comment = post_comment-%>
+<div class="comment">
+  <span class="comment_body"><%= red comment.body %></span>
+  <div class="metadata">
+    <span class="author">By <%= comment.author %></span>
+    <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
+    <% if @user and (@user.admin? or @user == comment.user) %>
+      <span class="edit_links">
+        <%= link_to image_tag("edit.png"), edit_post_comment_path(@post, comment) %>
+        <%= link_to image_tag("remove.png"), [comment.position, comment], :confirm => "Are you sure?", :method => :delete %>
+      </span>
+    <% end %>
+  </div>
+</div>
+

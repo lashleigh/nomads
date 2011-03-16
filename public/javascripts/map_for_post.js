@@ -17,6 +17,7 @@ $(function() {
   google.maps.event.addListener(marker, 'dragend', function(evt) {
     post.latitude = evt.latLng.lat()
     post.longitude = evt.latLng.lng()
+    post.authenticity_token = $("meta[name=\"csrf-token\"]").attr("content")
     $.post("/posts/update_location", post)
   });
 });

@@ -76,10 +76,11 @@ function createSuggestionFromSearch(event) {
   var parentdiv = $(".unselected").filter(".red")
   var suggestionLatLng = $(".hiddenLatLng").text().split(', ');
   var suggestedName = parentdiv.find("a.gs-title").text();
-  jQuery.get("/map/new_suggestion",
+  jQuery.post("/map/new_suggestion",
              { lat: suggestionLatLng[0],
                lng: suggestionLatLng[1],
-               title: suggestedName },
+               title: suggestedName,
+               authenticity_token: $("meta[name=\"csrf-token\"]").attr("content") },
              function(stuff) {
                jQuery.fancybox({ content: stuff, scrolling: "no" });
              });

@@ -1,20 +1,17 @@
 <%= javascript_include_tag 'map_for_suggestion' %>
 <div class="suggestion_text">
 
-  <h2>
-    <%=h @suggestion.title%>
-  </h2>
-
+  <h2> <%= @suggestion.title%> </h2>
   <div id="body">
-    <%=textilize @suggestion.content %>
+    <%=red @suggestion.content %>
   </div>
 
   <p id="metadata">
     <span id="description">
-      <%=h @suggestion.icon.description %>
+      <%= @suggestion.icon.description %>
     </span>
     <span id="author">
-      suggested by <%=h @suggestion.user.nickname or "unknown" %>
+      suggested by <%= @suggestion.user.nickname or "unknown" %>
     </span>
     <span id="timestamp">
       <%= distance_of_time_in_words_to_now @suggestion.created_at %> ago.
@@ -29,20 +26,28 @@
   <div style="display: none;" >
     <p>
       <b>Lat:</b>
-      <%=h @suggestion.lat %>
+      <%= @suggestion.lat %>
     </p>
     <p>
       <b>Lon:</b>
-      <%=h @suggestion.lon %>
+      <%= @suggestion.lon %>
     </p>
   </div>
-
-  <%= render :partial => "comments/comment_list", :object => @suggestion %>
 
   <%= link_to 'Suggestion list', suggestions_path %>
 </div>
 
 <div id="map_and_comment_container">
   <%= render :partial => "map" %>
+  <div id="comments">
+    <h3>Comments</h3>
+    <% if @suggestion.comments.length > 0 %>
+      <%= render :partial => "comments/suggestion_comment", :collection => @suggestion.comments %>
+    <% else %>
+      <p><em>no comments yet.</em></p>
+    <% end %>
+
+    <%= render "comments/suggestion_form" %>
+  </div>
 </div>
 

@@ -1,17 +1,18 @@
 class CommentsController < ApplicationController
   before_filter :must_be_user
-  before_filter :must_own_comment, :only => [ :edit, :update, :destroy ]
+  before_filter :must_own_comment, :except => [:index, :create]
+  before_filter :dump_session
 
   def index
     @comments = Comment.find(:all, :order => "created_at DESC")
   end
 
   def create
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment]) 
+    @parent = parent_object
+    @comment = @parent.comments.create(params[:comment]) 
     @comment.user = @user
     @comment.save
-    redirect_to post_path(@post)
+    redirect_to url_for(@parent)
   end
 
   def update
@@ -22,10 +23,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @parent = parent_object
+    @comment = @parent.comments.find(params[:id])
     @comment.destroy
-    redirect_to post_path(@post)
+    redirect_to url_for(@parent)
   end
 
   private
@@ -42,4 +43,13 @@ class CommentsController < ApplicationController
       return false
     end
   end
+
+  def parent_object
+    case
+    when params[:post_id] then Post.find(params[:post_id])
+    when params[:suggestion_id] then Suggestion.find(params[:suggestion_id])
+    end    
+  end  
+
 end
+

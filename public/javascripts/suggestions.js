@@ -64,7 +64,11 @@ jQuery(function() {
     if(addingSuggestion) {
 
       var p = e.latLng;
-      jQuery.get("/map/new_suggestion", { lat: p.lat(), lng: p.lng() }, function(stuff) {
+      jQuery.post("/map/new_suggestion", { 
+        lat: p.lat(), 
+        lng: p.lng(),
+        authenticity_token: $("meta[name=\"csrf-token\"]").attr("content")
+      }, function(stuff) {
         jQuery.fancybox({ content: stuff, scrolling: "no" });
       });
     }

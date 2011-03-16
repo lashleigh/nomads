@@ -1,8 +1,11 @@
 Nomads::Application.routes.draw do
-  match "/posts/update_location" => "posts#update_location"
+  post "/posts/update_location" => "posts#update_location"
+  post "/map/new_suggestion" => "map#new_suggestion"
 
-  resources :suggestions
-  resources :comments
+  resources :suggestions do
+    resources :comments
+  end
+
   resources :posts do 
     resources :comments
   end
