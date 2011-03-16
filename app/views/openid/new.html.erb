@@ -7,7 +7,7 @@
     </ul> 
   <% form_tag '/openid/create', :id => "login" do %>
     <div id="openid_input_area">
-      <%= label_tag 'openid_url', "Or enter your #{link_to 'OpenID URL', 'https://www.myopenid.com/'} here:" %><br/>
+      <%= label_tag 'openid_url', "Or enter your #{link_to 'OpenID URL', 'https://www.myopenid.com/'} here:".html_safe %> <br/>
       <%= text_field_tag 'openid_url', {}, :size => 50 %><br/>
     </div>
     <%= submit_tag "Log In", :id => "openid_submit" %>
