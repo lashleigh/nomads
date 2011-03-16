@@ -1,4 +1,10 @@
 <%= stylesheet_link_tag 'fancy_black' %> 
+<%= javascript_include_tag 'jquery.masonry.min' %> 
+<script type="text/javascript">
+  $(window).load(function() {
+    $("#photo_archive_container").masonry({ singleMode: true });
+  });
+</script>
 
 <div class="photo_explanation"> <h3> This is just a small sample of all of the photos we have taken on this trip. 
   You can see our complete collections at our flickr accounts 
