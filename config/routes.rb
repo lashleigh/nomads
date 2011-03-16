@@ -10,6 +10,7 @@ Nomads::Application.routes.draw do
     resources :comments
   end
   resources :comments
+  resources :users
 
   match "/openid" => "openid#index"
   match "/openid/new", :as => :signin
