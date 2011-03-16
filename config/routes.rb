@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 Nomads::Application.routes.draw do
   post "/posts/update_location" => "posts#update_location"
   post "/map/new_suggestion" => "map#new_suggestion"
-=======
-ActionController::Routing::Routes.draw do |map|
-  map.resources :suggestions
-  map.resources :comments
-  map.resources :posts
-  map.resources :activity, :collection => { :plain => :get }
-  map.resources :users
->>>>>>> 3da17428ee52ccf015d7d23ff887e886f89df4e3
 
   resources :suggestions do
     resources :comments
