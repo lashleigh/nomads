@@ -18,9 +18,10 @@ Nomads::Application.routes.draw do
   match "/openid/details" => "openid#details", :as => :details
   match "/openid/destroy" => "openid#destroy", :as => :signout
 
+  match "/map" => "map#index", :as => :map
   match "/about" => "home#about", :as => :about
   match "/photos" => "flickr#index", :as => :photos
-  match "/map" => "map#index", :as => :map
+  match "/activity" => "activity#index", :as => :activity
 
   root :to => "home#index"
   #map.connect ':controller/:action/:id'
