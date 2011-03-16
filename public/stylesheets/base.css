@@ -270,6 +270,7 @@ a:visited { color: #274b9c; }
 }
 .flickr_photo { padding: 10px; }
 #photo_archive_container {
+  margin-left: 15px;
   overflow: hidden;
   margin-left: 15px;
 }

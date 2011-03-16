@@ -32,13 +32,14 @@ class SuggestionsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @suggestions }
+      format.xml  { render :xml  => @suggestions }
       format.json { render :json => @suggestions }
     end
   end
 
   # GET /suggestions/1
   # GET /suggestions/1.xml
+  # GET /suggestions/1.json
   def show
     @suggestion = Suggestion.find(params[:id])
     respond_to do |format|
