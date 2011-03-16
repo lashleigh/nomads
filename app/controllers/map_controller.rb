@@ -3,7 +3,7 @@ class MapController < ApplicationController
   layout 'map'
 
   def index
-    @posts = Post.find(:all).collect { |p| p.as_hash }
+    @posts = Post.where("published = ?", true).order("created_at DESC").collect { |p| p.as_hash }
     @photos = FlickrPhoto.find(:all).collect { |p| p.as_hash }
     @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
     @waypoints = Waypoint.full_track_points
