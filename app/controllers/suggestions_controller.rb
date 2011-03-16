@@ -38,6 +38,7 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @suggestion }
+      format.json  { render :json => @suggestion }
     end
   end
 

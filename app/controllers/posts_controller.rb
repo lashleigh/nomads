@@ -29,6 +29,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @post }
+      format.json  { render :json => @post }
     end
   end
 
