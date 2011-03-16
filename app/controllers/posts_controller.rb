@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     if params[:since]
-      @posts = Post.find :all, :order => "created_at DESC", :conditions => "id > #{params[:since].to_i}"
+      @posts = Post.find :all, :order => "created_at DESC", :conditions => [ "updated_at > ?",  params[:since] ]
     else
       @posts = Post.find :all, :order => "created_at DESC"
     end
