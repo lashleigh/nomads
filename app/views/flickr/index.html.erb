@@ -1,5 +1,9 @@
-<%= stylesheet_link_tag 'fancy_black' %> 
 <%= javascript_include_tag 'jquery.masonry.min' %> 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.1.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+<script type="text/javascript" src="/fancybox/jquery.mousewheel-3.0.2.pack.js"></script>
+<%= javascript_include_tag 'fancybox' %>
+<%= stylesheet_link_tag 'fancy_black' %> 
 <script type="text/javascript">
   $(window).load(function() {
     $("#photo_archive_container").masonry({ singleMode: true });
