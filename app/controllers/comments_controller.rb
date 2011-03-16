@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
     @comment.user = @user
     @comment.save
     redirect_to url_for(@parent)
-  end
+ end
 
   def update
     @comment.body = params[:comment][:body]
