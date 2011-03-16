@@ -1,0 +1,16 @@
+<% if @user %>
+  <div id="add_comment">
+    <h4>Add a comment</h4>
+    <%= form_for [@post, @post.comments.build] do |f| %>
+      <%= f.hidden_field :position_id, :value => @post.id %>
+      <%= f.hidden_field :position_type, :value => @post.type %>
+      <%= f.text_area :body %>
+      <%= f.submit :Post %>
+    <% end %>
+  </div>
+<% else %>
+  <div id="add_comment">
+    <%= link_to "Log in", :controller => :openid %> to add comments.
+  </div>
+<% end %>
+

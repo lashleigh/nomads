@@ -1,9 +1,11 @@
 Nomads::Application.routes.draw do
+  match "/posts/update_location" => "posts#update_location"
+
   resources :suggestions
+  resources :comments
   resources :posts do 
     resources :comments
   end
-  root :to => "home#index"
 
   match "/openid" => "openid#index"
   match "/openid/new", :as => :signin
@@ -16,6 +18,7 @@ Nomads::Application.routes.draw do
   match "/photos" => "flickr#index", :as => :photos
   match "/map" => "map#index", :as => :map
 
+  root :to => "home#index"
   #map.connect ':controller/:action/:id'
   #map.connect ':controller/:action/:id.:format'
 

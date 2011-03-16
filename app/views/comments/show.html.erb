@@ -1,13 +1,6 @@
-
-<p>
-  <b>Commenter:</b>
-  <%=h @comment.commenter %>
-</p>
-
 <p>
   <b>Body:</b>
-  <%=h @comment.body %>
+  <%=@comment.body %>
 </p>
 
-<%= link_to 'Edit', edit_post_comment_path(@post, @comment) %> |
-<%= link_to 'Back', post_comments_path(@post) %>
+<%= link_to image_tag("remove.png"), @comment, :confirm => "Are you sure?", :method => :delete, :remote => true %>

@@ -7,13 +7,11 @@ class CommentsController < ApplicationController
   end
 
   def create
-    comment = Comment.new params[:comment]
-    comment.user = @user
-    comment.save
-    redirect_to comment.position
-  end
-
-  def edit
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create(params[:comment]) 
+    @comment.user = @user
+    @comment.save
+    redirect_to post_path(@post)
   end
 
   def update
@@ -24,9 +22,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.find(params[:id])
     @comment.destroy
-    flash[:notice] = "Comment was removed"
-    redirect_to @comment.position
+    redirect_to post_path(@post)
   end
 
   private

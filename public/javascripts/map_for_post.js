@@ -17,7 +17,7 @@ $(function() {
   google.maps.event.addListener(marker, 'dragend', function(evt) {
     post.latitude = evt.latLng.lat()
     post.longitude = evt.latLng.lng()
-    $.post("update_location", post)
+    $.post("/posts/update_location", post)
   });
 });
 

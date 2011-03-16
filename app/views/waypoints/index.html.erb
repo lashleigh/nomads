@@ -4,7 +4,7 @@
 <%= stylesheet_link_tag 'waypoints' %>
 
 <script type="text/javascript">
-  var waypoints = <%= @waypoint_track.to_json %>;
+  var waypoints = <%= @waypoint_track.to_json.html_safe %>;
 </script>
 
 <div class="demo">

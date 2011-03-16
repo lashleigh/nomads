@@ -1,5 +1,6 @@
 class SuggestionsController < ApplicationController
   before_filter :must_be_user, :except => [:index, :show]
+  layout 'post'
 
   # Updates the location of a suggestion
   def update_location

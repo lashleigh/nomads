@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :content
   validates_presence_of :lat
   validates_presence_of :lon
-  has_many :comments, :as => :position
+  has_many :comments, :as => :position, :dependent => :destroy
   has_one :waypoint, :as => :position
   belongs_to :user
 
