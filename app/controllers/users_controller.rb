@@ -15,15 +15,17 @@ class UsersController < ApplicationController
   private
   def tidy(users)
     users.collect do |u|
-      { :name         => u.name,
-        # Omitting email and openid for security reasons
-        #:openid       => u.openid,
-        #:email        => u.email,
-        :id           => u.id,
-        :fullname     => u.fullname,
-        :created_at   => u.created_at,
-        :updated_at   => u.updated_at,
-        :admin        => u.admin }
+      { :user => 
+        { :name         => u.name,
+          # Omitting email and openid for security reasons
+          #:openid       => u.openid,
+          #:email        => u.email,
+          :id           => u.id,
+          :fullname     => u.fullname,
+          :created_at   => u.created_at,
+          :updated_at   => u.updated_at,
+          :admin        => u.admin }
+      }
     end
   end
 end
