@@ -4,12 +4,11 @@
 @import "footer";
 @import "about";
 
-@background: #FFFFFF;
 * { margin: 0; padding: 0; }
 html, body { height: 100% }
 body {
   background: @background;
-  color: #4B2812;
+  color: @brown;
   font-family:"Trebuchet MS",Arial,sans-serif;
   font-size:14px;
   font-weight:normal;
@@ -41,12 +40,12 @@ ol.no_dot_list, ul.no_dot_list {
   padding: 0;
 }
 a {
-  color: #29A129;
+  color: @green;
   outline: none;
   text-decoration: none;
   :hover {text-decoration: underline;}
   :focus {text-decoration: underline;}
-  :visited {color: #274B9C;}
+  :visited {color: @blue;}
 }
 #page_wrapper {
   min-height: 100%; 
@@ -87,9 +86,10 @@ a {
   width: 250px;
   h2 {
     position: absolute;
+    color: @brown - #111;
   }
   a {
-    color: #4B2812;
+    color: @brown - #111;
     border-bottom: 3px dotted;
     :hover {
       text-decoration: none;
@@ -129,9 +129,8 @@ a {
 }
 
 #photo_archive_container {
-  margin-left: 15px;
   overflow: hidden;
-  margin-left: 15px;
+  margin-left: 10px;
 }
 .photo_explanation {
   width: 520px;

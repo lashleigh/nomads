@@ -11,8 +11,8 @@
 */#sub_header_wrapper {
   height: 100px;
   overflow: hidden;
-  background: #243e9a;
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#4569af), to(#243e9a));
+  background: #274b9c;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#274b9c), to(#05297a));
 }
 #sub_header {
   height: 100px;
@@ -34,7 +34,8 @@
 #sub_header a:focus { text-decoration: underline; }
 .index { height: 100px !important; }
 #header_wrapper {
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#00a52d), to(#00700f));
+  background: #29a129;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#29a129), to(#006e00));
   height: 122px;
   overflow: hidden;
 }
@@ -45,18 +46,17 @@
   width: 1120px;
 }
 #header h1 {
-  filter: alpha(opacity=50);
-  -moz-opacity: 0.5;
-  -khtml-opacity: 0.5;
-  opacity: 0.5;
-  float: left;
+  color: #210000;
+  font-family: 'Candal', sans !important;
+  font-style: normal;
   font-size: 70px;
   font-weight: bold;
+  opacity: 0.5;
+  float: left;
   margin: 0;
   padding: 50px 0 0 20px;
 }
 #header-logo {
-  background: url("/images/nomads.png") no-repeat scroll 0 0 transparent;
   display: block;
   height: 81px;
   margin-left: 20px;

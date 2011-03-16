@@ -8,7 +8,11 @@
 
 
 
-*/#footer_wrapper {
+*/@font-face {
+  font-family: Collegiate;
+  src: url("fonts/COLLEGIA.ttf");
+}
+#footer_wrapper {
   position: relative;
   height: 150px;
   width: 1120px;
@@ -22,4 +26,40 @@
   padding: 20px;
   border-top: 1px dashed #c9c9c9;
   text-align: center;
+}
+#ribbon_wrapper {
+  float: left;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  clear: both;
+  bottom: 150px;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+}
+.ribbon {
+  background: #05297a;
+  background: -moz-radial-gradient(#274b9c, #05297a);
+  background: -webkit-gradient(radial, center center, 0, center center, 95, from(#274b9c), to(#05297a));
+  overflow: hidden;
+  position: absolute;
+  left: -38px;
+  top: 75px;
+  width: 200px;
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-box-shadow: 0 0 1em #888888;
+  -webkit-box-shadow: 0 2px 8px #888888, 0 -2px 8px #888888;
+}
+.ribbon a {
+  border: 1px solid #213454;
+  color: #ffffff !important;
+  display: block;
+  font: bold 81.25% 'Helvetiva Neue', Helvetica, Arial, sans-serif;
+  margin: 0.05em 0 0.075em 0;
+  padding: 0.5em 3.5em;
+  text-align: center;
+  text-decoration: none !important;
+  text-shadow: 0 0 0.5em #444444;
 }

@@ -6,8 +6,8 @@
 #sub_header_wrapper {
   height: @full_screen_height;
   overflow: hidden;
-  background: #243E9A;
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#4569AF), to(#243E9A));
+  background: @blue;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(@blue), to(@blue - #222));
 }
 
 #sub_header {
@@ -32,30 +32,29 @@
   height: @index_height !important;
 }
 #header_wrapper {
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#00A52D), to(#00700F));
+  background: @green;
+  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(@green), to(@green - #333));
   height: 122px;
   overflow: hidden;
 }
 #header {
-  //background:@wrapper_center;
   height:122px;
   margin:0 auto;
   position:relative;
   width:1120px;
   h1 {
-    filter:alpha(opacity=50);
-    -moz-opacity:0.5;
-    -khtml-opacity: 0.5;
-    opacity: 0.5;
-    float: left;
+    color: @brown - #191919;
+    font-family: 'Candal', sans !important; 
+    font-style: normal; 
     font-size: 70px;
     font-weight: bold;
+    opacity: 0.5;
+    float: left;
     margin: 0;
     padding: 50px 0 0 20px;
   }
 }
 #header-logo {
-  background:url("/images/nomads.png") no-repeat scroll 0 0 transparent;
   display:block;
   height:81px;
   margin-left: 20px;
@@ -85,5 +84,4 @@
     }
   }
 }
-
 

@@ -9,7 +9,8 @@
 
 
 */.twitter-logo {
-  background: url("/images/logo-twitter.jpg") no-repeat scroll left top transparent;
+  background: url("/images/twitter.png") no-repeat scroll left top transparent;
+  width: 16px;
   border-bottom: none !important;
 }
 #twitter_container {
@@ -33,14 +34,14 @@
   text-decoration: none;
 }
 .bensonk42 { background: #00091e; }
-.bensonk42 a { color: #47619c; }
+.bensonk42 a { color: #8891a6; }
 .bensonk42 a:hover {
-  color: #31353d;
-  background: #d3f1f9;
+  color: #000000;
+  background: #99a2b7;
 }
-.lashleigh { background: #2c1400; }
-.lashleigh a { color: #aa774d; }
+.lashleigh { background: #330000; }
+.lashleigh a { color: #bb8888; }
 .lashleigh a:hover {
-  color: #31353d;
-  background: #f0d5c0;
+  color: #000000;
+  background: #cc9999;
 }
