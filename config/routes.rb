@@ -22,6 +22,7 @@ Nomads::Application.routes.draw do
   match "/about" => "home#about", :as => :about
   match "/photos" => "flickr#index", :as => :photos
   match "/activity" => "activity#index", :as => :activity
+  match "/activity/plain" => "activity#plain",  :collection => { :plain => :get }
 
   root :to => "home#index"
   #map.connect ':controller/:action/:id'
