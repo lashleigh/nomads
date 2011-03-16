@@ -25,7 +25,7 @@ class SuggestionsController < ApplicationController
 
     if @user
       # Put the user's suggestions at the top
-      @suggestions = @user.suggestions + (all - @user.suggestions)
+      @suggestions = @user.suggestions.reverse + (all - @user.suggestions)
     else
       @suggestions = all
     end
