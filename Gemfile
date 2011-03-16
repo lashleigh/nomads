@@ -11,6 +11,7 @@ gem 'flickraw'
 gem 'less'
 
 gem 'ruby-openid'
+gem 'taps'
 # Use unicorn as the web server
 # gem 'unicorn'
 
