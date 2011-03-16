@@ -46,7 +46,6 @@
   width: 1120px;
 }
 #header h1 {
-  color: #210000;
   font-family: 'Candal', sans !important;
   font-style: normal;
   font-size: 70px;
@@ -215,6 +214,7 @@ p {
   margin: 0 0 2px;
 }
 h1 {
+  color: #210000;
   margin-top: 10px;
   margin-bottom: 17.4333px;
 }
@@ -486,19 +486,22 @@ ul.form_images li img:hover { background: green; }
   -webkit-border-radius: 4px;
 }
 table.zebra {
-  margin: 1em;
+  padding: 20px;
   border-spacing: 0px;
   text-align: left;
 }
-table.zebra th { padding: 0.25em 0.75em; }
-table.zebra td { padding: 0.75em; }
+table.zebra th { padding: 0.25em 0.75em 0.25em 0.1em; }
+table.zebra td { padding: 0.75em 1.75em 0.75em 0.1em; }
 table.zebra td.zebra_content { width: 65%; }
 table.zebra tr.odd {
   border-collapse: collapse;
   background-color: #eeeeee;
 }
 table.zebra tr:hover { background: #ffffd9; }
-.scaffold { margin: 0.25em 21px; }
+.scaffold {
+  margin: 0;
+  padding: 0;
+}
 .metadata {
   font-style: italic;
   font-size-adjust: 0.5;

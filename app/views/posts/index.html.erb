@@ -1,8 +1,7 @@
 <div class="listing_posts">
   <h1>
-    Blog Posts
     <% if @user and @user.admin? %>
-      <span id="new_post_link">(<%= link_to 'New', new_post_path %>)</span>
+      <span id="new_post_link"><%= link_to 'New', new_post_path %></span>
     <% end %>
   </h1>
 
