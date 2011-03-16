@@ -9,10 +9,11 @@
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= h comment.author %></td>
+    <td><%= comment.author %></td>
     <td><%= link_to comment.position_name, comment.position %></td>
-    <td><%= h comment.position_id %></td>
-    <td><%= h comment.body %></td>
+    <td><%= link_to comment.id, comment %></td>
+    <td><%= comment.position_id %></td>
+    <td><%= comment.body %></td>
   </tr>
 <% end %>
 </table>

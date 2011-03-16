@@ -5,6 +5,15 @@ class CommentsController < ApplicationController
 
   def index
     @comments = Comment.find(:all, :order => "created_at DESC")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @comments }
+    end
+  end
+
+  def show
+    comment = Comment.find params[:id]
+    redirect_to comment.position
   end
 
   def create
@@ -24,7 +33,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @parent = parent_object
-    @comment = @parent.comments.find(params[:id])
+    #@comment = @parent.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to url_for(@parent)
   end
