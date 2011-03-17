@@ -3,6 +3,7 @@ Nomads::Application.routes.draw do
   post "/map/new_suggestion" => "map#new_suggestion"
 
   match "/cloudmailin" => "cloudmailin#index"
+  match "/feeds/atom" => "feeds#atom"
 
   resources :suggestions do
     resources :comments
