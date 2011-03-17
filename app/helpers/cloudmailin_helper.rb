@@ -1,0 +1,2 @@
+module CloudmailinHelper
+end
