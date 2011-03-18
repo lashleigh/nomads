@@ -3,6 +3,8 @@ require 'openid/extensions/sreg'
 require 'openid/store/filesystem'
 
 class OpenidController < ApplicationController
+  before_filter :must_be_user, :only => "details"
+
   def index
     if request.env['HTTP_REFERER']
       session[:back_to] = request.env['HTTP_REFERER'] 
