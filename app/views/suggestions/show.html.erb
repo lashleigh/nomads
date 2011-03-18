@@ -1,12 +1,12 @@
 <%= javascript_include_tag 'map_for_suggestion' %>
-<div class="suggestion_text">
+<div class="suggestion_show">
 
   <h2> <%= @suggestion.title%> </h2>
   <div id="body">
     <%=red @suggestion.content %>
   </div>
 
-  <p id="metadata">
+  <p class="metadata">
     <span id="description">
       <%= @suggestion.icon.description %>
     </span>

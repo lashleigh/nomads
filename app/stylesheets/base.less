@@ -3,20 +3,24 @@
 @import "mixin";
 @import "footer";
 @import "about";
+@import "posts";
+@import "map";
+@import "comments";
+@import "forms";
 
 * { margin: 0; padding: 0; }
 html, body { height: 100% }
 body {
   background: @background;
   color: @brown;
-  font-family:"Trebuchet MS",Arial,sans-serif;
-  font-size:14px;
-  font-weight:normal;
-  line-height: 22px;
+  font-family: "Helvietica, Trebuchet MS",Arial,sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+  line-height: 1.4em;
 }
 p {
   text-align: justify;
-  margin: 0 0 2px;
+  margin: 0.5em 0 1.5em 0;
 }
 h1 {
   color: @brown - #191919;
@@ -62,25 +66,7 @@ a {
   width: 250px;
   padding: 20px;
 }
-#posts {
-  float: left;
-  width: 500px;
-  padding: 20px;
-}
-.post {
-  margin: 1.5em 0;
 
-  h3 {
-    margin: 10px 0;
-    padding: 0;
-  }
-  p {
-    margin: 0 0 15px;
-  }
-}
-#PostContent {
-  padding: 0 0 8px 0;
-}
 #column_header {
   height: 50px;
   position:relative;
@@ -162,21 +148,7 @@ a {
   padding-left: 0px;
   margin: 10px 0px;
 }
-#map_canvas {
-  width: 720px;
-  height: 550px;
-  border: 0 none;
-  float: left;
-  margin: 5px 20px;
-}
-#fancy_map {
-  height: 141px;
-  width: 172px;
-  border: 0 none;
-  float: right;
-  overflow: auto;
-  margin: 5px;
-}
+
 #full_screen_container{
   margin: 0 auto;
   overflow: auto;
@@ -189,25 +161,7 @@ a {
   margin: 0 !important;
   padding: 0 !important;
 }
-#shrink_map {
-  float: right;
-  padding: 0 25px;
-}
 
-#map_controls {
-  width: 15%;
-  float: right;
-}
-#map_explanation {
-  padding: 20px;
-}
-#map_check_boxes {
-  margin-left: 20px;
-  margin-top: 10px;
-}
-#searchwell {
-  float: left;
-}
 #photo_preload {
   display: none;
 }
@@ -252,12 +206,6 @@ ul.form_images {
     background: url(/images/login-bg.gif) no-repeat 5px;
     padding-left: 25px;
   }
-}
-
-#details, #openid_choice, #login {
-  float: left;
-  width: 400px !important;
-  margin: 0 20px;
 }
 
 #openid_explain  {
@@ -369,15 +317,12 @@ table.zebra {
 
 .metadata {
   font-style: italic;
-  font-size-adjust: 0.5;
+  font-size: 0.9em;
+  opacity: 0.9;
 }
 
 .coordiantes {
   display: none;
-}
-
-#new_post_link {
-  font-size-adjust: 0.5;
 }
 
 a img {

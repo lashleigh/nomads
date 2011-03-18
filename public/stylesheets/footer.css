@@ -28,6 +28,7 @@
   text-align: center;
 }
 #ribbon_wrapper {
+  font-size: 14px;
   float: left;
   position: relative;
   margin: 0;

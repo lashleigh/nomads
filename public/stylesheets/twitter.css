@@ -18,7 +18,10 @@
   width: 250px;
   padding: 20px;
 }
-#twitter_update_list { width: 230; }
+#twitter_update_list {
+  width: 230;
+  font-size: 0.875em;
+}
 #twitter_update_list li {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;

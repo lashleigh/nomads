@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316090515) do
+ActiveRecord::Schema.define(:version => 20110318211746) do
 
   create_table "comments", :force => true do |t|
     t.text      "body"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20110316090515) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.boolean   "admin"
+    t.string    "link"
   end
 
   create_table "waypoints", :force => true do |t|

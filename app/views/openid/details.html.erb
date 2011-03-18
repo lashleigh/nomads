@@ -1,22 +1,32 @@
 <div id="details">
-  <h2>Tell us about yourself</h2>
+  <h3>Tell us about yourself</h3>
 
   <% form_for @user, :url => {:action => :details} do |f|%>
-    <div class="form_bits">
-      <%= f.label :name, "Your Nickname" %><br/>
-      <%= f.text_field :name %>
-    </div>
-    <div class="form_bits">
-      <%= f.label :email, "Email Address (optional)" %><br/>
-      <%= f.text_field :email %>
-    </div>
-    <div class="form_bits">
-      <%= f.label :fullname, "Real Name (optional)" %><br/>
-      <%= f.text_field :fullname %>
-    </div>
-    <div class="form_bits">
-      <%= f.submit "Save" %>
-    </div>
+    <fieldset>
+      <div class="field">
+        <%= f.label :name, "Your Nickname" %>
+        <%= f.text_field :name %>
+        <span class="hint quiet">Used as your username throughout the site</span>
+      </div>
+      <div class="field">
+        <%= f.label :email, "Email Address" %>
+        <%= f.text_field :email %>
+        <span class="hint quiet">Where we can contact you (no spam)</span>
+      </div>
+      <div class="field">
+        <%= f.label :fullname, "Real Name" %>
+        <%= f.text_field :fullname %>
+        <span class="hint quiet">Used if you do not provide a username</span>
+      </div>
+      <div class="field">
+        <%= f.label :link %>
+        <%= f.text_field :link %>
+        <span class="hint quiet">A link to your own blog or trip website</span>
+      </div>
+    </fieldset>
+  <fieldset class="buttons" >
+    <%= f.submit "Save" %>
+  </fieldset>
   <% end %>
 </div>
 
