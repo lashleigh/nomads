@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318211746) do
+ActiveRecord::Schema.define(:version => 20110319082832) do
 
   create_table "comments", :force => true do |t|
     t.text      "body"
@@ -22,15 +22,16 @@ ActiveRecord::Schema.define(:version => 20110318211746) do
   end
 
   create_table "flickr_photos", :force => true do |t|
-    t.string    "title"
-    t.integer   "farm"
-    t.string    "secret"
-    t.string    "photo_id"
-    t.string    "server"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.float     "lat"
-    t.float     "lon"
+    t.string   "title"
+    t.integer  "farm"
+    t.string   "secret"
+    t.string   "photo_id"
+    t.string   "server"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "lat"
+    t.float    "lon"
+    t.integer  "uploaded"
   end
 
   create_table "icons", :force => true do |t|
