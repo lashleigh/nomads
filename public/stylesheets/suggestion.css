@@ -39,3 +39,4 @@
   width: 600px;
   float: left;
 }
+.suggestion:nth-child(even) { background: #eeeeee; }
