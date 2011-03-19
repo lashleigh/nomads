@@ -67,10 +67,9 @@ a {
   padding: 20px;
 }
 
-#column_header {
+.column_header {
   height: 50px;
   position:relative;
-  width: 250px;
   h2 {
     position: absolute;
     color: @brown - #111;
@@ -84,17 +83,21 @@ a {
     }
   }
 }
-#column-logo {
+.column-logo {
   display:block;
-  position: absolute;
+  position:relative;
+  float:right;
   height:32px;
-  margin-left:220px;
+  width:32px;
   margin-top:14px;
   text-indent:-99999em;
-  width:32px;
 }
-.flickr-logo {
+#flickr-logo {
   background:url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
+}
+#posts-logo {
+  background:url("/images/rss.png") no-repeat scroll left top transparent;
   border-bottom: none !important;
 }
 #flickr ul {

@@ -4,9 +4,9 @@
 <%= javascript_include_tag 'fancybox' %>
 <%= stylesheet_link_tag 'fancy_black' %> 
 <div id="flickr">
-  <div id ="column_header">
+  <div class ="column_header">
     <h2> <%= link_to "Latest photos", "http://www.flickriver.com/photos/lashleigh/" %> </h2>
-    <a id="column-logo" class="flickr-logo" href="http://www.flickriver.com/photos/lashleigh/">Visit my flickr page</a>
+    <a class="column-logo" id="flickr-logo" href="http://www.flickriver.com/photos/lashleigh/">Visit my flickr page</a>
   </div>
   <ul id="flickr_photo">
     <% @photos.each do |p| %>

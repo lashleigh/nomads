@@ -413,34 +413,37 @@ a:visited { color: #274b9c; }
   width: 250px;
   padding: 20px;
 }
-#column_header {
+.column_header {
   height: 50px;
   position: relative;
-  width: 250px;
 }
-#column_header h2 {
+.column_header h2 {
   position: absolute;
   color: #290600;
 }
-#column_header a {
+.column_header a {
   color: #290600;
   border-bottom: 3px dotted;
 }
-#column_header a:hover {
+.column_header a:hover {
   text-decoration: none;
   border-bottom: 4px dotted;
 }
-#column-logo {
+.column-logo {
   display: block;
-  position: absolute;
+  position: relative;
+  float: right;
   height: 32px;
-  margin-left: 220px;
+  width: 32px;
   margin-top: 14px;
   text-indent: -99999em;
-  width: 32px;
 }
-.flickr-logo {
+#flickr-logo {
   background: url("/images/logo-flickr.png") no-repeat scroll left top transparent;
+  border-bottom: none !important;
+}
+#posts-logo {
+  background: url("/images/rss.png") no-repeat scroll left top transparent;
   border-bottom: none !important;
 }
 #flickr ul {

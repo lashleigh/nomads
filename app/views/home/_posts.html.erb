@@ -1,6 +1,7 @@
 <div id="posts">
-  <div id="column_header">
+  <div class="column_header">
     <h2> <%= link_to "Recent Posts", posts_path %> </h2>
+    <a class="column-logo" id="posts-logo" href="<%= atom_url %>">RSS</a>
   </div>
 
   <%= render :partial => 'posts/summary', :collection => @posts %>

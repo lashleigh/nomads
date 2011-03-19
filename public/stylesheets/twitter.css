@@ -8,9 +8,8 @@
 
 
 
-*/.twitter-logo {
+*/#twitter-logo {
   background: url("/images/twitter.png") no-repeat scroll left top transparent;
-  width: 16px;
   border-bottom: none !important;
 }
 #twitter_container {
