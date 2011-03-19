@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
       "Guest_#{id}"
     end
   end
+
+  def get_link
+    if self.link != ""
+      return self.link
+    else
+      return "http://"
+    end
+  end
 end

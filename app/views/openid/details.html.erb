@@ -11,7 +11,7 @@
       <div class="field">
         <%= f.label :email, "Email Address" %>
         <%= f.text_field :email %>
-        <span class="hint quiet">Where we can contact you (no spam)</span>
+        <span class="hint quiet">Where we could contact you</span>
       </div>
       <div class="field">
         <%= f.label :fullname, "Real Name" %>
@@ -20,7 +20,7 @@
       </div>
       <div class="field">
         <%= f.label :link %>
-        <%= f.text_field :link %>
+        <%= f.text_field :link, :value => @user.get_link %>
         <span class="hint quiet">A link to your own blog or trip website</span>
       </div>
     </fieldset>
