@@ -1,6 +1,6 @@
 class FeedsController < ApplicationController
   def atom
-    @posts = Post.where("published = ?", true).order("created_at DESC")
+    @posts = Post.published.order("created_at DESC")
     render :layout => false
   end
 end
