@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  scope :published, where("published=?", true)
+  scope :unpublished, where("published=?", false)
   validates_presence_of :user
   validates_presence_of :title
   validates_presence_of :content

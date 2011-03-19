@@ -14,9 +14,10 @@ class PostsController < ApplicationController
   # GET /posts.xml
   def index
     if params[:since]
-      @posts = Post.where("updated_at > ?", params[:since]).order("created_at DESC")
+      @posts = Post.published.where("updated_at > ?", params[:since]).order("created_at DESC")
     else
-      @posts = Post.order("created_at DESC")
+      @posts = Post.published.order("created_at DESC")
+      @unpublished = Post.unpublished
     end
 
     respond_to do |format|

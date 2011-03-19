@@ -2,6 +2,11 @@
   <h1>
     <% if @user and @user.admin? %>
       <span id="new_post_link"><%= link_to 'New', new_post_path %></span>
+      <% if @unpublished %>
+        <div class="unpublished" style="border:1px dotted red">
+          <%= render :partial => 'summary', :collection => @unpublished %>
+        </div>
+      <% end %>
     <% end %>
   </h1>
 
