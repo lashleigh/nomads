@@ -10,6 +10,10 @@ class Post < ActiveRecord::Base
   has_one :waypoint, :as => :position
   belongs_to :user
 
+  def to_param
+    "#{id}-#{title.parameterize}"
+  end
+
   def as_hash
     { "id" => id,
       "link" => "posts/#{id}",

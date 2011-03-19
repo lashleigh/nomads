@@ -1,7 +1,7 @@
 <%= javascript_include_tag 'map_for_post' %>
 <%= render :partial => 'admin_bool' %>
 <div class="show_post">
-  <h2><%= link_to @post.title, @post %></h2>
+  <h2><%= @post.title %></h2>
   <div id="post_author" class="metadata">
     posted by <%= @post.author or "unknown" %>
     <% if @user and @user.admin? %>
