@@ -1,7 +1,7 @@
-class ChangeDataTypeFlickrPhotoUploaded < ActiveRecord::Migration
+class ChangeUploadedFormatToString < ActiveRecord::Migration
   def self.up
     change_table :flickr_photos do |t|
-      t.change :uploaded, :integer
+      t.change :uploaded, :string
     end
   end
 

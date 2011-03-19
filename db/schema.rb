@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110319082832) do
+ActiveRecord::Schema.define(:version => 20110319090241) do
 
   create_table "comments", :force => true do |t|
     t.text      "body"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20110319082832) do
     t.datetime "updated_at"
     t.float    "lat"
     t.float    "lon"
-    t.integer  "uploaded"
+    t.string   "uploaded"
   end
 
   create_table "icons", :force => true do |t|
@@ -42,14 +42,14 @@ ActiveRecord::Schema.define(:version => 20110319082832) do
   end
 
   create_table "posts", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "lat"
-    t.float    "lon"
-    t.integer  "user_id"
-    t.boolean  "published",  :default => false
+    t.string    "title"
+    t.text      "content"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.float     "lat"
+    t.float     "lon"
+    t.integer   "user_id"
+    t.boolean   "published",  :default => false
   end
 
   create_table "suggestions", :force => true do |t|
