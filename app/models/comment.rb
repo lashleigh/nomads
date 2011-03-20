@@ -5,14 +5,8 @@ class Comment < ActiveRecord::Base
   belongs_to :position, :polymorphic => :true
   belongs_to :user
 
-  def author
-    if user
-      user.name
-    else
-      "unknown"
-    end
-  end
-
+  include Author 
+  
   def position_name
     if position
       position.title

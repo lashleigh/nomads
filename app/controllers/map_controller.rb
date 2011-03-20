@@ -4,7 +4,7 @@ class MapController < ApplicationController
 
   def index
     @posts = Post.published.order("created_at DESC")
-    @photos = FlickrPhoto.all.collect {|p| p.as_hash}
+    @photos = FlickrPhoto.all
     @suggestions = Suggestion.all
     @waypoints = Waypoint.full_track_points
   end

@@ -31,7 +31,7 @@
           <a id="header-logo" href="/home"></a>
           <div id="login_status">
             <% if session[:user] %>
-              Logged in as <%= link_to @user.nickname, { :controller => :openid, :action => :details } %><br/>
+              Logged in as <%= link_to @user.author, { :controller => :openid, :action => :details } %><br/>
               <%= link_to "sign out", :controller => :openid, :action => :destroy %>
             <% else %>
               <%= link_to "sign in", { :controller => :openid }, :id => "sign_in" %>

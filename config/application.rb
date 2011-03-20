@@ -39,5 +39,7 @@ module Nomads
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    config.autoload_paths += %W(#{Rails.root}/app/concerns)
   end
 end

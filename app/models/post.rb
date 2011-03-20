@@ -10,19 +10,14 @@ class Post < ActiveRecord::Base
   has_one :waypoint, :as => :position
   belongs_to :user
 
-  def to_param
-    "#{id}-#{title.parameterize}"
+  include SerializationFix
+  include Author 
+  def serialize_defaults
+    {:only => [:title, :lat, :lon], :methods => [:short_content, :to_param]}
   end
 
-  def as_hash
-    { "id" => id,
-      "link" => "posts/#{id}",
-      "title" => title,
-      "latitude" => lat,
-      "longitude" => lon,
-      "icon_path" => "/images/map_icons/blog.png",
-      "user" => user.nickname,
-      "content" => red(short_content) }
+  def to_param
+    "#{id}-#{title.parameterize}"
   end
 
   def short_content(maxlen = 100)

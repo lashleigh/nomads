@@ -1,6 +1,6 @@
 <li class="activity_item">
   <span class="author<%= item.user.admin? ? ' admin_action' : ""%>">
-    <%= link_to item.user.nickname, item.user %>
+    <%= link_to item.user.author, item.user %>
   </span>
 
   <% if Comment === item %>

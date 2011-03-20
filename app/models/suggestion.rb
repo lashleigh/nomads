@@ -10,15 +10,14 @@ class Suggestion < ActiveRecord::Base
   validates_presence_of :lat
   validates_presence_of :lon
 
-  def as_hash
-    { "id" => id,
-      "link" => "suggestions/#{id}",
-      "title" => title,
-      "latitude" => lat,
-      "longitude" => lon,
-      "icon_path" => icon ? icon.marker_url : "/images/map_icons/misc.png",
-      "user" => user.nickname,
-      "content" => textilize(shorten(content)) }
+  include SerializationFix
+  include Author 
+  def serialize_defaults
+    {:only => [:title, :lat, :lon], :methods => [:shorten, :to_param]}
+  end
+
+  def to_param
+    "#{id}-#{title.parameterize}"
   end
 
   def shorten

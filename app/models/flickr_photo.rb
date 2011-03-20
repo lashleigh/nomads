@@ -1,12 +1,9 @@
 class FlickrPhoto < ActiveRecord::Base
   validates_uniqueness_of :photo_id
 
-  def as_hash
-    { "id" => id,
-      "url" => url,
-      "latitude" => lat,
-      "longitude" => lon,
-      "title" => title }
+  def serializable_hash(options = {})
+    options ||= {}
+    super({:only => [:title, :lat, :lon], :methods => [:url, :url_photopage]}.merge(options))
   end
 
   def url(size = 'm')

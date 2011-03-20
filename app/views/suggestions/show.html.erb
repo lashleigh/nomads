@@ -12,7 +12,7 @@
       <%= @suggestion.icon.description %>
     </span>
     <span id="author">
-      suggested by <%= @suggestion.user.nickname or "unknown" %>
+      suggested by <%= @suggestion.user.author or "unknown" %>
     </span>
     <span id="timestamp">
       <%= distance_of_time_in_words_to_now @suggestion.created_at %> ago.

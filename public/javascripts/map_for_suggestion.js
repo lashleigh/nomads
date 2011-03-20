@@ -3,7 +3,7 @@ $(function() {
   // Initialize the map with default UI.
   var sMap = new google.maps.Map(document.getElementById("map_canvas_for_suggestion"), {
     center: new google.maps.LatLng(suggestion.lat, suggestion.lon),
-    zoom: 7,
+    zoom: 11,
     mapTypeId: 'roadmap'
   });
 

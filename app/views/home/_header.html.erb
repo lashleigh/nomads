@@ -5,7 +5,7 @@
     <%= link_to "", root_url, :id => "header-logo" %> 
     <div id="login_status">
       <% if session[:user] %>
-        Logged in as <%= link_to @user.nickname, details_path %><br/>
+        Logged in as <%= link_to @user.author, details_path %><br/>
         <%= link_to "sign out", signout_path %>
       <% else %>
         <%= link_to "sign in", signin_path, :id => "sign_in" %>

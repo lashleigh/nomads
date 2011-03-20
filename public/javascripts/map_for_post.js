@@ -3,7 +3,7 @@ $(function() {
   // Initialize the map with default UI.
   var postMap = new google.maps.Map(document.getElementById("map_canvas_for_post"), {
     center: new google.maps.LatLng(post.lat, post.lon),
-    zoom: 7,
+    zoom: 11,
     mapTypeId: 'roadmap'
   });
 
