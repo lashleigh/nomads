@@ -83,7 +83,7 @@ class SuggestionsController < ApplicationController
       if @suggestion.save
         flash[:notice] = 'Suggestion was successfully created.'
         format.html { redirect_to(@suggestion) }
-        format.js   { render :json => @suggestion.as_hash }
+        format.js   { render :json => @suggestion.to_json(:include => :icon)}
         format.xml  { render :xml => @suggestion, :status => :created, :location => @suggestion }
       else
         format.html { render :action => "new" }

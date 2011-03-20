@@ -3,11 +3,22 @@ var marker_hash = []
 jQuery(function() {
   // By using the same info window as the google search there will
   // only be one window open at a time.
+  $("#sub_header_icons li").live("click", function() {
+   if( $(this).hasClass("selected")) {
+     $(this).removeClass("selected");
+     hide_type($(this).find("img").attr("title"));
+   } else {
+     $(this).addClass("selected");
+     show_type($(this).find("img").attr("title"));
+   }
+  });
 
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(gMap);
 
   for(val in sug_hash) {display_suggestion(val)}
+  marker_hash["blog"] = []
+  marker_hash["image"] = []
   $(posts).each(display_post) 
 
   jQuery(images).each(function f(i, im) {
@@ -16,8 +27,9 @@ jQuery(function() {
       position: new google.maps.LatLng(image.lat, image.lon),
       map: gMap,
       title: image.url,
-      icon: "/images/map_icons/picture_icon.png"
+      icon: "/images/map_icons/image.png"
     });
+    marker_hash["image"].push(marker);
     google.maps.event.addListener(marker, 'click',
       function() { 
         gInfoWindow.setContent('<img border="0" style="height:auto; width: auto;" src="' + marker.title + '"/>')
@@ -53,7 +65,8 @@ jQuery(function() {
           jQuery.fancybox.resize();
         }
         else {
-          post_or_suggestion(0, res);
+          console.log(res);
+          individual_suggestion(res.suggestion, res.suggestion.icon.name);
           jQuery.fancybox.close();
           addingSuggestion = false;
           $(".message").slideUp(600);
@@ -115,6 +128,7 @@ function display_post(i, ps) {
     title: post.title,
     icon: "/images/map_icons/blog.png",
   });
+  marker_hash["blog"].push(marker);
   google.maps.event.addListener(marker, 'click', function() { 
     gInfoWindow.setContent('<h3><a href="/posts/'+post.to_param+'">'+marker.title+'</a></h3>'+post.short_content+'<h5>by <a href="/users/'+post.user.to_param+'">'+post.user.display_name+'</a></h5>')
     gInfoWindow.open(gMap,marker); 

@@ -11,6 +11,11 @@
         <input id="dosearch" type="button" value="Find"/>
         <input id="clearsearch" type="button" value="Clear"/>
       </div>
+      <ul id="sub_header_icons", class="no_dot_list">
+        <% Icon.all.each do |icon| %>
+          <li class="selected"> <%= image_tag(icon.marker_url, :title => icon.name, :border => 0, :alt => icon.name) %> </li>
+        <% end %>
+      </ul>
     </div>
   </div> 
 </div>

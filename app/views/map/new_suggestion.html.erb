@@ -3,7 +3,7 @@
                                                  &zoom=15&size=172x141&maptype=roadmap&markers=color:red|
                                                  #{@suggestion.lat},#{@suggestion.lon}&sensor=false")) %> </div>
   <h1>New Suggestion</h1>
-  <%= render :partial => "/suggestions/display_icons" %>
+  <%= render :partial => "/suggestions/display_icons", :object => @icons %>
 
   <% form_for @suggestion do |f| %>
     <% if @suggestion.errors.any? %>

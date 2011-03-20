@@ -6,7 +6,6 @@ class MapController < ApplicationController
     @posts = Post.published.order("created_at DESC")
     @photos = FlickrPhoto.all
     @sug_hash = {} 
-    #Icon.all.collect{ |icon| @sug_hash[icon.name] = Suggestion.where("icon_id=?", icon.id).to_json(:include => [:user])}
     Icon.all.each do |icon| 
       @sug_hash[icon.name] = Suggestion.where("icon_id=?", icon.id).collect{ |p| p.serializable_hash(:include => [:user])}
     end
@@ -32,6 +31,6 @@ class MapController < ApplicationController
 
   private
   def set_icons
-    @icons = Icon.all
+    @icons = Icon.where("name !=?", "blog").where("name !=?", "image")
   end
 end

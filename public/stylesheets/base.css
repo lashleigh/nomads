@@ -254,6 +254,25 @@
   width: 350px;
   height: 350px;
 }
+#search_box {
+  width: 650px;
+  float: left;
+  padding-left: 0px;
+  margin: 10px 0px;
+}
+#sub_header_icons li {
+  margin: 5px;
+  padding: 5px;
+  float: left;
+  overflow: hidden;
+  background: gray;
+  opacity: 0.5;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+#sub_header_icons li:hover { background: red; }
+#sub_header_icons .selected { opacity: 1; }
 #metadata {
   font-style: italic;
   font-size-adjust: 0.5;
@@ -484,11 +503,6 @@ a:visited { color: #274b9c; }
   vertical-align: middle;
   margin: 5px;
   width: 208px;
-}
-#search_box {
-  width: 600px;
-  padding-left: 0px;
-  margin: 10px 0px;
 }
 #full_screen_container {
   margin: 0 auto;

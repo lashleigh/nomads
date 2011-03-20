@@ -1,3 +1,4 @@
+@import 'mixin';
 #map_canvas {
   width: 720px;
   height: 550px;
@@ -43,4 +44,27 @@
   height: 350px;
 }
 
+#search_box {
+  width: 650px;
+  float: left;
+  padding-left: 0px;
+  margin: 10px 0px;
+}
+#sub_header_icons {
+ li {
+   margin: 5px;
+   padding: 5px;
+   float: left;
+   overflow: hidden;
+   background: gray;
+   opacity: 0.5;
+   .rounded_corners(5px);
+   :hover {
+     background: red;
+   }
+ }
+ .selected {
+   opacity: 1.0;
+ }
+}
 
