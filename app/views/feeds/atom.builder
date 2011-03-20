@@ -9,7 +9,7 @@ atom_feed do |feed|
       entry.content(textilize(post.content).to_s, :type => :html)
       entry.updated(post.updated_at.strftime("%Y-%m-%dT%H:%M:%SZ")) # needed to work with Google Reader.
       entry.author do |author|
-        author.name(post.user.author)
+        author.name(post.user.display_name)
       end
     end
   end

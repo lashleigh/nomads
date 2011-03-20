@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, :allow_nil => true, :allow_blank => true
   validates_uniqueness_of :email, :allow_nil => true, :allow_blank => true
 
-  def author 
+  def display_name 
     if self.name and self.name != ""
       self.name
     elsif self.fullname and self.fullname != ""
@@ -17,12 +17,12 @@ class User < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{author.parameterize}"
+    "#{id}-#{display_name.parameterize}"
   end
 
   def serializable_hash(options = {})
     options ||= {}
-    super({:only => :id, :methods => [:author, :to_param]}.merge(options))
+    super({:only => :id, :methods => [:display_name, :to_param]}.merge(options))
   end
 
   def get_link

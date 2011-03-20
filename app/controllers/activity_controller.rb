@@ -15,11 +15,11 @@ class ActivityController < ApplicationController
 
     @items.collect! do |item|
       if Comment === item
-        "#{item.user.author} commented on #{item.position.title}"
+        "#{item.user.display_name} commented on #{item.position.title}"
       elsif Post === item 
-        "#{item.user.author} wrote a blog post #{item.title}"
+        "#{item.user.display_name} wrote a blog post #{item.title}"
       elsif Suggestion === item 
-        "#{item.user.author} suggested #{item.title}"
+        "#{item.user.display_name} suggested #{item.title}"
       end 
     end
 

@@ -82,11 +82,10 @@ function display_suggestion(i, ps) {
     position: new google.maps.LatLng(sug.lat, sug.lon),
     map: gMap,
     title: sug.title,
-    //draggable: true,
     icon: sug.icon.marker_url,
   });
   google.maps.event.addListener(marker, 'click', function() { 
-    gInfoWindow.setContent('<h3><a href="/suggestions/'+sug.to_param+'">'+marker.title+'</a></h3>'+sug.shorten+'<h5>by <a href="/users/'+sug.user.to_param+'">'+sug.user.author+'</a></h5>')
+    gInfoWindow.setContent('<h3><a href="/suggestions/'+sug.to_param+'">'+marker.title+'</a></h3>'+sug.shorten+'<h5>by <a href="/users/'+sug.user.to_param+'">'+sug.user.display_name+'</a></h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }
@@ -97,11 +96,10 @@ function display_post(i, ps) {
     position: new google.maps.LatLng(post.lat, post.lon),
     map: gMap,
     title: post.title,
-    //draggable: true,
     icon: "/images/map_icons/blog.png",
   });
   google.maps.event.addListener(marker, 'click', function() { 
-    gInfoWindow.setContent('<h3><a href="/posts/'+post.to_param+'">'+marker.title+'</a></h3>'+post.short_content+'<h5>by <a href="/users/'+post.user.to_param+'">'+post.user.author+'</a></h5>')
+    gInfoWindow.setContent('<h3><a href="/posts/'+post.to_param+'">'+marker.title+'</a></h3>'+post.short_content+'<h5>by <a href="/users/'+post.user.to_param+'">'+post.user.display_name+'</a></h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }
