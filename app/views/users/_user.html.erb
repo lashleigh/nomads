@@ -1,5 +1,5 @@
 <tr>
-  <td><%= user.name %></td>
+  <td><%= link_to user.name, user %></td>
   <td><%= user.fullname %></td>
   <% if user.link and user.link != "" %>
     <td><%= link_to user.link, user.link %></td>

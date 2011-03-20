@@ -12,7 +12,8 @@ class UsersController < ApplicationController
     end
   end
   def show
-    @user = User.find(param[:id])
+    @user = User.find(params[:id])
+    @items = get_items(@user.id)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => tidy(@users) }
@@ -34,5 +35,11 @@ class UsersController < ApplicationController
           :admin        => u.admin }
       }
     end
+  end
+  def get_items(user_id)
+    suggestions = Suggestion.where("user_id = ?", user_id).order("created_at DESC")
+    comments = Comment.where("user_id = ?", user_id).order("created_at DESC")
+    posts = Post.published.where("user_id = ?", user_id).order("created_at DESC")
+    @items = (suggestions + comments + posts).sort_by { |i| i.created_at }.reverse
   end
 end
