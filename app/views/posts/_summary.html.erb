@@ -2,7 +2,7 @@
 <h2><%=link_to post.title, post %></h2>
 
 <div class="metadata">
-  <span class="author">Posted by <%= post.author %></span>
+  <span class="author">Posted by <%= post.user.author %></span>
   <span class="timestamp"><%= distance_of_time_in_words_to_now post.created_at %> ago</span>
   <% if @user and @user.admin? %>
     <span class="edit_links">

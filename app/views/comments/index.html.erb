@@ -9,7 +9,7 @@
 
 <% @comments.each do |comment| %>
   <tr>
-    <td><%= comment.author %></td>
+    <td><%= comment.user.author %></td>
     <td><%= link_to comment.position_name, comment.position %></td>
     <td><%= link_to comment.id, comment %></td>
     <td><%= comment.position_id %></td>

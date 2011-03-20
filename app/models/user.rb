@@ -6,7 +6,16 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name, :allow_nil => true, :allow_blank => true
   validates_uniqueness_of :email, :allow_nil => true, :allow_blank => true
 
-  include Author 
+  def author 
+    if self.name and self.name != ""
+      self.name
+    elsif self.fullname and self.fullname != ""
+      self.fullname
+    else
+      "Guest_#{id}"
+    end
+  end
+
   def to_param
     "#{id}-#{author.parameterize}"
   end

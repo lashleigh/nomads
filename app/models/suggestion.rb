@@ -11,7 +11,6 @@ class Suggestion < ActiveRecord::Base
   validates_presence_of :lon
 
   include SerializationFix
-  include Author 
   def serialize_defaults
     {:only => [:title, :lat, :lon], :methods => [:shorten, :to_param]}
   end
@@ -31,11 +30,4 @@ class Suggestion < ActiveRecord::Base
     end
   end
 
-  def author
-    if user
-      user.name
-    else
-      "unknown"
-    end
-  end
 end

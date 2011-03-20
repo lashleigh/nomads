@@ -11,7 +11,6 @@ class Post < ActiveRecord::Base
   belongs_to :user
 
   include SerializationFix
-  include Author 
   def serialize_defaults
     {:only => [:title, :lat, :lon], :methods => [:short_content, :to_param]}
   end
@@ -26,14 +25,6 @@ class Post < ActiveRecord::Base
       s[0..s.rindex(' ')-1] + '...'
     else
       s
-    end
-  end
-
-  def author
-    if user
-      user.name
-    else
-      "unknown"
     end
   end
 
