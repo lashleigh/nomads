@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   def get_link
-    if self.link != ""
+    if self.link and self.link != ""
       return self.link
     else
       return "http://"

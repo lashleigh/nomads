@@ -1,7 +1,9 @@
 <tr>
   <td><%= user.name %></td>
   <td><%= user.fullname %></td>
-  <% if user.link and user.link !="" %>
+  <% if user.link and user.link != "" %>
+    <td><%= link_to user.link, user.link %></td>
+  <% else %>
     <td><%= user.link %></td>
   <% end %>
   <% if @user and @user.admin? %>
