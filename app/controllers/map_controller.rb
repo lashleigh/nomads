@@ -5,7 +5,11 @@ class MapController < ApplicationController
   def index
     @posts = Post.published.order("created_at DESC")
     @photos = FlickrPhoto.all
-    @suggestions = Suggestion.all
+    @sug_hash = {} 
+    #Icon.all.collect{ |icon| @sug_hash[icon.name] = Suggestion.where("icon_id=?", icon.id).to_json(:include => [:user])}
+    Icon.all.each do |icon| 
+      @sug_hash[icon.name] = Suggestion.where("icon_id=?", icon.id).collect{ |p| p.serializable_hash(:include => [:user])}
+    end
     @waypoints = Waypoint.full_track_points
   end
 

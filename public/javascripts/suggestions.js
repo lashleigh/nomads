@@ -1,4 +1,5 @@
 var waypoint_array = []
+var marker_hash = []
 jQuery(function() {
   // By using the same info window as the google search there will
   // only be one window open at a time.
@@ -6,7 +7,7 @@ jQuery(function() {
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(gMap);
 
-  $(suggestions).each(display_suggestion); 
+  for(val in sug_hash) {display_suggestion(val)}
   $(posts).each(display_post) 
 
   jQuery(images).each(function f(i, im) {
@@ -76,20 +77,36 @@ jQuery(function() {
   }); 
 });
 
-function display_suggestion(i, ps) {
-  var sug = ps.suggestion;
+function display_suggestion(ps) {
+  var sugs = sug_hash[ps];
+  marker_hash[ps] = [];
+  for( i = 0; i < sugs.length; i++) {
+    individual_suggestion(sugs[i], ps);
+  }
+}
+function individual_suggestion(sug, ps) {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(sug.lat, sug.lon),
     map: gMap,
     title: sug.title,
-    icon: sug.icon.marker_url,
+    icon: "images/map_icons/"+ps+".png",
   });
+  marker_hash[ps].push(marker);
   google.maps.event.addListener(marker, 'click', function() { 
     gInfoWindow.setContent('<h3><a href="/suggestions/'+sug.to_param+'">'+marker.title+'</a></h3>'+sug.shorten+'<h5>by <a href="/users/'+sug.user.to_param+'">'+sug.user.display_name+'</a></h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }
-
+function hide_type(type) {
+  for(i in marker_hash[type]) {
+    marker_hash[type][i].setMap(null);
+  }
+}
+function show_type(type) {
+  for(i in marker_hash[type]) {
+    marker_hash[type][i].setMap(gMap);
+  }
+}
 function display_post(i, ps) {
   var post = ps.post;
   var marker = new google.maps.Marker({
