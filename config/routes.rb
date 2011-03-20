@@ -1,5 +1,6 @@
 Nomads::Application.routes.draw do
   post "/posts/update_location" => "posts#update_location"
+  post "/suggestions/update_location" => "suggestions#update_location"
   post "/map/new_suggestion" => "map#new_suggestion"
 
   match "/cloudmailin" => "cloudmailin#index"

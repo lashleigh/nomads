@@ -6,12 +6,12 @@ jQuery(function() {
   var bikeLayer = new google.maps.BicyclingLayer();
   bikeLayer.setMap(gMap);
 
-  $(suggestions).each(post_or_suggestion); 
-  $(posts).each(post_or_suggestion) 
+  $(suggestions).each(display_suggestion); 
+  $(posts).each(display_post) 
 
   jQuery(images).each(function f(i, image) {
     var marker = new google.maps.Marker({
-      position: new google.maps.LatLng(image.latitude, image.longitude),
+      position: new google.maps.LatLng(image.lat, image.lon),
       map: gMap,
       title: image.url,
       icon: "/images/map_icons/picture_icon.png"
@@ -75,17 +75,32 @@ jQuery(function() {
   }); 
 });
 
-function post_or_suggestion(i, ps) {
+function display_suggestion(i, ps) {
+  var sug = ps.suggestion;
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(ps.latitude, ps.longitude),
+    position: new google.maps.LatLng(sug.lat, sug.lon),
     map: gMap,
-    title: ps.title,
+    title: sug.title,
     //draggable: true,
-    icon: ps.icon_path,
+    icon: "/images/map_icons/"+sug.icon.name+".png",
   });
   google.maps.event.addListener(marker, 'click', function() { 
-    gInfoWindow.setContent('<h3><a href="'+ ps.link + '">' + marker.title +'</a></h3>' + ps.content + '<h5>by ' + ps.user + '</h5>')
+    gInfoWindow.setContent('<h3><a href="/suggestions/'+sug.id+'">'+marker.title+'</a></h3>'+sug.shorten+'<h5>by <a href="/users/'+sug.user.id+'">'+sug.user.name+'</a></h5>')
     gInfoWindow.open(gMap,marker); 
   });
 }
 
+function display_post(i, ps) {
+  var post = ps.post;
+  var marker = new google.maps.Marker({
+    position: new google.maps.LatLng(post.lat, post.lon),
+    map: gMap,
+    title: post.title,
+    //draggable: true,
+    icon: "/images/map_icons/blog.png",
+  });
+  google.maps.event.addListener(marker, 'click', function() { 
+    gInfoWindow.setContent('<h3><a href="/posts/'+post.id+'">'+marker.title+'</a></h3>'+post.short_content+'<h5>by <a href="/users/'+post.user.id+'">'+post.user.name+'</a></h5>')
+    gInfoWindow.open(gMap,marker); 
+  });
+}

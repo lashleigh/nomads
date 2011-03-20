@@ -1,5 +1,5 @@
 
 <script type="text/javascript">
-  var suggestion = <%= @suggestion.as_hash.to_json.html_safe %>;
+  var suggestion = <%= @suggestion.to_json(:include => [:icon]).html_safe %>.suggestion;
 </script>
 <div id="map_canvas_for_suggestion"> </div>

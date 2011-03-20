@@ -3,9 +3,9 @@ class MapController < ApplicationController
   layout 'map'
 
   def index
-    @posts = Post.where("published = ?", true).order("created_at DESC").collect { |p| p.as_hash }
-    @photos = FlickrPhoto.find(:all).collect { |p| p.as_hash }
-    @suggestions = Suggestion.find(:all).collect { |s| s.as_hash }
+    @posts = Post.published.order("created_at DESC")
+    @photos = FlickrPhoto.all.collect {|p| p.as_hash}
+    @suggestions = Suggestion.all
     @waypoints = Waypoint.full_track_points
   end
 

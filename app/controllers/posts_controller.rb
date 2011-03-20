@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   # Update Post location
   def update_location
     post = Post.find(params[:id])
-    post.lat = params[:latitude]
-    post.lon = params[:longitude]
+    post.lat = params[:lat]
+    post.lon = params[:lon]
     post.save
     render :text => post.to_json
   end

@@ -9,9 +9,9 @@
 <div id="full_screen_container">
 
   <script type="text/javascript">
-    var posts = <%= @posts.to_json.html_safe %>;
+    var posts = <%= @posts.to_json(:include => [:user], :methods => :short_content, :except => [:content]).html_safe %>;
     var images = <%= @photos.to_json.html_safe %>;
-    var suggestions = <%= @suggestions.to_json.html_safe %>;
+    var suggestions = <%= @suggestions.to_json(:include => [:user, :icon], :methods => :shorten, :except => [:content]).html_safe %>;
     var waypoints = <%= @waypoints.to_json.html_safe %>;
     var logged_in = <%= (not @user.nil?).to_json.html_safe %>
   </script>

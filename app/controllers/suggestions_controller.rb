@@ -7,8 +7,8 @@ class SuggestionsController < ApplicationController
   def update_location
     suggestion = Suggestion.find(params[:id])
     if @user.admin? or suggestion.user == @user
-      suggestion.lat = params[:latitude]
-      suggestion.lon = params[:longitude]
+      suggestion.lat = params[:lat]
+      suggestion.lon = params[:lon]
       suggestion.save
     end
     render :text => suggestion.to_json

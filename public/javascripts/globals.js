@@ -4,8 +4,8 @@ var gInfoWindow;
 
 jQuery(function() {
   // Initialize the map with default UI.
-  var center_lat = posts[0].latitude;
-  var center_lon = posts[0].longitude;
+  var center_lat = posts[0].post.lat;
+  var center_lon = posts[0].post.lon;
   gMap = new google.maps.Map(document.getElementById("map_canvas"), {
     center: new google.maps.LatLng(center_lat, center_lon),
     zoom: 5,

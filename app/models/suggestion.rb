@@ -21,7 +21,8 @@ class Suggestion < ActiveRecord::Base
       "content" => textilize(shorten(content)) }
   end
 
-  def shorten(content)
+  def shorten
+    content = self.content
     maxlen = 100
     s = content[0..maxlen]
     if( s.length > maxlen and s.include? ' ')

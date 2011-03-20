@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
       "longitude" => lon,
       "icon_path" => "/images/map_icons/blog.png",
       "user" => user.nickname,
-      "content" => textilize(short_content) }
+      "content" => red(short_content) }
   end
 
   def short_content(maxlen = 100)
