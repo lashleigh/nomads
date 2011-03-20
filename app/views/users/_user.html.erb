@@ -8,6 +8,5 @@
   <% if @user and @user.admin? %>
     <td><%= user.fullname %></td>
     <td><%= mail_to user.email %></td>
-    <td><%= user.openid %></td>
   <% end %>
 </tr>

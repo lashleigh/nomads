@@ -20,7 +20,7 @@ class OpenidController < ApplicationController
       realm = url_for :action => 'index', :only_path => false
 
       sregreq = OpenID::SReg::Request.new
-      sregreq.request_fields(['email', 'author', 'fullname'], false)
+      sregreq.request_fields(['email', 'nickname', 'fullname'], false)
       openid_request.add_extension(sregreq)
 
       redirect_to openid_request.redirect_url(realm, return_to)
@@ -45,7 +45,7 @@ class OpenidController < ApplicationController
         user.openid = openid_response.identity_url
         sreg_resp = OpenID::SReg::Response.from_success_response(openid_response)
         if sreg_resp
-          user.name = sreg_resp.data['author']
+          user.name = sreg_resp.data['nickname']
           user.fullname = sreg_resp.data['fullname']
           user.email = sreg_resp.data['email']
         end
