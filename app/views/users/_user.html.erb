@@ -1,12 +1,12 @@
-<tr>
-  <td><%= link_to user.name, user %></td>
-  <td><%= user.fullname %></td>
+<tr class="user">
+  <td><%= link_to user.nickname, user %></td>
   <% if user.link and user.link != "" %>
     <td><%= link_to user.link, user.link %></td>
   <% else %>
     <td><%= user.link %></td>
   <% end %>
   <% if @user and @user.admin? %>
+    <td><%= user.fullname %></td>
     <td><%= mail_to user.email %></td>
     <td><%= user.openid %></td>
   <% end %>

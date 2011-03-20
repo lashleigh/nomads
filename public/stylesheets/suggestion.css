@@ -40,3 +40,8 @@
   float: left;
 }
 .suggestion:nth-child(even) { background: #eeeeee; }
+.user:nth-child(even) { background: #eeeeee; }
+.activity_item:nth-child(even) {
+  background: #eeeeee;
+  background: -webkit-gradient(linear, 50% center, right center, from(#eeeeee), to(#ffffff));
+}
