@@ -27,7 +27,7 @@
   margin: 20px 0 0 0;
   width: 1120px;
 }
-.trip h2 { border-bottom: 3px dotted; }
+.trip h2 .the_trip { border-bottom: 3px dotted; }
 .simple_route {
   padding: 20px 0 0 20px;
   width: 520px;
