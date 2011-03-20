@@ -41,4 +41,12 @@ class Post < ActiveRecord::Base
       "unknown"
     end
   end
+
+  def published= v
+    super v
+    # If we're setting published to true, AND there's a created_at value, update it
+    if v and self.created_at
+      self.created_at = Time.now
+    end
+  end
 end

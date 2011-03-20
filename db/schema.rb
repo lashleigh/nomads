@@ -22,16 +22,16 @@ ActiveRecord::Schema.define(:version => 20110319090241) do
   end
 
   create_table "flickr_photos", :force => true do |t|
-    t.string   "title"
-    t.integer  "farm"
-    t.string   "secret"
-    t.string   "photo_id"
-    t.string   "server"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.float    "lat"
-    t.float    "lon"
-    t.string   "uploaded"
+    t.string    "title"
+    t.integer   "farm"
+    t.string    "secret"
+    t.string    "photo_id"
+    t.string    "server"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.float     "lat"
+    t.float     "lon"
+    t.string    "uploaded"
   end
 
   create_table "icons", :force => true do |t|
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(:version => 20110319090241) do
     t.timestamp "updated_at"
     t.integer   "icon_id"
     t.integer   "user_id"
+  end
+
+  create_table "track_points", :force => true do |t|
+    t.float    "lat"
+    t.float    "lon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|
