@@ -1,6 +1,9 @@
 <tr>
   <td><%= user.name %></td>
   <td><%= user.fullname %></td>
+  <% if user.link and user.link !="" %>
+    <td><%= user.link %></td>
+  <% end %>
   <% if @user and @user.admin? %>
     <td><%= mail_to user.email %></td>
     <td><%= user.openid %></td>

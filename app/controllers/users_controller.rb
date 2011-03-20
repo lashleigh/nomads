@@ -11,6 +11,13 @@ class UsersController < ApplicationController
       format.json { render :json => tidy(@users) }
     end
   end
+  def show
+    @user = User.find(param[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => tidy(@users) }
+    end
+  end
 
   private
   def tidy(users)
