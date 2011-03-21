@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml  => @posts }
-      format.json { render :json => @posts }
+      format.json { render :json => @posts.as_json(:only => nil) }
     end
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml   { render :xml  => @post }
-      format.json  { render :json => @post }
+      format.json  { render :json => @post.as_json(:only => nil) }
     end
   end
 
