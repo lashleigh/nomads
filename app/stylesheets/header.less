@@ -6,8 +6,7 @@
 #sub_header_wrapper {
   height: @full_screen_height;
   overflow: hidden;
-  background: @blue;
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(@blue), to(@blue - #222));
+  .sub_header_gradient();
 }
 
 #sub_header {
@@ -32,8 +31,7 @@
   height: @index_height !important;
 }
 #header_wrapper {
-  background: @green;
-  background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(@green), to(@green - #333));
+  .header_gradient();
   height: 122px;
   overflow: hidden;
 }

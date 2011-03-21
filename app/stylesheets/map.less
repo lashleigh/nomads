@@ -1,4 +1,5 @@
 @import 'mixin';
+@yellow: #FFFE99;
 #map_canvas {
   width: 720px;
   height: 550px;
@@ -49,6 +50,9 @@
   float: left;
   padding-left: 0px;
   margin: 10px 0px;
+  button {
+    margin-left: 20px;
+  }
 }
 #sub_header_icons {
  li {
@@ -58,13 +62,16 @@
    overflow: hidden;
    background: gray;
    opacity: 0.5;
-   .rounded_corners(5px);
+   .rounded_top_corners(5px);
    :hover {
-     background: red;
+     background: @yellow;
+     background: -webkit-gradient(linear, center top, center bottom, from(@yellow - #222), to(@yellow + #111));
    }
  }
  .selected {
    opacity: 1.0;
  }
 }
-
+#queryInput {
+  .rounded_corners(5px);
+}
