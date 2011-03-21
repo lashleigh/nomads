@@ -386,7 +386,7 @@ fieldset {
   width: 16em;
 }
 input, textarea, keygen, select, button, isindex, datagrid {
-  padding: 10px 6px 2px;
+  padding: 2px 10px;
   color: initial;
   display: inline-block;
   font: -webkit-small-control;
@@ -395,10 +395,11 @@ input, textarea, keygen, select, button, isindex, datagrid {
   margin: 0em;
   font-size: 1em;
 }
-fieldset.buttons {
-  padding: 1em 1em 1em 14em;
+fieldset #user_submit {
+  margin: 1em 1em 1em 13em;
   text-align: left;
 }
+fieldset .field input { margin: 10px 0px; }
 span.hint {
   font-size: 1em;
   display: block;
