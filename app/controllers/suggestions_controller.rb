@@ -33,7 +33,7 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml  => @suggestions }
-      format.json { render :json => @suggestions }
+      format.json { render :json => @suggestions.to_json(:only => nil) }
     end
   end
 
@@ -45,7 +45,7 @@ class SuggestionsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @suggestion }
-      format.json  { render :json => @suggestion }
+      format.json { render :json => @suggestion.to_json(:only => nil) }
     end
   end
 
