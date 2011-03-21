@@ -12,7 +12,7 @@
   height: 100px;
   overflow: hidden;
   background: #05297a;
-  background: -moz-linear-gradient(left, #05297a, #274b9c 25%, #05297a);
+  background: -moz-linear-gradient(left, #05297a, #274b9c 30%, #05297a);
   background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#274b9c), to(#05297a));
 }
 #sub_header {
@@ -36,7 +36,7 @@
 .index { height: 100px !important; }
 #header_wrapper {
   background: #006e00;
-  background: -moz-linear-gradient(left, #006e00, #29a129 25%, #006e00);
+  background: -moz-linear-gradient(left, #006e00, #29a129 30%, #006e00);
   background: -webkit-gradient(radial, 430 50, 0, 430 50, 464, from(#29a129), to(#006e00));
   height: 122px;
   overflow: hidden;
@@ -275,10 +275,10 @@
 #sub_header_icons li {
   margin: 5px;
   padding: 5px;
-  float: left;
+  float: right;
   overflow: hidden;
-  background: gray;
-  opacity: 0.5;
+  background: #dddddd;
+  opacity: 0.4;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
   border-top-right-radius: 5px;

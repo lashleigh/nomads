@@ -13,7 +13,7 @@
     var images = <%= @photos.to_json.html_safe %>;
     var waypoints = <%= @waypoints.to_json.html_safe %>;
     var sug_hash = <%= @sug_hash.to_json.html_safe %>;
-    var logged_in = <%= (not @user.nil?).to_json.html_safe %>
+    var logged_in = <%= (not @current_user.nil?).to_json.html_safe %>
   </script>
   <div id="map_canvas" class="full_screen" ></div>
   <div id="searchwell"></div>

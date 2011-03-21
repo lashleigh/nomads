@@ -3,7 +3,7 @@
   <div class="metadata">
     <span class="author">By <%= link_to comment.user.display_name, user_path(comment.user) %></span>
     <span class="timestamp"><%= distance_of_time_in_words_to_now comment.created_at %> ago</span>
-    <% if @user and (@user.admin? or @user == comment.user) %>
+    <% if @current_user and (admin or @current_user == comment.user) %>
       <span class="edit_links">
         <%= link_to image_tag("edit.png"), edit_comment_path(comment) %>
         <%= link_to image_tag("remove.png"), [comment.position, comment], :confirm => "Are you sure?", :method => :delete %>

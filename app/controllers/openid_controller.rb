@@ -34,7 +34,6 @@ class OpenidController < ApplicationController
     current_url = url_for(:action => 'complete', :only_path => false)
     parameters = params.reject { |k,v| request.path_parameters[k.to_sym] }
     openid_response = openid_consumer.complete parameters, current_url
-    logger.info(openid_response)
 
     if openid_response.status == OpenID::Consumer::SUCCESS
       user = User.find_by_openid openid_response.identity_url
@@ -78,11 +77,11 @@ class OpenidController < ApplicationController
   def details
     if params[:user]
       params[:user].reject! { |k,v| k == :openid }
-      @user.update_attributes params[:user]
-      if @user.save
+      @current_user.update_attributes params[:user]
+      if @current_user.save
         flash.now[:message] = "Your account details were saved successfully."
       else
-        flash.now[:errors] = @user.errors.full_messages
+        flash.now[:errors] = @current_user.errors.full_messages
       end
     end
   end

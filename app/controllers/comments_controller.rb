@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def create
     @parent = parent_object
     @comment = @parent.comments.create(params[:comment]) 
-    @comment.user = @user
+    @comment.user = @current_user
     @comment.save
     redirect_to url_for(@parent)
  end
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
       return false
     end
     @comment = Comment.find params[:id]
-    unless @user and (@user.admin? or @user == @comment.user)
+    unless @current_user and (@current_user.admin? or @current_user == @comment.user)
       flash[:error] = "You must own the comment you wish to modify."
       redirect_to :controller => :home
       return false

@@ -56,10 +56,10 @@
 #sub_header_icons li {
   margin: 5px;
   padding: 5px;
-  float: left;
+  float: right;
   overflow: hidden;
-  background: gray;
-  opacity: 0.5;
+  background: #dddddd;
+  opacity: 0.4;
   -webkit-border-top-right-radius: 5px;
   -moz-border-radius-topleft: 5px;
   border-top-right-radius: 5px;

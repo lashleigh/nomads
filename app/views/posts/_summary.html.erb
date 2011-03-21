@@ -4,7 +4,7 @@
 <div class="metadata">
   <span class="author">Posted by <%= link_to post.user.display_name, user_path(post.user)%></span>
   <span class="timestamp"><%= distance_of_time_in_words_to_now post.created_at %> ago</span>
-  <% if @user and @user.admin? %>
+  <% if admin %>
     <span class="edit_links">
       <%= link_to image_tag("edit.png"), edit_post_path(post) %>
       <%= link_to image_tag("remove.png"),  post, :confirm => 'Are you sure?', :method => :delete %>

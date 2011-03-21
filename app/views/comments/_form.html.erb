@@ -1,4 +1,4 @@
-<% if @user %>
+<% if @current_user %>
   <div id="add_comment">
     <h4>Add a comment</h4>
     <%= form_for [which, which.comments.build] do |f| %>

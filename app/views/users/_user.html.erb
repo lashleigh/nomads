@@ -5,7 +5,7 @@
   <% else %>
     <td><%= user.link %></td>
   <% end %>
-  <% if @user and @user.admin? %>
+  <% if @admin %>
     <td><%= user.fullname %></td>
     <td><%= mail_to user.email %></td>
   <% end %>

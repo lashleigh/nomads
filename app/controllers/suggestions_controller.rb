@@ -6,7 +6,7 @@ class SuggestionsController < ApplicationController
   # Updates the location of a suggestion
   def update_location
     suggestion = Suggestion.find(params[:id])
-    if @user.admin? or suggestion.user == @user
+    if admin or suggestion.user == @current_user
       suggestion.lat = params[:lat]
       suggestion.lon = params[:lon]
       suggestion.save
@@ -23,9 +23,9 @@ class SuggestionsController < ApplicationController
       all = Suggestion.find(:all).reverse
     end
 
-    if @user
+    if @current_user
       # Put the user's suggestions at the top
-      @suggestions = @user.suggestions.reverse + (all - @user.suggestions)
+      @suggestions = @current_user.suggestions.reverse + (all - @current_user.suggestions)
     else
       @suggestions = all
     end
@@ -70,14 +70,14 @@ class SuggestionsController < ApplicationController
   # POST /suggestions
   # POST /suggestions.xml
   def create
-    unless @user
+    unless @current_user
       flash[:error] = "You must be logged in to create a suggestion"
       redirect_to(suggestions_url)
       return
     end
 
     @suggestion = Suggestion.new(params[:suggestion])
-    @suggestion.user = @user
+    @suggestion.user = @current_user
 
     respond_to do |format|
       if @suggestion.save
@@ -101,7 +101,7 @@ class SuggestionsController < ApplicationController
     values.reject! { |k,v| k == :user_id }
 
     respond_to do |format|
-      if @user and (@user.admin? or @suggestion.user == @user)
+      if @current_user and (@current_user.admin? or @suggestion.user == @current_user)
         if @suggestion.update_attributes(params[:suggestion])
           flash[:notice] = 'Suggestion was successfully updated.'
           format.html { redirect_to(@suggestion) }
@@ -125,7 +125,7 @@ class SuggestionsController < ApplicationController
   # DELETE /suggestions/1.xml
   def destroy
     @suggestion = Suggestion.find(params[:id])
-    if @user and (@user.admin? or @suggestion.user == @user)
+    if @current_user and (@current_user.admin? or @suggestion.user == @current_user)
       @suggestion.destroy
     else
       flash[:error] = "It appears you attempted to delete a suggestion that you did not create. Perhaps you need to log in?"

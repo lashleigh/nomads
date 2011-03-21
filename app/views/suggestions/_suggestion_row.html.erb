@@ -1,11 +1,11 @@
 <% suggestion = suggestion_row -%>
-<tr class="suggestion<%= (suggestion.user == @user) ? " mine" : "" %>">
+<tr class="suggestion<%= (suggestion.user == @current_user) ? " mine" : "" %>">
   <td><%= link_to suggestion.user.display_name, user_path(suggestion.user)%></td>
   <td class="title"><%= link_to suggestion.title, suggestion%></td>
   <td class="icon"><%= image_tag(suggestion.icon.marker_url) if suggestion.icon %></td>
   <td class="zebra_content"><%=red truncate(suggestion.content, :length => 100) %></td>
   <td class="edit_and_delete_links">
-    <% if @user and (suggestion.user == @user or @user.admin?) %>
+    <% if @current_user and (suggestion.user == @current_user or @current_user.admin?) %>
       <%= link_to image_tag("edit.png"), edit_suggestion_path(suggestion) %>
       <%= link_to image_tag("remove.png"), suggestion, :confirm => 'Are you sure?', :method => :delete %>
     <% end %>

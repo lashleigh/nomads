@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @post = Post.new
     @post.lat = Post.last.lat
     @post.lon = Post.last.lon
-    @post.user = @user
+    @post.user = @current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -62,7 +62,7 @@ class PostsController < ApplicationController
   # POST /posts.xml
   def create
     @post = Post.new(params[:post])
-    @post.user = @user
+    @post.user = @current_user
 
     respond_to do |format|
       if @post.save

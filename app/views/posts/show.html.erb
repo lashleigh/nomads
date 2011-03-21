@@ -4,7 +4,7 @@
   <h2><%= @post.title %></h2>
   <div id="post_author" class="metadata">
     posted by <%= link_to @post.user.display_name, user_url(@post.user) or "unknown" %>
-    <% if @user and @user.admin? %>
+    <% if admin %>
       <span class="edit_links">
         <%= link_to image_tag("edit.png"), edit_post_path(@post) %>
         <%= link_to image_tag("remove.png"), @post, :method => :delete, :confirm => 'Are you sure?' %>

@@ -4,7 +4,7 @@ class FlickrController < ApplicationController
   end
 
   def update_location
-    if @user.admin?
+    if admin
       photo = FlickrPhoto.find(params[:id])
       photo.lat = params[:latitude]
       photo.lon = params[:longitude]
