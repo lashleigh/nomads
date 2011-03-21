@@ -12,7 +12,7 @@ class Suggestion < ActiveRecord::Base
 
   include SerializationFix
   def serialize_defaults
-    {:only => [:title, :lat, :lon], :methods => [:shorten, :to_param]}
+    {:only => [:id, :title, :lat, :lon], :methods => [:shorten, :to_param]}
   end
 
   def to_param
