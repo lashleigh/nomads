@@ -13,7 +13,7 @@
       </div>
       <ul id="sub_header_icons", class="no_dot_list">
         <% Icon.all.each do |icon| %>
-          <li class="selected"> <%= image_tag(icon.marker_url, :title => icon.name, :border => 0, :alt => icon.name) %> </li>
+          <li class="selected"> <%= image_tag(icon.marker_url, :title => icon.description, :border => 0, :alt => icon.name) %> </li>
         <% end %>
       </ul>
     </div>

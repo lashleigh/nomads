@@ -29,10 +29,10 @@ class Post < ActiveRecord::Base
   end
 
   def published= v
-    super v
     # If we're setting published to true, AND there's a created_at value, update it
-    if v and self.created_at
+    if v and self.created_at and not self.published
       self.created_at = Time.now
     end
+    super v
   end
 end

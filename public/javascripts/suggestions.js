@@ -6,10 +6,10 @@ jQuery(function() {
   $("#sub_header_icons li").live("click", function() {
    if( $(this).hasClass("selected")) {
      $(this).removeClass("selected");
-     hide_type($(this).find("img").attr("title"));
+     hide_type($(this).find("img").attr("alt"));
    } else {
      $(this).addClass("selected");
-     show_type($(this).find("img").attr("title"));
+     show_type($(this).find("img").attr("alt"));
    }
   });
 
