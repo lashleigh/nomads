@@ -9,7 +9,6 @@ class MapController < ApplicationController
     Icon.all.each do |icon| 
       @sug_hash[icon.name] = Suggestion.where("icon_id=?", icon.id).collect{ |p| p.serializable_hash(:include => [:user])}
     end
-    @waypoints = Waypoint.full_track_points
   end
 
   # For rendering in a fancybox

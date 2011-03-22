@@ -57,7 +57,7 @@ jQuery(function() {
 });
 
 function draw_track() {
-  var track_points = jQuery(waypoints).map(function(i, p) { return new google.maps.LatLng(p[0], p[1]) }).get();
+  var track_points = jQuery(posts).map(function(i, p) { return new google.maps.LatLng(p.post.lat, p.post.lon) }).get();
   var polyline = new google.maps.Polyline({
         path: track_points,
         strokeColor: "#FF6600",
