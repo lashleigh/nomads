@@ -709,7 +709,7 @@ div.show_post, div.suggestion_text {
   margin: 5px;
 }
 #map_canvas_for_post { clear: both; }
-input[type="text"], textarea { width: 460px; }
+input[type="text"], textarea { width: 444px; }
 #header_wrapper, #header {
   width: 480px;
   height: auto;
