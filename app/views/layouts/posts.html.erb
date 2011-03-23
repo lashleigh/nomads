@@ -10,11 +10,15 @@
     <%= javascript_include_tag 'jquery.min' %>
     <%= javascript_include_tag 'jquery.rails' %>
 
-    <%= stylesheet_link_tag "base", :media => "screen and (min-device-width: 961px)" %>
+
+    <%= stylesheet_link_tag "base", :media => "screen" %>
+    <!-- 
+    <% stylesheet_link_tag "base", :media => "screen and (min-device-width: 961px)" %>
     <meta name="viewport" content="width=380; initial-scale=1.0; maximum-scale=3.0; user-scalable=1;" />
-    <%= stylesheet_link_tag "handheld", :media => "only screen and (max-device-width: 960px)" %>
+    <% stylesheet_link_tag "handheld", :media => "only screen and (max-device-width: 960px)" %>
+    -->
     <!--[if IE]>
-     <%= stylesheet_link_tag "base", :media => "screen" %>
+     <% stylesheet_link_tag "base", :media => "screen" %>
     <![endif]-->
 
     <%= stylesheet_link_tag 'suggestion' %>
