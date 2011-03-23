@@ -694,7 +694,7 @@ ul.activity li {
 }
 ul.activity .admin_action { font-style: italic; }
 #map_and_comment_container {
-  width: auto;
+  width: 480px;
   float: none;
 }
 div.show_post, div.suggestion_text {
@@ -705,8 +705,23 @@ div.show_post, div.suggestion_text {
 }
 #comment_body { width: auto; }
 #container {
-  width: auto;
-  margin: 1em;
+  width: 470px;
+  margin: 5px;
 }
 #map_canvas_for_post { clear: both; }
-input[type="text"], textarea { width: 100%; }
+input[type="text"], textarea { width: 460px; }
+#header_wrapper, #header {
+  width: 480px;
+  height: auto;
+  overflow: hidden;
+}
+#login_status, #navigation {
+  padding: 0 2em;
+  position: relative;
+  float: none;
+  top: 0;
+  right: 0;
+}
+#navigation li { float: left; }
+#footer_wrapper { display: none; }
+#header-logo { position: relative; }
