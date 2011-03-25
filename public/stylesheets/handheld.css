@@ -227,6 +227,12 @@
   width: 700px;
   float: left;
 }
+#full_screen_container {
+  margin: 0 auto;
+  overflow: auto;
+  padding-bottom: 150px;
+}
+#full_screen_container p { margin: 0.25em 0; }
 #map_canvas {
   width: 720px;
   height: 550px;
@@ -546,11 +552,6 @@ a:visited { color: #274b9c; }
   margin: 5px;
   width: 208px;
 }
-#full_screen_container {
-  margin: 0 auto;
-  overflow: auto;
-  padding-bottom: 150px;
-}
 .full_screen {
   position: absolute !important;
   height: 100% !important;
@@ -694,7 +695,7 @@ ul.activity li {
 }
 ul.activity .admin_action { font-style: italic; }
 #map_and_comment_container {
-  width: 480px;
+  width: 380px;
   float: none;
 }
 div.show_post, div.suggestion_text {
@@ -711,7 +712,7 @@ div.show_post, div.suggestion_text {
 #map_canvas_for_post { clear: both; }
 input[type="text"], textarea { width: 444px; }
 #header_wrapper, #header {
-  width: 480px;
+  width: 380px;
   height: auto;
   overflow: hidden;
 }

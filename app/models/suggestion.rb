@@ -27,9 +27,9 @@ class Suggestion < ActiveRecord::Base
     maxlen = 100
     s = content[0..maxlen]
     if( s.length > maxlen and s.include? ' ')
-      s[0..s.rindex(' ')-1] + '...'
+      red s[0..s.rindex(' ')-1] + '...'
     else
-      s
+      red s
     end
   end
 

@@ -227,6 +227,12 @@
   width: 700px;
   float: left;
 }
+#full_screen_container {
+  margin: 0 auto;
+  overflow: auto;
+  padding-bottom: 150px;
+}
+#full_screen_container p { margin: 1em 0; }
 #map_canvas {
   width: 720px;
   height: 550px;
@@ -545,11 +551,6 @@ a:visited { color: #274b9c; }
   vertical-align: middle;
   margin: 5px;
   width: 208px;
-}
-#full_screen_container {
-  margin: 0 auto;
-  overflow: auto;
-  padding-bottom: 150px;
 }
 .full_screen {
   position: absolute !important;
