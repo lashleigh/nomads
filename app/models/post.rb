@@ -21,7 +21,7 @@ class Post < ActiveRecord::Base
   def red(text)
     RedCloth.new(text).to_html.html_safe
   end
-  def short_content(maxlen = 100)
+  def short_content(maxlen = 175)
     s = content[0..maxlen]
     if( s.length > maxlen and s.include? ' ')
       red s[0..s.rindex(' ')-1] + '...'
