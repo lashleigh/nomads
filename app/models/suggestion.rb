@@ -19,6 +19,9 @@ class Suggestion < ActiveRecord::Base
     "#{id}-#{title.parameterize}"
   end
 
+  def red(text)
+    RedCloth.new(text).to_html.html_safe
+  end
   def shorten
     content = self.content
     maxlen = 100

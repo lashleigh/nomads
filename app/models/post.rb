@@ -1,30 +1,13 @@
 class Post < ActiveRecord::Base
-  scope :published, where("published=?", true)
-  scope :unpublished, where("published=?", false)
-  validates_presence_of :user
-  validates_presence_of :title
-  validates_presence_of :content
-  validates_presence_of :lat
-  validates_presence_of :lon
-  has_many :comments, :as => :position, :dependent => :destroy
-  has_one :waypoint, :as => :position
-  belongs_to :user
-
-  include SerializationFix
-  def serialize_defaults
-    {:only => [:id, :title, :lat, :lon], :methods => [:short_content, :to_param]}
+  def red(text)
+    RedCloth.new(text).to_html.html_safe
   end
-
-  def to_param
-    "#{id}-#{title.parameterize}"
-  end
-
   def short_content(maxlen = 100)
     s = content[0..maxlen]
     if( s.length > maxlen and s.include? ' ')
-      s[0..s.rindex(' ')-1] + '...'
+      red s[0..s.rindex(' ')-1] + '...'
     else
-      s
+      red s
     end
   end
 
