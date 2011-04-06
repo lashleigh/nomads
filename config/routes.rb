@@ -30,6 +30,8 @@ Nomads::Application.routes.draw do
   match "/activity" => "activity#index", :as => :activity
   match "/activity/plain" => "activity#plain",  :collection => { :plain => :get }
 
+  match "/home" => "home#index"
+  match "/home/index" => "home#index"
   root :to => "home#index"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
