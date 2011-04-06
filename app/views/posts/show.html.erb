@@ -4,6 +4,7 @@
   <h2><%= @post.title %></h2>
   <div id="post_author" class="metadata">
     posted by <%= link_to @post.user.display_name, user_url(@post.user) or "unknown" %>
+    <%= distance_of_time_in_words_to_now @post.created_at %> ago
     <% if admin %>
       <span class="edit_links">
         <%= link_to image_tag("edit.png"), edit_post_path(@post) %>
