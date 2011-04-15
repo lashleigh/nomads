@@ -46,11 +46,11 @@ class PostsController < ApplicationController
     @post.lat = Post.last.lat
     @post.lon = Post.last.lon
     @post.user = @current_user
+    @post.title = "Change Me"
+    @post.content = "Write me!"
+    @post.save
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
-    end
+    redirect_to :action => :edit, :id => @post.id
   end
 
   # GET /posts/1/edit
