@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :must_own_comment, :except => [:index, :create]
+  before_filter :must_own_comment, :except => [:index, :create, :show]
 
   def index
     if params[:since]
