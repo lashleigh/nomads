@@ -84,7 +84,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to :action => :edit }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
