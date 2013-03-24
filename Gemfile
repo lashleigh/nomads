@@ -2,21 +2,19 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.13'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3', '1.3.3'
 gem 'RedCloth', "= 4.2.9"
-gem 'flickraw'
-gem 'less'
+gem 'flickraw', "= 0.8.4"
+gem 'less',     "= 1.2.21"
 
-gem 'ruby-openid'
+gem 'ruby-openid', "= 2.1.8"
 
 group :production do
   gem 'pg'
 end
 group :development do
-  gem 'sqlite3-ruby', :require => 'sqlite3'
+  #gem 'sqlite3-ruby', :require => 'sqlite3'
+  gem 'sqlite3-ruby', '= 1.3.3'
+  gem 'sqlite3',      '= 1.3.7'
   gem 'pry'
   gem 'pry-debugger'
   gem 'heroku'
