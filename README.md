@@ -60,31 +60,34 @@ In your rails console paste in the following
      {"name"=>"blog", "description"=>"A blog post"}, 
      {"name"=>"image", "description"=>"A picture from the road"}].each {|icon| Icon.create(icon) }
 
-Be advised that the names map directly to the icons in /public/images/map_icons/
+Be advised that the names map directly to the icons in `/public/images/map_icons/`
 If you change the names in the database be sure to change the name
 of the corresponding image to match. Similarly if you want to add a new icon all
 you have to do is save it in the database and create an image by the same name.
 
 **WARNING**
 
-When people leave suggestions the type is stored via the icon_id, be careful
+When people leave suggestions the type is stored via the `icon_id`, be careful
 removing icons after your project is public.
 
 ## Twitter
 On the home page there is a twitter feed off to the right. You can make that
-point at your own twitter by editing app/views/home/_twitter
+point at your own twitter by editing `app/views/home/_twitter.html.erb`
 There were two of us traveling together when I made this website and we
 wanted both of our tweets to show up so we made a list that only had the two
 of us in it. 
 
 ## Flickr 
-Start by editing the links at app/views/home/_flickr.html.erb to point to your
+Start by editing the links at `app/views/home/_flickr.html.erb` to point to your
 own flickr profile. 
-The second part of how I used flickr was a cron task located at: lib/task/cron.rake
-The cron task is currently set up to grab flickr photos with the 'nomad' tag
+
+The second part of how I used flickr was a cron task located at: `lib/task/cron.rake`
+The cron task is currently set up to grab flickr photos with the `nomad` tag
 from two users (Benson and I by default). 
-Edit this file to have your flickr user_id. http://idgettr.com/
-Go to flickr and tag a couple of your geolocated photos with 'nomad'
+Edit this file to have your flickr user id. You can look up your flickr id here: http://idgettr.com/
+
+Go to flickr and tag a couple of your geolocated photos with `nomad`.
+
 In the root directory of the project run: 
 
     rake flick:update
@@ -94,7 +97,13 @@ should also be thumbnails at the photos tab and at the home view.
 
 ## About
 You'll want to edit the about page heavily. It is currently hard coded html
-all of which is located at /app/views/home/about.html.erb
+all of which is located at `app/views/home/about.html.erb`
+
+# Ready to deploy
+This should have been enough to get you in a deployable state. I'll take you through deploying
+the app to heroku now.
+
+ heroku create
 
 
 ## TODO

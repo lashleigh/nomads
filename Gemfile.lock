@@ -70,6 +70,7 @@ GEM
     multi_json (1.7.2)
     mutter (0.5.3)
     netrc (0.7.7)
+    pg (0.14.1)
     polyglot (0.3.1)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -130,6 +131,7 @@ DEPENDENCIES
   flickraw
   heroku
   less
+  pg
   pry
   pry-debugger
   rails (= 3.2.13)

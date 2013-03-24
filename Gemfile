@@ -6,14 +6,17 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 #gem 'sqlite3', '1.3.3'
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'RedCloth', "= 4.2.9"
 gem 'flickraw'
 gem 'less'
 
 gem 'ruby-openid'
 
+group :production do
+  gem 'pg'
+end
 group :development do
+  gem 'sqlite3-ruby', :require => 'sqlite3'
   gem 'pry'
   gem 'pry-debugger'
   gem 'heroku'
