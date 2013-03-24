@@ -6,70 +6,69 @@ This project is not a good place to start learning about rails. It was my
 very first website and I didn't write tests or comments anywhere. That said,
 it has some neat aspects and I welcome anyone who wants to use it.
 
-What follows are some getting started directions that only assume you know
-how to operate a computer, edit files, and read raw html. Please don't
-hesitate to suggest/request clarification.
+What follows are some directions about how to modify this repo so it could
+be used for your own bicycle tour. Please don't hesitate to suggest/request
+clarification.
 
-# clone or fork the repo and cd into it
-bundle install
-# you may need to install ruby 1.9.3
-# I like rvm, but rbenv is also popular for
-# managing ruby versions
+clone or fork the repo and cd into it. Then run:
 
-rake db:create
-rake db:migrate
+    bundle install
+    rake db:create
+    rake db:migrate
+    rails s 
 
-#start the rails server
-rails s 
+open up http://localhost:3000/
 
-# open up http://localhost:3000/
-# Log yourself in by clicking the sign in link and 
-# supplying openid credentials. Now you need to make
-# yourself an admin so you can write posts
+Log yourself in by clicking the sign in link and 
+supplying openid credentials. Now you need to make
+yourself an admin so you can write posts
 
-# In the root directory type:
-rails c
+In the root directory type:
 
-u = User.first 
-# There shouldn't be any other users in the db yet
-# If there are make sure you are giving yourself admin
-u.admin = true
-u.save
+    rails c
+    u = User.first 
+    u.admin = true
+    u.save
 
-# Go back to the website and click on the posts tab, you should
-# see a 'New Post' link. Click on it and supply some dummy content.
-# Check the 'published' box at the bottom of the page and click save.
+Go back to the website and click on the posts tab, you should
+see a 'New Post' link. Click on it and supply some dummy content.
+Check the 'published' box at the bottom of the page and click save.
 
-# You should be redirected to localhost:3000/posts/1-your-posts-awesome-title
-# Notice the map to the right. Drag the icon around. The act of dragging the icon
-# updates the location associated with your post. The first post defaults to Seattle.
-# All subsequent posts default to your previous posts location. The asssumption
-# being that you probably didn't bike very far in between postings and the last
-# location is close to what you would want.
+You should be redirected to localhost:3000/posts/1-your-posts-awesome-title
 
-# Go to the map tab and check out your post being on the map. 
+Notice the map to the right. Drag the icon around. The act of dragging the icon
+updates the location associated with your post. The first post defaults to Seattle.
+All subsequent posts default to your previous posts location. The asssumption
+being that you probably didn't bike very far in between postings and the last
+location is close to what you would want.
 
-# Before you can start leaving yourself suggestions we need to save the
-# suggestion types to the database. The suggestion types are really just
-# the names of the icons you wish to use. 
+Go to the map tab and check that your post is on the map. If you don't see your
+post double check that you checked the 'published' box. 
 
-# In your rails console paste in the following
-[{"name"=>"see", "description"=>"A place to visit or something to see"}, 
- {"name"=>"camp", "description"=>"A place to camp"}, 
- {"name"=>"eat", "description"=>"A place to eat"}, 
- {"name"=>"stay", "description"=>"A place where we can sleep indoors"}, 
- {"name"=>"avoid", "description"=>"Stay away!"}, 
- {"name"=>"misc", "description"=>"Something that does not fit in the other categories"}, 
- {"name"=>"blog", "description"=>"A blog post"}, 
- {"name"=>"image", "description"=>"A picture from the road"}].each {|icon| Icon.create(icon) }
+Before you can start leaving yourself suggestions we need to save the
+suggestion types to the database. The suggestion types are really just
+the names of the icons you wish to use. 
 
-# Be advised that the names map directly to the icons in /public/images/map_icons/
-# If you change the names in the database be sure to change the name
-# of the corresponding image to match. Similarly if you want to add a new icon all
-# you have to do is save it in the database and create an image by the same name.
-# WARNING
-# When people leave suggestions the type is stored via the icon_id, be careful
-# removing icons after your project is public.
+In your rails console paste in the following
+
+    [{"name"=>"see", "description"=>"A place to visit or something to see"}, 
+     {"name"=>"camp", "description"=>"A place to camp"}, 
+     {"name"=>"eat", "description"=>"A place to eat"}, 
+     {"name"=>"stay", "description"=>"A place where we can sleep indoors"}, 
+     {"name"=>"avoid", "description"=>"Stay away!"}, 
+     {"name"=>"misc", "description"=>"Something that does not fit in the other categories"}, 
+     {"name"=>"blog", "description"=>"A blog post"}, 
+     {"name"=>"image", "description"=>"A picture from the road"}].each {|icon| Icon.create(icon) }
+
+Be advised that the names map directly to the icons in /public/images/map_icons/
+If you change the names in the database be sure to change the name
+of the corresponding image to match. Similarly if you want to add a new icon all
+you have to do is save it in the database and create an image by the same name.
+
+**WARNING**
+
+When people leave suggestions the type is stored via the icon_id, be careful
+removing icons after your project is public.
 
 ## Twitter
 On the home page there is a twitter feed off to the right. You can make that
@@ -87,7 +86,8 @@ from two users (Benson and I by default).
 Edit this file to have your flickr user_id. http://idgettr.com/
 Go to flickr and tag a couple of your geolocated photos with 'nomad'
 In the root directory of the project run: 
-  rake flick:update
+
+    rake flick:update
 
 Now when you visit the map tab you should see icons for your photos. There
 should also be thumbnails at the photos tab and at the home view. 
@@ -97,16 +97,15 @@ You'll want to edit the about page heavily. It is currently hard coded html
 all of which is located at /app/views/home/about.html.erb
 
 
-
-# TODO
-# extract and centalize configs
+## TODO
+* extract and centalize configs
  - flickr
  - twitter
  - various consumer_keys
 
-# maps fail to load when posts array is empty
+* maps fail to load when posts array is empty
+* icons
+ - maybe replace Icon table with a yaml file and key suggestion type
+   off of the name instead of the icon_id
 
-# TODO icons
- - icon details are being pulled from the database
-   so they much be imported for things to work right
 
