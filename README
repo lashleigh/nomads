@@ -3,10 +3,52 @@ Ashleigh and Benson's bicycling log.
 http://nomad.heroku.com
 
 If you want to play around with this project you should start
-by learning as much as you can about rails. 
+by learning about rails in general. This project is not a good
+place to start learning about rails. It was my very first website
+and I didn't write tests or comments anywhere. That said, it has
+some neat aspects and I welcome anyone who wants to use it.
+
+tl;dr
+
+# clone or fork the repo
+bundle install
+# you may need to install ruby 1.9.3
+# I like rvm, but rbenv is also popular for
+# managing ruby versions
 
 rake db:create
 rake db:migrate
+
+#start the rails server
+rails s 
+
+# open up http://localhost:3000/
+# Log yourself in by clicking the sign in link and 
+# supplying openid credentials. Now you need to make
+# yourself an admin so you can write posts
+
+# In the root directory type:
+rails c
+
+u = User.first 
+# There shouldn't be any other users in the db yet
+# If there are make sure you are giving yourself admin
+u.admin = true
+u.save
+
+# Go back to the website and click on the posts tab, you should
+# see a 'New Post' link. Click on it and supply some dummy content.
+# Check the 'published' box at the bottom of the page and click save.
+
+# You should be redirected to localhost:3000/posts/1-your-posts-awesome-title
+# Notice the map to the right. Drag the icon around. The act of dragging the icon
+# updates the location associated with your post. The first post defaults to Seattle.
+# All subsequent posts default to your previous posts location. The asssumption
+# being that you probably didn't bike very far in between postings and the last
+# location is close to what you would want.
+
+# Go to the map tab and check out your post being on the map. 
+# Take a moment to try out leaving yourself a suggestion. 
 
 # TODO
 # extract and centalize configs
@@ -25,3 +67,11 @@ rake db:migrate
  - icon details are being pulled from the database
    so they much be imported for things to work right
 
+  [{"name"=>"see", "description"=>"A place to visit or something to see"}, 
+   {"name"=>"camp", "description"=>"A place to camp"}, 
+   {"name"=>"eat", "description"=>"A place to eat"}, 
+   {"name"=>"stay", "description"=>"A place where we can sleep indoors"}, 
+   {"name"=>"avoid", "description"=>"Stay away!"}, 
+   {"name"=>"misc", "description"=>"Something that does not fit in the provided categor..."}, 
+   {"name"=>"blog", "description"=>"A blog post"}, 
+   {"name"=>"image", "description"=>"A picture from the road"}]

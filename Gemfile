@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 #gem 'sqlite3', '1.3.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
-gem 'RedCloth', "= 4.2.7"
+gem 'RedCloth', "= 4.2.9"
 gem 'flickraw'
 gem 'less'
 
@@ -16,6 +16,7 @@ gem 'ruby-openid'
 group :development do
   gem 'pry'
   gem 'pry-debugger'
+  gem 'heroku'
 end
 
 # Use unicorn as the web server
