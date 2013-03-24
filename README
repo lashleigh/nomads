@@ -1,3 +1,27 @@
 Ashleigh and Benson's bicycling log.
 
 http://nomad.heroku.com
+
+If you want to play around with this project you should start
+by learning as much as you can about rails. 
+
+rake db:create
+rake db:migrate
+
+# TODO
+# extract and centalize configs
+ - flickr
+ - twitter
+ - various consumer_keys
+
+# maps fail to load when posts array is empty
+
+# FIXED /openid/details not rendering correctly
+# rails 3 has a different form_for syntax <%=
+
+# FIXED RedCloth parsing problem by upgrading gem
+
+# TODO icons
+ - icon details are being pulled from the database
+   so they much be imported for things to work right
+

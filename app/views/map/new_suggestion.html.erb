@@ -5,7 +5,7 @@
   <h1>New Suggestion</h1>
   <%= render :partial => "/suggestions/display_icons", :object => @icons %>
 
-  <% form_for @suggestion do |f| %>
+  <%= form_for @suggestion do |f| %>
     <% if @suggestion.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@suggestion.errors.count, "error") %> prohibited this suggestion from being saved:</h2>

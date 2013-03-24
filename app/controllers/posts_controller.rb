@@ -41,10 +41,12 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   # GET /posts/new.xml
+  # Defalt to Seattle if there aren't any posts yet
   def new
     @post = Post.new
-    @post.lat = Post.last.lat
-    @post.lon = Post.last.lon
+    last = Post.last
+    @post.lat = last.nil? ? 47.604 : last.lat
+    @post.lon = last.nil? ? -122.337: last.lon
     @post.user = @current_user
 
     respond_to do |format|

@@ -1,6 +1,6 @@
 <h1>Editing comment</h1>
 
-<% form_for(@comment, :url => { :action => :update, :id => @comment.id }) do |f| %>
+<%= form_for(@comment, :url => { :action => :update, :id => @comment.id }) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>

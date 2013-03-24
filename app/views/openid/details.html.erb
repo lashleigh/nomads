@@ -1,7 +1,7 @@
 <div id="details">
   <h3>Tell us about yourself (if you like)</h3>
 
-  <% form_for @current_user, :url => {:action => :details} do |f|%>
+  <%= form_for @current_user, :url => {:action => :details} do |f|%>
     <fieldset>
       <div class="field">
         <%= f.label :name, "Your Nickname" %>
