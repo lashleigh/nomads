@@ -18,6 +18,7 @@ group :development do
   gem 'pry'
   gem 'pry-debugger'
   gem 'heroku'
+  gem 'taps'
 end
 
 # Use unicorn as the web server

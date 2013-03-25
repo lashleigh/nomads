@@ -66,9 +66,9 @@ of the corresponding image to match. Similarly if you want to add a new icon all
 you have to do is save it in the database and create an image by the same name.
 
 **WARNING**
-
-When people leave suggestions the type is stored via the `icon_id`, be careful
-removing icons after your project is public.
+When people leave suggestions the type is stored in the database via the `icon_id`,
+be careful deleting icons after your project is public. You'll need to reassign the
+`icon_id` for the effected suggestions. 
 
 ## Twitter
 On the home page there is a twitter feed off to the right. You can make that
@@ -101,20 +101,37 @@ all of which is located at `app/views/home/about.html.erb`
 
 # Ready to deploy
 This should have been enough to get you in a deployable state. I'll take you through deploying
-the app to heroku now.
+the app to heroku now. Heroku is deprecating the `heroku` gem sadly enough so grab a copy of
+the heroku toolbelt here: https://toolbelt.heroku.com/
 
- heroku create
+The basic heroku getting started instructions are also worth reading though:
+
+https://devcenter.heroku.com/articles/rails3
+
+tl;dr
+
+Make sure you have committed all of your changes.  Then this should take care of it:
+
+    heroku login 
+    heroku create
+    heroku push origin master
+    heroku db:push 
+    heroku open
 
 
 ## TODO
 * extract and centalize configs
  - flickr
  - twitter
- - various consumer_keys
+ - various `consumer_keys`
 
 * maps fail to load when posts array is empty
 * icons
  - maybe replace Icon table with a yaml file and key suggestion type
-   off of the name instead of the icon_id
+   off of the name instead of the `icon_id`
+* heroku toolbelt
+ - Other handy commands that you probably won't need at the moment
+ - heroku run rake db:migrate
+ - heroku run rake flickr:update
 
 
