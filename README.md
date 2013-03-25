@@ -30,17 +30,15 @@ In the root directory type:
     u.admin = true
     u.save
 
-Go back to the website and click on the posts tab, you should
+Go back to `http://localhost:3000/posts`, you should
 see a 'New Post' link. Click on it and supply some dummy content.
 Check the 'published' box at the bottom of the page and click save.
 
 You should be redirected to localhost:3000/posts/1-your-posts-awesome-title
 
-Notice the map to the right. Drag the icon around. The act of dragging the icon
-updates the location associated with your post. The first post defaults to Seattle.
-All subsequent posts default to your previous posts location. The asssumption
-being that you probably didn't bike very far in between postings and the last
-location is close to what you would want.
+Notice the map to the right. Drag the icon around. Every time you stop dragging
+the geolocation of the post gets updated. Every new post defaults to the location
+of your previous post, with the exception of the first one which defaults to Seattle.
 
 Go to the map tab and check that your post is on the map. If you don't see your
 post double check that you checked the 'published' box. 
@@ -60,24 +58,21 @@ In your rails console paste in the following
      {"name"=>"blog", "description"=>"A blog post"}, 
      {"name"=>"image", "description"=>"A picture from the road"}].each {|icon| Icon.create(icon) }
 
-Be advised that the names map directly to the icons in `/public/images/map_icons/`
-If you change the names in the database be sure to change the name
-of the corresponding image to match. Similarly if you want to add a new icon all
-you have to do is save it in the database and create an image by the same name.
+Now refresh the map tab. You should see several icons, these are the default suggestion types. 
+Try clicking the word `suggestion` and following the directions. Choose a location on the map for
+your suggestion then describe it a bit and click save.
 
-**WARNING**
-When people leave suggestions the type is stored in the database via the `icon_id`,
-be careful deleting icons after your project is public. You'll need to reassign the
-`icon_id` for the effected suggestions. 
+Now it's time to actually edit some code and make this repository reflect your story instead of
+mine. 
 
-## Twitter
+## Twitter tab customization
 On the home page there is a twitter feed off to the right. You can make that
 point at your own twitter by editing `app/views/home/_twitter.html.erb`
 There were two of us traveling together when I made this website and we
 wanted both of our tweets to show up so we made a list that only had the two
 of us in it. 
 
-## Flickr 
+## Flickr tab customization
 Start by editing the links at `app/views/home/_flickr.html.erb` to point to your
 own flickr profile. 
 
@@ -95,7 +90,7 @@ In the root directory of the project run:
 Now when you visit the map tab you should see icons for your photos. There
 should also be thumbnails at the photos tab and at the home view. 
 
-## About
+## About tab customization
 You'll want to edit the about page heavily. It is currently hard coded html
 all of which is located at `app/views/home/about.html.erb`
 
@@ -114,9 +109,24 @@ Make sure you have committed all of your changes.  Then this should take care of
 
     heroku login 
     heroku create
-    heroku push origin master
-    heroku db:push 
+    git push heroku master
+    heroku db:push # You will be prompted to enter the absurd name of your app
     heroku open
+
+If anything goes weird during the heroku deploy just google part of the error message. You are 
+almost guaranteed to find multiple answers/articles on every possible heroku bug. You may of
+course open an issue here, but google will probably be faster. 
+
+
+## WARNINGS
+Be advised that the map suggestion names map directly to the icons in `/public/images/map_icons/`
+If you change the names in the database be sure to change the name
+of the corresponding image to match. Similarly if you want to add a new icon all
+you have to do is save it in the database and create an image by the same name.
+
+When people leave suggestions the type is stored in the database via the `icon_id`,
+be careful deleting icons after your project is public. You'll need to reassign the
+`icon_id` for the effected suggestions. 
 
 
 ## TODO
