@@ -5,6 +5,7 @@ gem 'rails', '3.2.13'
 gem 'RedCloth', "= 4.2.9"
 gem 'flickraw', "= 0.8.4"
 gem 'less',     "= 1.2.21"
+gem 'thin',     "= 1.5.1"
 
 gem 'ruby-openid', "= 2.1.8"
 

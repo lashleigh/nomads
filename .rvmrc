@@ -1,2 +1,2 @@
-rvm use 1.9.3-p194@nomads --create
+rvm use ruby-1.9.2-p318@nomads --create
 bundle check
