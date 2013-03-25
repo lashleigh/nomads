@@ -48,11 +48,11 @@ class PostsController < ApplicationController
     @post.lat = last.nil? ? 47.604 : last.lat
     @post.lon = last.nil? ? -122.337: last.lon
     @post.user = @current_user
+    @post.title = "Change Me"
+    @post.content = "Write me!"
+    @post.save
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
-    end
+    redirect_to :action => :edit, :id => @post.id
   end
 
   # GET /posts/1/edit
@@ -86,7 +86,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post])
         flash[:notice] = 'Post was successfully updated.'
-        format.html { redirect_to(@post) }
+        format.html { redirect_to :action => :edit }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

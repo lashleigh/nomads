@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_filter :must_own_comment, :except => [:index, :create]
+  before_filter :must_own_comment, :except => [:index, :create, :show]
 
   def index
     if params[:since]
@@ -17,10 +17,11 @@ class CommentsController < ApplicationController
 
   def show
     comment = Comment.find params[:id]
+
     respond_to do |format|
-      format.html redirect_to comment.position
+      format.html { redirect_to comment.position }
       format.json { render :json => @comment }
-      format.xml { render :xml => @comment }
+      format.xml  { render :xml => @comment  }
     end
   end
 
