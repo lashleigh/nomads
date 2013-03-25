@@ -2,9 +2,9 @@
   <% @icons.each do |icon| %>
     <li>
       <% if @suggestion and @suggestion.icon_id and @suggestion.icon_id == icon.id %>
-        <%= image_tag(icon.marker_url, :title => icon.description, :border => 0, :alt => icon.name, :class => "icon_link select") %>
+        <%= image_tag(icon.marker_url, :title => icon.id, :border => 0, :alt => icon.name, :class => "icon_link select") %>
       <% else %>
-        <%= image_tag(icon.marker_url, :title => icon.description, :border => 0, :alt => icon.name, :class => "icon_link") %>
+        <%= image_tag(icon.marker_url, :title => icon.id, :border => 0, :alt => icon.name, :class => "icon_link") %>
       <% end %>
     </li>
   <% end %>
